@@ -1,0 +1,12 @@
+node_modules
+.env
+.env.*
+./src/debug.ts
+dist
+.vscode
+*.log
+
+dashboard/.next
+dashboard/.vscode
+
+tmp/*.json
