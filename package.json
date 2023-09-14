@@ -1,10 +1,14 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "",
   "type": "commonjs",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "url": "https://github.com/code-store-platform/arcxp-sdk-ts"
+  },
+  "homepage": "https://github.com/code-store-platform/arcxp-sdk-ts",
   "files": [
     "dist"
   ],
@@ -13,7 +17,11 @@
     "lint": "tsc --noEmit && TIMING=1 eslint \"src/**/*.ts*\"",
     "test": "vitest"
   },
-  "keywords": [],
+  "keywords": [
+    "ArcXP",
+    "SDK",
+    "Code.Store"
+  ],
   "author": "code.store",
   "license": "MIT",
   "dependencies": {
