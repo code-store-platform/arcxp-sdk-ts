@@ -6,6 +6,7 @@ import { ArcIFX } from './ifx';
 import { ArcMigrationCenter } from './migration-center';
 import { ArcSales } from './sales';
 import { ArcSite } from './site';
+import { ArcWebsked } from './websked';
 import WsClient from './ws.client';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
@@ -17,6 +18,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     MigrationCenter: new ArcMigrationCenter(options),
     Sales: new ArcSales(options),
     Site: new ArcSite(options),
+    Websked: new ArcWebsked(options),
   };
 
   return {

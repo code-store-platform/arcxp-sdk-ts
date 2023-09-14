@@ -6,7 +6,6 @@
   "scripts": {
     "build": "tsc",
     "lint": "tsc --noEmit && TIMING=1 eslint \"src/**/*.ts*\"",
-    "start": "dotenv -e .env -- node ./dist/server.js",
     "test": "vitest",
     "publish": "npm publish --access public"
   },
