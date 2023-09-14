@@ -12,11 +12,7 @@ export type GloballyUniqueIDTrait = string;
 /**
  * The version of ANS that this object was serialized as, in major.minor.patch format.  For top-level content objects, this is a required trait.
  */
-export type DescribesTheANSVersionOfThisObject = "0.10.9";
-/**
- * The full human name of contributor. See also byline, first_name, last_name, middle_name, suffix.
- */
-export type Name = string;
+export type DescribesTheANSVersionOfThisObject = '0.10.9';
 /**
  * A user-defined categorization method to supplement type. In Arc, this field is reserved for organization-defined purposes, such as selecting the PageBuilder template that should be used to render a document.
  */
@@ -28,7 +24,7 @@ export type ChannelTrait = string[];
 /**
  * A property used to determine horizontal positioning of a content element relative to the elements that immediately follow it in the element sequence.
  */
-export type Alignment = "left" | "right" | "center";
+export type Alignment = 'left' | 'right' | 'center';
 /**
  * The primary language of the content. The value should follow IETF BCP47. (e.g. 'en', 'es-419', etc.)
  */
@@ -41,6 +37,18 @@ export type CopyrightInformation = string;
  * The relative URL to this document on the website specified by the `canonical_website` field. In the Arc ecosystem, this will be populated by the content api from the arc-canonical-url service if present based on the canonical_website. In conjunction with canonical_website, it can be used to determine the SEO canonical url or open graph url. In a multi-site context, this field may be different from the website_url field.
  */
 export type CanonicalURL = string;
+/**
+ * The _id of the website from which this document was originally authored. In conjunction with canonical_url, it can be used to determine the SEO canonical url or open graph url. In a multi-site context, this field may be different from the website field.
+ */
+export type CanonicalWebsite = string;
+/**
+ * The _id of the website on which this document exists. This field is only available in Content API. If different from canonical_website, then this document was originally sourced from the canonical_website. Generated at fetch time by Content API.
+ */
+export type Website = string;
+/**
+ * The relative URL to this document on the website specified by the `website` field. In a multi-site context, this is the url that is typically queried on when fetching by URL. It may be different than canonical_url. Generated at fetch time by Content API.
+ */
+export type WebsiteURL = string;
 /**
  * A url-shortened version of the canonical url.
  */
@@ -80,7 +88,78 @@ export type Status = string;
 /**
  * The full human name of contributor. See also byline, first_name, last_name, middle_name, suffix.
  */
-export type Name1 = string;
+export type Name = string;
+/**
+ * The primary author(s) of this document. For a story, is is the writer or reporter. For an image, it is the photographer.
+ */
+export type By1 = (AnAuthorOfAPieceOfContent | RepresentationOfANormalizedElement)[];
+/**
+ * The photographer(s) of supplementary images included in this document, if it is a story. Note that if this document is an image, the photographer(s) should appear in the 'by' slot.
+ */
+export type PhotosBy = (AnAuthorOfAPieceOfContent | RepresentationOfANormalizedElement)[];
+/**
+ * A short reference name for internal editorial use
+ */
+export type Slug = string;
+/**
+ * Foreign ID of embedded item.
+ */
+export type EmbedID = string;
+/**
+ * Provider URL for this embed item. When concatenated with Embed ID, should produce a URL that returns json metadata about the embedded content.
+ */
+export type EmbedProviderURL = string;
+/**
+ * This note is used for shared communication inside the newsroom.
+ */
+export type InternalNote = string;
+/**
+ * Used for the newsroom to identify what the story is about, especially if a user is unfamiliar with the slug of a story and the headline or they do not yet exist. Newsroom use only.
+ */
+export type BudgetLine = string;
+/**
+ * Information about a third party that provided this content from outside this document's hosted organization.
+ */
+export type Distributor =
+  | {
+      /**
+       * The human-readable name of the distributor of this content. E.g., Reuters.
+       */
+      name?: string;
+      /**
+       * The machine-readable category of how this content was produced. Use 'staff' if this content was produced by an employee of the organization who owns this document repository. (Multisite note: content produced within a single *organization*, but shared across multiple *websites* should still be considered 'staff.') Use ‘wires’ if this content was produced for another organization and shared with the one who owns this document repository. Use 'freelance' if this content was produced by an individual on behalf of the organization who owns this document repository. Use 'stock' if this content is stock media distributed directly from a stock media provider. Use 'handout' if this is content provided from a source for an article (usually promotional media distributed directly from a company). Use 'other' for all other cases.
+       */
+      category?: 'staff' | 'wires' | 'freelance' | 'stock' | 'handout' | 'other';
+      /**
+       * The machine-readable subcategory of how this content was produced. E.g., 'freelance - signed'. May vary between organizations.
+       */
+      subcategory?: string;
+      additional_properties?: HasAdditionalProperties;
+      mode?: 'custom';
+    }
+  | {
+      /**
+       * The ARC UUID of the distributor of this content. E.g., ABCDEFGHIJKLMNOPQRSTUVWXYZ.
+       */
+      reference_id: string;
+      mode: 'reference';
+    };
+/**
+ * An list of alternate names that this content can be fetched by instead of id.
+ */
+export type AliasesTrait = string[];
+/**
+ * A more specific category for an image.
+ */
+export type ImageType = string;
+/**
+ * The direct ANS equivalent of the HTML 'alt' attribute. A description of the contents of an image for improved accessibility.
+ */
+export type AltText = string;
+/**
+ * Human-friendly filename used by PageBuilder & Resizer to improve image SEO scoring.
+ */
+export type SEOFilename = string;
 /**
  * Links to various social media
  */
@@ -89,10 +168,6 @@ export type SocialLinks = {
   url?: string;
   [k: string]: unknown;
 }[];
-/**
- * A short reference name for internal editorial use
- */
-export type Slug = string;
 /**
  * The real first name of a human author.
  */
@@ -198,230 +273,121 @@ export type SocialLinks1 = {
 /**
  * The primary author(s) of this document. For a story, is is the writer or reporter. For an image, it is the photographer.
  */
-export type By = (AnAuthorOfAPieceOfContent1 | RepresentationOfANormalizedElement)[];
+export type By = (AnAuthorOfAPieceOfContent | RepresentationOfANormalizedElement)[];
 /**
  * The photographer(s) of supplementary images included in this document, if it is a story. Note that if this document is an image, the photographer(s) should appear in the 'by' slot.
  */
-export type PhotosBy = (AnAuthorOfAPieceOfContent1 | RepresentationOfANormalizedElement)[];
+export type PhotosBy1 = (AnAuthorOfAPieceOfContent | RepresentationOfANormalizedElement)[];
 /**
- * The primary author(s) of this document. For a story, is is the writer or reporter. For an image, it is the photographer.
+ * Trait that applies a list of corrections to a document.
  */
-export type By1 = (AnAuthorOfAPieceOfContent1 | RepresentationOfANormalizedElement)[];
+export type Corrections = Correction[];
 /**
- * The photographer(s) of supplementary images included in this document, if it is a story. Note that if this document is an image, the photographer(s) should appear in the 'by' slot.
+ * Holds attributes of an ANS collection - a common parent to story and gallery objects.
  */
-export type PhotosBy1 = (AnAuthorOfAPieceOfContent1 | RepresentationOfANormalizedElement)[];
+export type ACollectionOfContent = AnElementThatCanBeListedAsPartOfContentElements[];
 /**
- * The _id of the website on which this document exists. This field is only available in Content API. If different from canonical_website, then this document was originally sourced from the canonical_website. Generated at fetch time by Content API.
+ * True if and only if at least one published edition exists for this content item.
  */
-export type Website = string;
+export type HasPublishedEdition = boolean;
 /**
- * Foreign ID of embedded item.
+ * The machine-readable identifier of this edition. This should be the same as the key in 'editions' for the edition object.
  */
-export type EmbedID = string;
+export type EditionName = string;
 /**
- * Provider URL for this embed item. When concatenated with Embed ID, should produce a URL that returns json metadata about the embedded content.
+ * The machine-generated date that this edition was last updated (i.e., that the content item was published/unpublished to a particular destination.)
  */
-export type EmbedProviderURL = string;
+export type EditionDate = string;
 /**
- * This note is used for shared communication inside the newsroom.
+ * The machine-generated date that this edition was created for the first time (i.e., that the content item was first published.)
  */
-export type InternalNote = string;
+export type FirstPublishedDateEdition = string;
 /**
- * Used for the newsroom to identify what the story is about, especially if a user is unfamiliar with the slug of a story and the headline or they do not yet exist. Newsroom use only.
+ * The human-editable date that should be shown to readers as the 'date' for this content item. When viewing the story at this edition name directly, this will override whatever value is set for Display Date on the story directly. After an edition is created, subsequent updates to that edition will not change this date unless otherwise specified.
  */
-export type BudgetLine = string;
+export type DisplayDateEdition = string;
 /**
- * Information about a third party that provided this content from outside this document's hosted organization.
+ * The machine-editable date that should be shown to readers as the 'publish date' for this content item. When viewing the story at this edition name directly, this will override whatever value is set for Publish Date on the story directly. Every time an edition is updated (i.e. a story is republished) this date will also be updated unless otherwise specified.
  */
-export type Distributor =
-  | {
-      /**
-       * The human-readable name of the distributor of this content. E.g., Reuters.
-       */
-      name?: string;
-      /**
-       * The machine-readable category of how this content was produced. Use 'staff' if this content was produced by an employee of the organization who owns this document repository. (Multisite note: content produced within a single *organization*, but shared across multiple *websites* should still be considered 'staff.') Use ‘wires’ if this content was produced for another organization and shared with the one who owns this document repository. Use 'freelance' if this content was produced by an individual on behalf of the organization who owns this document repository. Use 'stock' if this content is stock media distributed directly from a stock media provider. Use 'handout' if this is content provided from a source for an article (usually promotional media distributed directly from a company). Use 'other' for all other cases.
-       */
-      category?: "staff" | "wires" | "freelance" | "stock" | "handout" | "other";
-      /**
-       * The machine-readable subcategory of how this content was produced. E.g., 'freelance - signed'. May vary between organizations.
-       */
-      subcategory?: string;
-      additional_properties?: HasAdditionalProperties;
-      mode?: "custom";
-    }
-  | {
-      /**
-       * The ARC UUID of the distributor of this content. E.g., ABCDEFGHIJKLMNOPQRSTUVWXYZ.
-       */
-      reference_id: string;
-      mode: "reference";
-    };
+export type PublishDateEdition = string;
 /**
- * An list of alternate names that this content can be fetched by instead of id.
+ * If false, this edition has been deleted/unpublished.
  */
-export type AliasesTrait = string[];
+export type PublishStatus = boolean;
 /**
- * A more specific category for an image.
+ * The id of the revision that this edition was created from. Omitted if unpublished.
  */
-export type ImageType = string;
+export type RevisionID = string;
 /**
- * The direct ANS equivalent of the HTML 'alt' attribute. A description of the contents of an image for improved accessibility.
+ * The revision id to be published.
  */
-export type AltText = string;
+export type RevisionIDOperation = string;
 /**
- * Human-friendly filename used by PageBuilder & Resizer to improve image SEO scoring.
+ * The name of the edition this operation will publish to.
  */
-export type SEOFilename = string;
+export type EditionNameOperation = string;
 /**
- * The real first name of a human author.
+ * The date that this operation will be performed.
  */
-export type FirstName1 = string;
+export type OperationDate = string;
 /**
- * The real middle name of a human author.
+ * The name of the edition this operation will publish to.
  */
-export type MiddleName1 = string;
+export type EditionNameOperation1 = string;
 /**
- * The real last name of a human author.
+ * The date that this operation will be performed.
  */
-export type LastName1 = string;
+export type OperationDate1 = string;
 /**
- * The real suffix of a human author.
+ * A globally unique identifier of the content in the ANS repository.
  */
-export type Suffix1 = string;
+export type GloballyUniqueIDTrait1 = string;
 /**
- * The public-facing name, or nom-de-plume, name of the author.
+ * Any voice transcripts (e.g. text-to-speech or author-narrations) of the document requested by the user, along with configuration information and the resulting output.
+ *
+ * @minItems 1
  */
-export type Byline1 = string;
+export type VoiceTranscriptSConfigurationAndOutput = [
+  {
+    _id?: GloballyUniqueIDTrait;
+    type?: 'voice_transcript';
+    subtype?: SubtypeOrTemplate;
+    options: OptionsRequested;
+    options_used?: OptionsUsed;
+    output?: HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109AudioJson;
+    [k: string]: unknown;
+  },
+  ...{
+    _id?: GloballyUniqueIDTrait;
+    type?: 'voice_transcript';
+    subtype?: SubtypeOrTemplate;
+    options: OptionsRequested;
+    options_used?: OptionsUsed;
+    output?: HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109AudioJson;
+    [k: string]: unknown;
+  }[]
+];
 /**
- * The city or locality that the author resides in or is primarily associated with.
+ * If true, then a transcript of the appropriate options was requested for this document.
  */
-export type Location1 = string;
+export type Enabled = boolean;
 /**
- * The desk or group that this author normally reports to. E.g., 'Politics' or 'Sports.'
+ * The id of the 'voice' used to read aloud an audio transcript.
  */
-export type Division1 = string;
+export type VoiceID = string;
 /**
- * The professional email address of this author.
+ * If true, then a transcript of the appropriate options was generated for this document.
  */
-export type EMail1 = string;
+export type Enabled1 = boolean;
 /**
- * The organizational role or title of this author.
+ * The id of the 'voice' used to read aloud an audio transcript.
  */
-export type Role1 = string;
+export type VoiceID1 = string;
 /**
- * A comma-delimited list of subjects the author in which the author has expertise.
+ * Audio Content
  */
-export type Expertise1 = string;
-/**
- * The name of an organization the author is affiliated with. E.g., The Washington Post, or George Mason University.
- */
-export type Affiliation1 = string;
-/**
- * A description of list of languages that the author is somewhat fluent in, excluding the native language of the parent publication, and identified in the language of the parent publication. E.g., Russian, Japanese, Greek.
- */
-export type Languages1 = string;
-/**
- * A one or two sentence description of the author.
- */
-export type ShortBiography1 = string;
-/**
- * The full biography of the author.
- */
-export type LongBiography1 = string;
-/**
- * The book title.
- */
-export type Title1 = string;
-/**
- * A link to a page to purchase or learn more about the book.
- */
-export type URL1 = string;
-/**
- * A list of books written by the author.
- */
-export type Books1 = Book1[];
-/**
- * The name of the school.
- */
-export type SchoolName1 = string;
-/**
- * A list of schools that this author has graduated from.
- */
-export type Education1 = School1[];
-/**
- * The name of the award.
- */
-export type AwardName1 = string;
-/**
- * A list of awards the author has received.
- */
-export type Awards1 = {
-  award_name?: AwardName1;
-}[];
-/**
- * If true, this author is an external contributor to the publication.
- */
-export type Contributor1 = boolean;
-/**
- * Deprecated. In ANS 0.5.8 and prior versions, this field is populated with the 'location' field from Arc Author Service. New implementations should use the 'location' and 'affiliation' field. Content should be identical to 'location.'
- */
-export type Org1 = string;
-/**
- * Links to various social media
- */
-export type SocialLinks2 = {
-  site?: string;
-  url?: string;
-  [k: string]: unknown;
-}[];
-
-/**
- * Models attribution to an individual or group for contribution towards some content item. In the Arc ecosystem, these are stored in the arc-author-service.
- */
-export interface AnAuthorOfAPieceOfContent {
-  _id?: GloballyUniqueIDTrait;
-  /**
-   * Indicates that this is an author
-   */
-  type: "author";
-  version?: DescribesTheANSVersionOfThisObject;
-  name: Name;
-  image?: AnImage;
-  /**
-   * A link to an author's landing page on the website, or a personal website.
-   */
-  url?: string;
-  social_links?: SocialLinks;
-  slug?: Slug;
-  first_name?: FirstName1;
-  middle_name?: MiddleName1;
-  last_name?: LastName1;
-  suffix?: Suffix1;
-  byline?: Byline1;
-  location?: Location1;
-  division?: Division1;
-  email?: EMail1;
-  role?: Role1;
-  expertise?: Expertise1;
-  affiliation?: Affiliation1;
-  languages?: Languages1;
-  bio?: ShortBiography1;
-  long_bio?: LongBiography1;
-  books?: Books1;
-  education?: Education1;
-  awards?: Awards1;
-  contributor?: Contributor1;
-  org?: Org1;
-  socialLinks?: SocialLinks2;
-  additional_properties?: HasAdditionalProperties;
-}
-/**
- * Holds attributes of an ANS image component. In the Arc ecosystem, these are stored in Anglerfish.
- */
-export interface AnImage {
-  type: "image";
+export type HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109AudioJson = {
+  type: 'audio';
   _id?: GloballyUniqueIDTrait;
   version: DescribesTheANSVersionOfThisObject;
   subtype?: SubtypeOrTemplate;
@@ -462,36 +428,124 @@ export interface AnImage {
   label?: Label;
   slug?: Slug;
   content_restrictions?: ContentRestrictions;
-  image_type?: ImageType;
-  alt_text?: AltText;
-  focal_point?: FocalPoint;
-  auth?: Auth;
-  seo_filename?: SEOFilename;
   additional_properties?: HasAdditionalProperties;
+  content_aliases?: AliasesTrait;
   /**
-   * Subtitle for the image.
+   * (Deprecated.) The audio source file. Use 'streams' instead.
    */
-  subtitle?: string;
+  source_url?: string;
   /**
-   * Caption for the image.
+   * (Deprecated.) Mime type of audio source file. Use 'streams' instead.
    */
-  caption?: string;
+  mimetype?: string;
   /**
-   * URL for the image.
+   * Whether to autoplay is enabled.
    */
-  url?: string;
+  autoplay?: boolean;
   /**
-   * Width for the image.
+   * Whether controls are enabled.
    */
-  width?: number;
+  controls?: boolean;
   /**
-   * Height for the image.
+   * Whether looping is enabled.
    */
-  height?: number;
+  loop?: boolean;
   /**
-   * True if the image can legally be licensed to others.
+   * Whether preload is enabled.
    */
-  licensable?: boolean;
+  preload?: boolean;
+  /**
+   * The different streams this audio can play in.
+   *
+   * @minItems 1
+   */
+  streams?: [AStreamOfAudio, ...AStreamOfAudio[]];
+} & (
+  | {
+      [k: string]: unknown;
+    }
+  | {
+      [k: string]: unknown;
+    }
+);
+/**
+ * The size of the audio file in bytes.
+ */
+export type FileSize = number;
+/**
+ * The codec used to encode the audio stream. (E.g. mpeg)
+ */
+export type AudioCodec = string;
+/**
+ * The type of audio (e.g. mp3).
+ */
+export type AudioStreamType = string;
+/**
+ * The file location of the stream.
+ */
+export type URL1 = string;
+/**
+ * The bitrate of the audio in kilobytes per second.
+ */
+export type Bitrate = number;
+
+/**
+ * Holds attributes of an ANS story. In the Arc ecosystem, these are stored in the Story API.
+ */
+export interface AStory {
+  type: 'story';
+  _id?: GloballyUniqueIDTrait;
+  version: DescribesTheANSVersionOfThisObject;
+  subtype?: SubtypeOrTemplate;
+  channels?: ChannelTrait;
+  alignment?: Alignment;
+  language?: Locale;
+  copyright?: CopyrightInformation;
+  canonical_url?: CanonicalURL;
+  canonical_website?: CanonicalWebsite;
+  website?: Website;
+  website_url?: WebsiteURL;
+  short_url?: Short_Url;
+  created_date?: CreatedDate;
+  last_updated_date?: LastUpdatedDate;
+  publish_date?: Publish_Date;
+  first_publish_date?: FirstPublishDate;
+  display_date?: Display_Date;
+  location?: LocationRelatedTrait;
+  geo?: Geo;
+  address?: Address;
+  editor_note?: Editor_Note;
+  status?: Status;
+  headlines?: Headlines;
+  subheadlines?: SubHeadlines;
+  description?: Description;
+  credits?: CreditTrait;
+  vanity_credits?: VanityCreditsTrait;
+  taxonomy?: Taxonomy;
+  promo_items?: PromoItems;
+  related_content?: Related_Content;
+  owner?: OwnerInformation;
+  planning?: SchedulingInformation;
+  workflow?: WorkflowInformation;
+  pitches?: Pitches;
+  revision?: Revision;
+  syndication?: Syndication;
+  source?: Source;
+  distributor?: Distributor;
+  tracking?: Tracking;
+  comments?: Comments;
+  label?: Label;
+  slug?: Slug;
+  content_restrictions?: ContentRestrictions;
+  rendering_guides?: RenderingGuides;
+  additional_properties?: HasAdditionalProperties;
+  content_aliases?: AliasesTrait;
+  corrections?: Corrections;
+  content_elements?: ACollectionOfContent;
+  publishing?: PublishingInformation;
+  variations?: VariantContentMetadata;
+  voice_transcripts?: VoiceTranscriptSConfigurationAndOutput;
+  websites?: WebsitesInput;
   contributors?: Contributors;
 }
 /**
@@ -577,24 +631,24 @@ export interface Description {
  */
 export interface CreditTrait {
   by?: By;
-  photos_by?: PhotosBy;
+  photos_by?: PhotosBy1;
   /**
    * This interface was referenced by `CreditTrait`'s JSON-Schema definition
    * via the `patternProperty` "^[a-zA-Z0-9_]*".
    */
-  [k: string]: (AnAuthorOfAPieceOfContent1 | RepresentationOfANormalizedElement)[];
+  [k: string]: (AnAuthorOfAPieceOfContent | RepresentationOfANormalizedElement)[] | undefined;
 }
 /**
  * Models attribution to an individual or group for contribution towards some content item. In the Arc ecosystem, these are stored in the arc-author-service.
  */
-export interface AnAuthorOfAPieceOfContent1 {
+export interface AnAuthorOfAPieceOfContent {
   _id?: GloballyUniqueIDTrait;
   /**
    * Indicates that this is an author
    */
-  type: "author";
+  type: 'author';
   version?: DescribesTheANSVersionOfThisObject;
-  name: Name1;
+  name: Name;
   image?: AnImage;
   /**
    * A link to an author's landing page on the website, or a personal website.
@@ -624,18 +678,100 @@ export interface AnAuthorOfAPieceOfContent1 {
   socialLinks?: SocialLinks1;
   additional_properties?: HasAdditionalProperties;
 }
-export interface Book {
-  book_title?: Title;
-  book_url?: URL;
+/**
+ * Holds attributes of an ANS image component. In the Arc ecosystem, these are stored in Anglerfish.
+ */
+export interface AnImage {
+  type: 'image';
+  _id?: GloballyUniqueIDTrait;
+  version: DescribesTheANSVersionOfThisObject;
+  subtype?: SubtypeOrTemplate;
+  channels?: ChannelTrait;
+  alignment?: Alignment;
+  language?: Locale;
+  copyright?: CopyrightInformation;
+  canonical_url?: CanonicalURL;
+  short_url?: Short_Url;
+  created_date?: CreatedDate;
+  last_updated_date?: LastUpdatedDate;
+  publish_date?: Publish_Date;
+  first_publish_date?: FirstPublishDate;
+  display_date?: Display_Date;
+  location?: LocationRelatedTrait;
+  geo?: Geo;
+  address?: Address;
+  editor_note?: Editor_Note;
+  status?: Status;
+  headlines?: Headlines;
+  subheadlines?: SubHeadlines;
+  description?: Description;
+  credits?: CreditTrait;
+  vanity_credits?: VanityCreditsTrait;
+  taxonomy?: Taxonomy;
+  promo_items?: PromoItems;
+  related_content?: Related_Content;
+  owner?: OwnerInformation;
+  planning?: SchedulingInformation;
+  workflow?: WorkflowInformation;
+  pitches?: Pitches;
+  revision?: Revision;
+  syndication?: Syndication;
+  source?: Source;
+  distributor?: Distributor;
+  tracking?: Tracking;
+  comments?: Comments;
+  label?: Label;
+  slug?: Slug;
+  content_restrictions?: ContentRestrictions;
+  image_type?: ImageType;
+  alt_text?: AltText;
+  focal_point?: FocalPoint;
+  auth?: Auth;
+  seo_filename?: SEOFilename;
+  additional_properties?: HasAdditionalProperties;
+  /**
+   * Subtitle for the image.
+   */
+  subtitle?: string;
+  /**
+   * Caption for the image.
+   */
+  caption?: string;
+  /**
+   * URL for the image.
+   */
+  url?: string;
+  /**
+   * Width for the image.
+   */
+  width?: number;
+  /**
+   * Height for the image.
+   */
+  height?: number;
+  /**
+   * True if the image can legally be licensed to others.
+   */
+  licensable?: boolean;
+  contributors?: Contributors;
 }
-export interface School {
-  school_name?: SchoolName;
+/**
+ * Similar to the credits trait, but to be used only when ANS is being directly rendered to readers natively. For legal and technical reasons, the `credits` trait is preferred when converting ANS into feeds or other distribution formats. However, when present, `vanity_credits` allows more sophisticated credits presentation to override the default without losing that original data.
+ */
+export interface VanityCreditsTrait {
+  by?: By1;
+  photos_by?: PhotosBy;
+  /**
+   * This interface was referenced by `VanityCreditsTrait`'s JSON-Schema definition
+   * via the `patternProperty` "^[a-zA-Z0-9_]*".
+   */
+  [k: string]: (AnAuthorOfAPieceOfContent | RepresentationOfANormalizedElement)[] | undefined;
 }
 /**
  * This represents a reference to external content that should be denormalized
  */
 export interface RepresentationOfANormalizedElement {
-  type: "reference";
+  type: 'reference';
   additional_properties?: HasAdditionalProperties;
   _id?: GloballyUniqueIDTrait;
   subtype?: SubtypeOrTemplate;
@@ -671,18 +807,6 @@ export interface RepresentationOfANormalizedElement {
   };
 }
 /**
- * Similar to the credits trait, but to be used only when ANS is being directly rendered to readers natively. For legal and technical reasons, the `credits` trait is preferred when converting ANS into feeds or other distribution formats. However, when present, `vanity_credits` allows more sophisticated credits presentation to override the default without losing that original data.
- */
-export interface VanityCreditsTrait {
-  by?: By1;
-  photos_by?: PhotosBy1;
-  /**
-   * This interface was referenced by `VanityCreditsTrait`'s JSON-Schema definition
-   * via the `patternProperty` "^[a-zA-Z0-9_]*".
-   */
-  [k: string]: (AnAuthorOfAPieceOfContent1 | RepresentationOfANormalizedElement)[];
-}
-/**
  * Holds the collection of tags, categories, keywords, etc that describe content.
  */
 export interface Taxonomy {
@@ -710,7 +834,7 @@ export interface Taxonomy {
     | Site
     | (RepresentationOfANormalizedElement & {
         referent?: {
-          type?: "site";
+          type?: 'site';
           [k: string]: unknown;
         };
         [k: string]: unknown;
@@ -722,7 +846,7 @@ export interface Taxonomy {
     | Section
     | (RepresentationOfANormalizedElement & {
         referent?: {
-          type?: "section";
+          type?: 'section';
           [k: string]: unknown;
         };
         [k: string]: unknown;
@@ -734,7 +858,7 @@ export interface Taxonomy {
     | Site
     | (RepresentationOfANormalizedElement & {
         referent?: {
-          type?: "site";
+          type?: 'site';
           [k: string]: unknown;
         };
         [k: string]: unknown;
@@ -747,7 +871,7 @@ export interface Taxonomy {
     | Section
     | (RepresentationOfANormalizedElement & {
         referent?: {
-          type?: "section";
+          type?: 'section';
           [k: string]: unknown;
         };
         [k: string]: unknown;
@@ -851,7 +975,7 @@ export interface Auxiliary {
  */
 export interface Tag {
   _id?: GloballyUniqueIDTrait;
-  type?: "tag";
+  type?: 'tag';
   subtype?: SubtypeOrTemplate;
   /**
    * The text of the tag as displayed to users.
@@ -868,7 +992,7 @@ export interface Tag {
  * A hierarchical section or 'site' in a taxonomy. In the Arc ecosystem, these are stored in the arc-site-service.
  */
 export interface Site {
-  type: "site";
+  type: 'site';
   _id?: GloballyUniqueIDTrait;
   version: DescribesTheANSVersionOfThisObject;
   additional_properties?: HasAdditionalProperties;
@@ -897,7 +1021,7 @@ export interface Site {
  * A hierarchical section in a taxonomy. In the Arc ecosystem, these are stored in the arc-site-service.
  */
 export interface Section {
-  type: "section";
+  type: 'section';
   _id?: GloballyUniqueIDTrait;
   _website?: Website;
   version: DescribesTheANSVersionOfThisObject;
@@ -947,7 +1071,8 @@ export interface PromoItems {
     | AContentObject
     | RepresentationOfANormalizedElement
     | HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109StoryElementsRawHtmlJson
-    | CustomEmbed;
+    | CustomEmbed
+    | undefined;
 }
 /**
  * Holds common attributes of ANS Content objects.
@@ -1013,13 +1138,13 @@ export interface Related_Content {
    * This interface was referenced by `Related_Content`'s JSON-Schema definition
    * via the `patternProperty` ".*".
    */
-  [k: string]: (AContentObject | RepresentationOfANormalizedElement | CustomEmbed)[];
+  [k: string]: undefined | [ARedirectObject] | (AContentObject | RepresentationOfANormalizedElement | CustomEmbed)[];
 }
 /**
  * A redirect to another story.
  */
 export interface ARedirectObject {
-  type: "redirect";
+  type: 'redirect';
   _id?: GloballyUniqueIDTrait;
   version: DescribesTheANSVersionOfThisObject;
   owner?: OwnerInformation;
@@ -1079,7 +1204,7 @@ export interface Revision {
  * A custom embed element. Can be used to reference content from external providers about which little is known.
  */
 export interface CustomEmbed {
-  type: "custom_embed";
+  type: 'custom_embed';
   _id?: GloballyUniqueIDTrait;
   subtype?: SubtypeOrTemplate;
   channels?: ChannelTrait;
@@ -1320,7 +1445,7 @@ export interface Syndication {
    * This interface was referenced by `Syndication`'s JSON-Schema definition
    * via the `patternProperty` ".*".
    */
-  [k: string]: boolean;
+  [k: string]: boolean | undefined;
 }
 /**
  * Information about the original source and/or owner of this content
@@ -1405,21 +1530,23 @@ export interface Label {
    * This interface was referenced by `Label`'s JSON-Schema definition
    * via the `patternProperty` "^[a-zA-Z0-9_]*$".
    */
-  [k: string]: {
-    /**
-     * The text of this label.
-     */
-    text: string;
-    /**
-     * An optional destination url of this label.
-     */
-    url?: string;
-    /**
-     * If false, this label should be hidden.
-     */
-    display?: boolean;
-    additional_properties?: HasAdditionalProperties;
-  };
+  [k: string]:
+    | {
+        /**
+         * The text of this label.
+         */
+        text: string;
+        /**
+         * An optional destination url of this label.
+         */
+        url?: string;
+        /**
+         * If false, this label should be hidden.
+         */
+        display?: boolean;
+        additional_properties?: HasAdditionalProperties;
+      }
+    | undefined;
 }
 /**
  * Trait that applies contains the content restrictions of an ANS object.
@@ -1490,7 +1617,7 @@ export interface Contributors {
  * An html content element
  */
 export interface HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109StoryElementsRawHtmlJson {
-  type: "raw_html";
+  type: 'raw_html';
   _id?: GloballyUniqueIDTrait;
   subtype?: SubtypeOrTemplate;
   channels?: ChannelTrait;
@@ -1525,10 +1652,254 @@ export interface Auth {
    */
   [k: string]: string;
 }
-export interface Book1 {
-  book_title?: Title1;
-  book_url?: URL1;
+export interface Book {
+  book_title?: Title;
+  book_url?: URL;
 }
-export interface School1 {
-  school_name?: SchoolName1;
+export interface School {
+  school_name?: SchoolName;
+}
+/**
+ * Trait that provides suggestions for the rendering system.
+ */
+export interface RenderingGuides {
+  /**
+   * The preferred rendering method of the story. Blank means there is no preference. If the rendering application is aware of these other options, it can decide to either use one of them, render messaging to the viewer, or render the story as normal
+   */
+  preferred_method?: (('website' | 'native') | string)[];
+  [k: string]: unknown;
+}
+/**
+ * Describes a change that has been made to the document for transparency, or describes inaccuracies or falsehoods that remain in the document.
+ */
+export interface Correction {
+  type: 'correction';
+  _id?: GloballyUniqueIDTrait;
+  subtype?: SubtypeOrTemplate;
+  channels?: ChannelTrait;
+  alignment?: Alignment;
+  additional_properties?: HasAdditionalProperties;
+  /**
+   * Type of correction. E.g., clarification, retraction.
+   */
+  correction_type?: string;
+  /**
+   * The text of the correction.
+   */
+  text: string;
+}
+/**
+ * An item that conforms to this schema can be rendered in a sequence
+ */
+export interface AnElementThatCanBeListedAsPartOfContentElements {
+  type: string;
+  _id?: GloballyUniqueIDTrait;
+  subtype?: SubtypeOrTemplate;
+  channels?: ChannelTrait;
+  alignment?: Alignment;
+  additional_properties?: HasAdditionalProperties;
+  gallery_properties?: HasGalleryProperties;
+  [k: string]: unknown;
+}
+/**
+ * An object for overrides for images when images are used in a gallery. Example usage: Each image in a gallery may have the images own focal point overridden by the gallery.
+ */
+export interface HasGalleryProperties {
+  [k: string]: unknown;
+}
+/**
+ * The current published state of all editions of a content item as well as any scheduled publishing information. Machine-generated.
+ */
+export interface PublishingInformation {
+  has_published_edition: HasPublishedEdition;
+  /**
+   * A map of edition names to the current publish state for that edition
+   */
+  editions?: {
+    default: Edition;
+    [k: string]: Edition;
+  };
+  scheduled_operations?: ScheduledOperations;
+  additional_properties?: HasAdditionalProperties;
+}
+/**
+ * This interface was referenced by `undefined`'s JSON-Schema definition
+ * via the `patternProperty` "^[a-zA-Z0-9_]*$".
+ */
+export interface Edition {
+  edition_name: EditionName;
+  edition_date: EditionDate;
+  edition_first_publish_date?: FirstPublishedDateEdition;
+  edition_display_date?: DisplayDateEdition;
+  edition_publish_date?: PublishDateEdition;
+  edition_published: PublishStatus;
+  edition_revision_id?: RevisionID;
+  additional_properties?: HasAdditionalProperties;
+}
+/**
+ * A map of lists of operations scheduled to be performed on this content item, sorted by operation type.
+ */
+export interface ScheduledOperations {
+  publish_edition?: {
+    operation?: 'publish_edition';
+    operation_revision_id?: RevisionIDOperation;
+    operation_edition?: EditionNameOperation;
+    operation_date?: OperationDate;
+    additional_properties?: HasAdditionalProperties;
+  }[];
+  unpublish_edition?: {
+    operation?: 'unpublish_edition';
+    operation_edition?: EditionNameOperation1;
+    operation_date?: OperationDate1;
+    additional_properties?: HasAdditionalProperties;
+  }[];
+}
+/**
+ * Holds variant content metadata, including content zone IDs for use within 'content_elements' and mapping from website IDs to variant IDs
+ */
+export interface VariantContentMetadata {
+  additional_properties?: HasAdditionalProperties;
+  /**
+   * A list of content zone IDs for use within the 'content_elements' array of the hub story
+   *
+   * @maxItems 10
+   */
+  content_zone_ids?:
+    | []
+    | [string]
+    | [string, string]
+    | [string, string, string]
+    | [string, string, string, string]
+    | [string, string, string, string, string]
+    | [string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string, string]
+    | [string, string, string, string, string, string, string, string, string, string];
+  variants?: VariantMetadata[];
+}
+/**
+ * Variant metadata describing its ID as well as the websites to which it is assigned
+ */
+export interface VariantMetadata {
+  _id?: GloballyUniqueIDTrait1;
+  additional_properties?: HasAdditionalProperties;
+  content?: AStory1;
+  created_date?: CreatedDate;
+  last_updated_date?: LastUpdatedDate;
+  /**
+   * User-facing name for the variant
+   */
+  name?: string;
+  publish_date?: Publish_Date;
+  /**
+   * Published status for the variant
+   */
+  published?: boolean;
+  type: 'variant';
+  /**
+   * websites assigned to this variant; individual values must be mutually exclusive with other variants
+   *
+   * @maxItems 50
+   */
+  websites?: string[];
+}
+/**
+ * Variant content.  Only 'story' data is supported, but this may expand in the future.
+ */
+export interface AStory1 {
+  type: 'story';
+  _id?: GloballyUniqueIDTrait;
+  version: DescribesTheANSVersionOfThisObject;
+  subtype?: SubtypeOrTemplate;
+  channels?: ChannelTrait;
+  alignment?: Alignment;
+  language?: Locale;
+  copyright?: CopyrightInformation;
+  canonical_url?: CanonicalURL;
+  canonical_website?: CanonicalWebsite;
+  website?: Website;
+  website_url?: WebsiteURL;
+  short_url?: Short_Url;
+  created_date?: CreatedDate;
+  last_updated_date?: LastUpdatedDate;
+  publish_date?: Publish_Date;
+  first_publish_date?: FirstPublishDate;
+  display_date?: Display_Date;
+  location?: LocationRelatedTrait;
+  geo?: Geo;
+  address?: Address;
+  editor_note?: Editor_Note;
+  status?: Status;
+  headlines?: Headlines;
+  subheadlines?: SubHeadlines;
+  description?: Description;
+  credits?: CreditTrait;
+  vanity_credits?: VanityCreditsTrait;
+  taxonomy?: Taxonomy;
+  promo_items?: PromoItems;
+  related_content?: Related_Content;
+  owner?: OwnerInformation;
+  planning?: SchedulingInformation;
+  workflow?: WorkflowInformation;
+  pitches?: Pitches;
+  revision?: Revision;
+  syndication?: Syndication;
+  source?: Source;
+  distributor?: Distributor;
+  tracking?: Tracking;
+  comments?: Comments;
+  label?: Label;
+  slug?: Slug;
+  content_restrictions?: ContentRestrictions;
+  rendering_guides?: RenderingGuides;
+  additional_properties?: HasAdditionalProperties;
+  content_aliases?: AliasesTrait;
+  corrections?: Corrections;
+  content_elements?: ACollectionOfContent;
+  publishing?: PublishingInformation;
+  variations?: VariantContentMetadata;
+  voice_transcripts?: VoiceTranscriptSConfigurationAndOutput;
+  websites?: WebsitesInput;
+  contributors?: Contributors;
+}
+/**
+ * The transcription settings as requested by an end-user or API caller. These values should be displayed to editorial users in Arc apps.
+ */
+export interface OptionsRequested {
+  enabled: Enabled;
+  voice?: VoiceID;
+  [k: string]: unknown;
+}
+/**
+ * The transcription settings that were used by the renderer to generate the final output. (If these differ from 'options' it may indicate an inability to render exactly as specified.) These values can be used when rendering to readers or external users.
+ */
+export interface OptionsUsed {
+  enabled: Enabled1;
+  voice?: VoiceID1;
+  [k: string]: unknown;
+}
+/**
+ * Configuration for a piece of audio content, over a stream.
+ */
+export interface AStreamOfAudio {
+  filesize?: FileSize;
+  audio_codec?: AudioCodec;
+  stream_type?: AudioStreamType;
+  url: URL1;
+  bitrate?: Bitrate;
+  [k: string]: unknown;
+}
+/**
+ * Website-specific  metadata for url generation for multi-site copies. These fields are not indexed in Content API.
+ */
+export interface WebsitesInput {
+  /**
+   * This interface was referenced by `WebsitesInput`'s JSON-Schema definition
+   * via the `patternProperty` "^[a-zA-Z0-9_]*".
+   */
+  [k: string]: {
+    website_section?: RepresentationOfANormalizedElement | Section;
+    website_url?: WebsiteURL;
+  };
 }

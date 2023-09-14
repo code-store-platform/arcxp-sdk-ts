@@ -12,16 +12,19 @@ export class ArcError extends Error {
   constructor(service: string, e: AxiosError) {
     const ratelimitRemaining = e.response?.headers['arcpub-ratelimit-remaining'];
     const ratelimitReset = e.response?.headers['arcpub-ratelimit-reset'];
-    const message = safeJSONStringify(e.message);
+    const data = {
+      name: `${service}Error`,
+      responseData: e.response?.data,
+      responseStatus: e.response?.status,
+      responseConfig: e.response?.config,
+      ratelimitRemaining,
+      ratelimitReset,
+      service,
+    };
+    const message = safeJSONStringify(data);
 
     super(message);
 
-    this.name = `${service}Error`;
-    this.responseData = e.response?.data;
-    this.responseStatus = e.response?.status;
-    this.responseConfig = e.response?.config;
-    this.ratelimitRemaining = ratelimitRemaining;
-    this.ratelimitReset = ratelimitReset;
-    this.service = service;
+    Object.assign(this, data);
   }
 }

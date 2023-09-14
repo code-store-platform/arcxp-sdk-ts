@@ -1,3 +1,12 @@
+export type SectionReference = {
+  type: 'reference';
+  referent: {
+    id: string;
+    website: string;
+    type: 'section';
+  };
+};
+
 export type Section = {
   _id: string;
   site?: {
@@ -15,7 +24,7 @@ export type Section = {
   site_topper?: { site_logo_image: null };
   _admin?: { alias_ids: string[] };
   _website?: string;
-  name: strign;
+  name: string;
   order?: any;
   parent?: { default?: string; footer?: null | string; header?: string };
   ancestors?: { default: []; footer: []; header: [] };

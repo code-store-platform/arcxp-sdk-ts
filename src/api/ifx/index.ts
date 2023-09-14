@@ -50,7 +50,7 @@ export class ArcIFX extends ArcAbstractAPI {
   }
 
   async addSecret(payload: AddSecretPayload) {
-    const { data } = await this.client.post(`/admin/secret?integrationName=${payload.intergrationName}`, {
+    const { data } = await this.client.post(`/admin/secret?integrationName=${payload.integrationName}`, {
       secretName: payload.secretName,
       secretValue: payload.secretValue,
     });

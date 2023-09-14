@@ -21,7 +21,7 @@ export type SubscribePayload = {
 };
 
 export type AddSecretPayload = {
-  intergrationName: string;
+  integrationName: string;
   secretName: string;
   secretValue: string;
 };

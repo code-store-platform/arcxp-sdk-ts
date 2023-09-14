@@ -10,7 +10,7 @@ import { ArcWebsked } from './websked';
 import WsClient from './ws.client';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
-  const api = {
+  const API = {
     Author: new ArcAuthor(options),
     Draft: new ArcDraft(options),
     Identity: new ArcIdentity(options),
@@ -22,16 +22,16 @@ export const ArcAPI = (options: ArcAPIOptions) => {
   };
 
   return {
-    api,
+    ...API,
+    setMaxRPS: (rps: number) => {
+      Object.values(API).forEach((a) => a.setMaxRPS(rps));
+    },
     RetailEvents: (index: '0' | '1' | 'string' = '0') => {
       const address = `wss://api.${options.credentials.organizationName}.arcpublishing.com/retail/api/v1/event/stream/${index}`;
       const headers = {
         Authorization: `Bearer ${options.credentials.accessToken}`,
       };
       return new WsClient(address, { headers });
-    },
-    setMaxRPS: (rps: number) => {
-      Object.values(api).forEach((a) => a.setMaxRPS(rps));
     },
   };
 };

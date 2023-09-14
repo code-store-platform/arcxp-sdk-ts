@@ -1,3 +1,4 @@
+import { SectionReference } from '../../types/section';
 import { AStory, AnImage, Tag } from '../../types/story';
 
 type TagANS = Tag & { name: string };
@@ -27,15 +28,6 @@ type AuthorANS = {
   facebook: string;
   linkedin: string;
   status: boolean;
-};
-
-export type SectionReference = {
-  type: 'reference';
-  referent: {
-    id: string;
-    website: string;
-    type: 'section';
-  };
 };
 
 export type PostANSPayload = {
@@ -78,7 +70,7 @@ export type PostANSPayload = {
 export type PostANSParams = {
   website: string;
   groupId: string;
-  priority: 'historical';
+  priority: 'historical' | 'live';
 };
 
 export type GetANSParams = {
@@ -165,8 +157,8 @@ export type SummaryReportRequest = {
   website: string;
   groupId?: string;
   fetchFromId?: string;
-  sort: SummarySortBy;
-  sortOrder: SummarySortOrder;
+  sort?: SummarySortBy;
+  sortOrder?: SummarySortOrder;
 };
 
 export enum SummarySortBy {
