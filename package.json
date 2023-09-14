@@ -1,7 +1,8 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "",
+  "type": "commonjs",
   "main": "./src/index.ts",
   "scripts": {
     "build": "tsc",
