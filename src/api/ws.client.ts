@@ -3,7 +3,7 @@ import ws from 'ws';
 export type PromiseOr<T> = Promise<T> | T;
 export type Callback<Args extends any[] = any[]> = (...args: Args) => PromiseOr<void>;
 
-export default class WsClient {
+export class WsClient {
   private socket?: ws.WebSocket;
 
   constructor(private address: string, private readonly options: ws.ClientOptions) {}

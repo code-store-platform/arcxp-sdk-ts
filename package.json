@@ -1,9 +1,13 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "",
   "type": "commonjs",
-  "main": "./src/index.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "lint": "tsc --noEmit && TIMING=1 eslint \"src/**/*.ts*\"",

@@ -1,5 +1,6 @@
 import { ArcAPI } from './api';
 import { ContentElement, ContentElementType } from './content-elements';
+import { WsClient } from './api/ws.client';
 import * as ArcTypes from './types';
 
 export * from './api/identity/types';
@@ -10,4 +11,4 @@ export * from './api/migration-center/types';
 export * from './api/sales/types';
 export * from './api/websked/types';
 
-export { ArcAPI, ContentElement, ContentElementType, ArcTypes };
+export { ArcAPI, WsClient, ContentElement, ContentElementType, ArcTypes };

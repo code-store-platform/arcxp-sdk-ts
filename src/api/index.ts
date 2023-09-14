@@ -7,7 +7,7 @@ import { ArcMigrationCenter } from './migration-center';
 import { ArcSales } from './sales';
 import { ArcSite } from './site';
 import { ArcWebsked } from './websked';
-import WsClient from './ws.client';
+import { WsClient } from './ws.client';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
   const API = {
