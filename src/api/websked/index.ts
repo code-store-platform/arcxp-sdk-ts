@@ -7,8 +7,7 @@ export class ArcWebsked extends ArcAbstractAPI {
   }
 
   async reportStatusChange(payload: ReportStatusChangePayload): Promise<void> {
-    const { data } = await this.client.post('/tasks/workflowStatusChange', payload);
-    return data;
+    return this.client.post('/tasks/workflowStatusChange', payload);
   }
 
   async createTask(payload: CreateTaskPayload): Promise<CreateTaskResponse> {
