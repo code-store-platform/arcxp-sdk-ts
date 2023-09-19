@@ -75,7 +75,7 @@ export type PostANSParams = {
 
 export type GetANSParams = {
   ansId: string;
-  ansType: string;
+  ansType: ANSType;
 };
 
 export enum ANSType {
@@ -112,7 +112,7 @@ export type SummaryRecord = {
   sourceLocation: string;
   sourceAdditionalProperties: string;
   ansId: string;
-  ansType: string;
+  ansType: ANSType;
   ansLocation: string;
   status: MigrationStatus;
   website: string;
@@ -147,7 +147,7 @@ export type DetailReportRequest = {
   sourceId?: string;
   sourceType?: string;
   ansId?: string;
-  ansType?: string;
+  ansType?: ANSType;
   version?: string;
   documentType?: string;
 };
