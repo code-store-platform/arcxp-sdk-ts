@@ -40,6 +40,6 @@ jobs:
         run: pnpm test
 
       - name: Publish Package
-        run: npx changeset version && npm publish
+        run: npx changeset version && npm publish --tolerate-republish --no-fund
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
