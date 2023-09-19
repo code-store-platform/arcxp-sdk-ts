@@ -3,3 +3,4 @@
 ---
 
 Added websked/createTask endpoint
+Fixed migration-center types
