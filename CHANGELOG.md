@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.0.0
+
+### Major Changes
+
+- ArcSales.migrate accepts json
+
 ## 3.2.0
 
 ### Minor Changes

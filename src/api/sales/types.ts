@@ -1,6 +1,11 @@
-export type BatchSubscriptionMigrate = {
+export type MigrateBatchSubscriptionsPayload = {
   subscriptions: (PaidSubscription | FreeSubscription)[];
   payments: PaymentInfo[];
+};
+
+export type MigrateBatchSubscriptionsResponse = {
+  subscriptionsInBatch?: number;
+  batchID?: string;
 };
 
 interface BaseSubscription {
@@ -65,9 +70,4 @@ export type Refund = {
   currency: string;
   tax: number;
   providerReference?: string;
-};
-
-export type MigrateBatchResponse = {
-  subscriptionsInBatch?: number;
-  batchID?: string;
 };
