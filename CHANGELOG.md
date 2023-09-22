@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.0.1
+
+### Patch Changes
+
+- update migrate users payload
+
 ## 4.0.0
 
 ### Major Changes
