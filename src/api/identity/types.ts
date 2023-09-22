@@ -12,15 +12,15 @@ export type MigrateUserPayload = {
     lastLoginDate?: string;
   }[];
   profile: {
-    firstName: string;
-    lastName: string;
+    firstName?: string;
+    lastName?: string;
     secondLastName?: string;
-    displayName: string;
+    displayName?: string;
     gender?: 'MALE' | 'FEMALE';
     email: string;
-    birthYear: string;
-    birthMonth: string;
-    birthDay: string;
+    birthYear?: string;
+    birthMonth?: string;
+    birthDay?: string;
     contacts: {
       phone: string;
       type: 'WORK' | 'HOME' | 'PRIMARY' | 'OTHER';
@@ -30,7 +30,7 @@ export type MigrateUserPayload = {
       line2?: string;
       locality: string;
       region?: string;
-      postal: string;
+      postal?: string;
       country?: string;
       type: 'WORK' | 'HOME' | 'PRIMARY' | 'OTHER';
     }[];
