@@ -10,5 +10,6 @@ export * from './api/ifx/types';
 export * from './api/migration-center/types';
 export * from './api/sales/types';
 export * from './api/websked/types';
+export * from './api/content/types';
 
 export { ArcAPI, WsClient, ContentElement, ContentElementType, ArcTypes };

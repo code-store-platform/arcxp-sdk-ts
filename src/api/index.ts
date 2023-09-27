@@ -1,5 +1,6 @@
 import { ArcAPIOptions } from './abstract-api';
 import { ArcAuthor } from './author';
+import { ArcContent } from './content';
 import { ArcDraft } from './draft';
 import { ArcIdentity } from './identity';
 import { ArcIFX } from './ifx';
@@ -19,6 +20,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     Sales: new ArcSales(options),
     Site: new ArcSite(options),
     Websked: new ArcWebsked(options),
+    Content: new ArcContent(options),
   };
 
   return {
