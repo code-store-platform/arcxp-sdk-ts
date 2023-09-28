@@ -108,7 +108,7 @@ await api.MigrationCenter.postAns(
 );
 ```
 
-## Changesets
+## Changeset
 
 `npx changeset && npx changeset version`
 
