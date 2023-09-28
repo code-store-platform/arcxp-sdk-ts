@@ -1,6 +1,6 @@
 import { Duration } from './duration';
 
-export type CacheItem<Data> = { data: Data; ttl: number; timer?: NodeJS.Timer };
+export type CacheItem<Data> = { data: Data; ttl: number; timer?: NodeJS.Timeout };
 
 export default class Cache<Data = any> {
   public constructor(private ttl = Duration.minutes(1), private maxSize = 1000) {}
