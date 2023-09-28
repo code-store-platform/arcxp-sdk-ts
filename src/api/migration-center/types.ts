@@ -30,29 +30,31 @@ type AuthorANS = {
   status: boolean;
 };
 
+export type CirculationReference = {
+  document_id: string;
+  website_id: string;
+  website_url?: string;
+  primary_section?: SectionReference;
+  website_primary_section?: SectionReference;
+  website_sections: SectionReference[];
+};
+
+export type Operation = {
+  type: string;
+  story_id: string;
+  operation: string;
+  date: string;
+  organization_id: string;
+  endpoint: string;
+};
+
 export type PostANSPayload = {
   sourceId: string;
   sourceType: string;
   ANS: AStory | AnImage | AuthorANS | TagANS;
   references?: unknown[];
-  circulations?: [
-    {
-      document_id: string;
-      website_id: string;
-      website_url?: string;
-      primary_section: SectionReference;
-      website_primary_section: SectionReference;
-      website_sections: SectionReference[];
-    }
-  ];
-  operations?: {
-    type: string;
-    story_id: string;
-    operation: string;
-    date: string;
-    organization_id: string;
-    endpoint: string;
-  }[];
+  circulations?: CirculationReference[];
+  operations?: Operation[];
   arcAdditionalProperties?: {
     importPriority?: string;
     story?: {

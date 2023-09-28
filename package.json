@@ -1,6 +1,6 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "4.1.0",
+  "version": "4.1.1",
   "description": "",
   "type": "commonjs",
   "main": "./dist/index.js",
@@ -15,7 +15,8 @@
   "scripts": {
     "build": "tsc",
     "lint": "tsc --noEmit && TIMING=1 eslint \"src/**/*.ts*\"",
-    "test": "vitest"
+    "test": "vitest",
+    "cs": "npx changeset && npx changeset version"
   },
   "keywords": [
     "ArcXP",

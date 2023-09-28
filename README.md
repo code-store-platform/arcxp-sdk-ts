@@ -64,7 +64,6 @@ const text = ContentElement.text('text');
 
 ```ts
 import { ArcTypes, ArcAPI } from '@code.store/arcxp-sdk-ts';
-import { ArcAPI } from '../../../arc';
 
 const api = ArcAPI({
   credentials: { organizationName: 'YOUR_ORG_NAME', accessToken: 'YOUR_ACCESS_TOKEN' },
