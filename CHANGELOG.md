@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.2.0
+
+### Minor Changes
+
+- added Draft.createRedirect endpoint
+
 ## 4.1.1
 
 ### Patch Changes
