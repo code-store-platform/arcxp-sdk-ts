@@ -98,6 +98,7 @@ export enum MigrationStatus {
   Scheduled = 'Scheduled',
   FailVideo = 'FailVideo',
   FailImage = 'FailImage',
+  FailPhoto = 'FailPhoto',
   FailStory = 'FailStory',
   FailGallery = 'FailGallery',
   FailAuthor = 'FailAuthor',

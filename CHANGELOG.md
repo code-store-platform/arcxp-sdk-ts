@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.2.1
+
+### Patch Changes
+
+- fix MigrationStatus type
+
 ## 4.2.0
 
 ### Minor Changes
