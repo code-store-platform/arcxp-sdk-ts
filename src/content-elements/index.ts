@@ -2,8 +2,6 @@ import { Alignment, AnImage } from '../types/story';
 
 export type ContentElementType<T extends keyof typeof ContentElement> = ReturnType<(typeof ContentElement)[T]>;
 
-const refType = 'reference' as const;
-
 export const ContentElement = {
   divider: () => {
     return {
@@ -55,7 +53,7 @@ export const ContentElement = {
   },
   gallery: (id: string) => {
     return {
-      type: refType,
+      type: 'reference' as const,
       referent: {
         type: 'gallery' as const,
         id,
@@ -96,7 +94,7 @@ export const ContentElement = {
           ...properties,
         },
       },
-      type: refType,
+      type: 'reference' as const,
     };
   },
   jwPlayer: (id: string) => {
@@ -108,6 +106,94 @@ export const ContentElement = {
       },
       subtype: 'jw_player' as const,
       type: 'custom_embed' as const,
+    };
+  },
+  twitter: (id: string, provider = 'https://publish.twitter.com/oembed?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed' as const,
+        type: 'twitter' as const,
+      },
+      type: 'reference' as const,
+    };
+  },
+  youtube: (id: string, provider = 'https://www.youtube.com/oembed?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'youtube',
+      },
+      type: 'reference' as const,
+    };
+  },
+  facebook_video: (id: string, provider = 'https://www.facebook.com/plugins/post/oembed.json/?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'facebook-video',
+      },
+      type: 'reference' as const,
+    };
+  },
+  facebook_post: (id: string, provider = 'https://www.facebook.com/plugins/post/oembed.json/?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'facebook-post',
+      },
+      type: 'reference' as const,
+    };
+  },
+  vimeo: (id: string, provider = 'https://vimeo.com/api/oembed.json?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'vimeo',
+      },
+      type: 'reference' as const,
+    };
+  },
+  instagram: (id: string, provider = 'https://api.instagram.com/oembed?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'instagram',
+      },
+      type: 'reference' as const,
+    };
+  },
+  dailymotion: (id: string, provider = 'https://www.dailymotion.com/services/oembed?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'dailymotion',
+      },
+      type: 'reference' as const,
+    };
+  },
+  tiktok: (id: string, provider = 'https://www.tiktok.com/oembed?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'tiktok',
+      },
+      type: 'reference' as const,
     };
   },
 };

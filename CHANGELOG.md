@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.3.0
+
+### Minor Changes
+
+- new content elements added
+
 ## 4.2.1
 
 ### Patch Changes
