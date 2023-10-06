@@ -1,6 +1,7 @@
-import { GetStoryParams } from './types';
+import { GetStoryParams, SearchParams, SearchResponse } from './types';
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
 import { AStory } from '../../types/story';
+import { stringify } from 'querystring';
 
 export class ArcContent extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -8,9 +9,16 @@ export class ArcContent extends ArcAbstractAPI {
   }
 
   async getStory(params: GetStoryParams): Promise<AStory> {
-    const search = new URLSearchParams({ ...params, published: params.published.toString() }).toString();
+    const search = stringify(params);
 
     const { data } = await this.client.get(`/stories?${search}`);
+    return data;
+  }
+
+  async search(params: SearchParams): Promise<SearchResponse> {
+    const search = stringify(params);
+
+    const { data } = await this.client.get(`/search?${search}`);
     return data;
   }
 }

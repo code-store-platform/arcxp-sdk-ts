@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.4.0
+
+### Minor Changes
+
+- added unpublishDocument, deleteDocument Draft endpoints, search Content endpoint
+
 ## 4.3.0
 
 ### Minor Changes

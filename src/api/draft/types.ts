@@ -1,3 +1,5 @@
+import { AStory } from '../../types/story';
+
 export type CreateExternalRedirectPayload = {
   redirect_to: string;
   document_id?: undefined;
@@ -24,3 +26,24 @@ export type DocumentRedirect = {
 export type ExternalRedirect = {
   redirect_to: string;
 } & BaseRedirectData;
+
+export type Revision = {
+  id: string;
+  document_id: string;
+  created_at: string;
+  type: string;
+  user_id?: string;
+  ans: AStory;
+};
+
+export type Document = {
+  id: string;
+  type: 'STORY';
+  created_at: string;
+  draft_revision_id: string;
+  published_revision_id?: string;
+  first_published_at?: string;
+  last_published_at?: string;
+  first_unpublished_at?: string;
+  last_unpublished_at?: string;
+};

@@ -5,6 +5,8 @@ import {
   CreateRedirectPayload,
   DocumentRedirect,
   ExternalRedirect,
+  Revision,
+  Document,
 } from './types';
 
 export class ArcDraft extends ArcAbstractAPI {
@@ -15,6 +17,16 @@ export class ArcDraft extends ArcAbstractAPI {
   async generateId(id: string) {
     const { data } = await this.client.get<{ id: string }>('/arcuuid', { params: { id } });
     return data.id;
+  }
+
+  async unpublishDocument(id: string, type = 'story') {
+    const { data } = await this.client.delete<Revision>(`/${type}/${id}/revision/published`);
+    return data;
+  }
+
+  async deleteDocument(id: string, type = 'story') {
+    const { data } = await this.client.delete<Document>(`/${type}/${id}`);
+    return data;
   }
 
   async createRedirect<

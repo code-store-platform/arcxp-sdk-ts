@@ -32,14 +32,14 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
   }
 
   async postAns(params: PostANSParams, payload: PostANSPayload) {
-    const search = new URLSearchParams(params).toString();
+    const search = stringify(params);
 
     const { data } = await this.client.post(`/content/ans?${search}`, payload);
     return data;
   }
 
   async getAns(params: GetANSParams) {
-    const search = new URLSearchParams(params).toString();
+    const search = stringify(params);
 
     const { data } = await this.client.get(`/content/ans?${search}`);
     return data;
