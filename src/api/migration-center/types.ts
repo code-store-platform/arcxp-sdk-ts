@@ -3,7 +3,7 @@ import { AStory, AnImage, Tag } from '../../types/story';
 
 type TagANS = Tag & { name: string };
 
-type AuthorANS = {
+export type AuthorANS = {
   type: 'author';
   _id: string;
   firstName: string;
