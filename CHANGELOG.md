@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.5.0
+
+### Minor Changes
+
+- added get list authors
+
 ## 4.4.0
 
 ### Minor Changes
