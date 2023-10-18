@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.6.0
+
+### Minor Changes
+
+- added Site.getWebsites endpoint
+
 ## 4.5.1
 
 ### Patch Changes

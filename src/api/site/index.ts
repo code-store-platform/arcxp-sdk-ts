@@ -1,5 +1,6 @@
 import { Section, SetSection } from '../../types/section';
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
+import { Website } from './types';
 
 export class ArcSite extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -14,6 +15,12 @@ export class ArcSite extends ArcAbstractAPI {
 
   async putSection(section: SetSection) {
     const { data } = await this.client.put(`/website/${section.website}/section?_id=${section._id}`, section);
+
+    return data;
+  }
+
+  async getWebsites() {
+    const { data } = await this.client.get<Website[]>('/website');
 
     return data;
   }
