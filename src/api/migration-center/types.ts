@@ -1,3 +1,4 @@
+import { AGallery } from '../../types/gallery';
 import { SectionReference } from '../../types/section';
 import { AStory, AnImage, Tag } from '../../types/story';
 
@@ -51,7 +52,7 @@ export type Operation = {
 export type PostANSPayload = {
   sourceId: string;
   sourceType: string;
-  ANS: AStory | AnImage | AuthorANS | TagANS;
+  ANS: AStory | AGallery | AnImage | AuthorANS | TagANS;
   references?: unknown[];
   circulations?: CirculationReference[];
   operations?: Operation[];
@@ -135,12 +136,7 @@ export type DetailReport = SummaryRecord & { ansContent: AStory | AnImage | Auth
 export type Count = {
   historical: {
     total: number;
-    ansTypes: Partial<{
-      tag: ANSTypeCount;
-      story: ANSTypeCount;
-      author: ANSTypeCount;
-      image: ANSTypeCount;
-    }>;
+    ansTypes: Partial<Record<ANSType, ANSTypeCount>>;
   };
 };
 

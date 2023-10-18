@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.5.1
+
+### Patch Changes
+
+- fix MigrationCenter types
+
 ## 4.5.0
 
 ### Minor Changes
