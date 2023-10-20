@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.6.1
+
+### Patch Changes
+
+- Improve ContentElements.quote
+
 ## 4.6.0
 
 ### Minor Changes

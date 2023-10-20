@@ -15,13 +15,13 @@ export const ContentElement = {
       alignment,
     };
   },
-  quote: (content: string) => {
+  quote: (content: string, citationContent = '', subtype: 'blockquote' | 'pullquote' = 'pullquote') => {
     return {
       type: 'quote' as const,
-      subtype: 'pullquote' as const,
+      subtype,
       citation: {
         type: 'text' as const,
-        content: '',
+        content: citationContent,
       },
       content_elements: [
         {
