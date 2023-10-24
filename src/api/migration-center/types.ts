@@ -131,7 +131,7 @@ export type SummaryRecord = {
   tags?: null;
 };
 
-export type DetailReport = SummaryRecord & { ansContent: AStory | AnImage | AuthorANS | TagANS };
+export type DetailReport = SummaryRecord & { ansContent: AStory | AGallery | AnImage | AuthorANS | TagANS };
 
 export type Count = {
   historical: {

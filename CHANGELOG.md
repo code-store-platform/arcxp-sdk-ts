@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.6.2
+
+### Patch Changes
+
+- fix DetailReport type
+
 ## 4.6.1
 
 ### Patch Changes
