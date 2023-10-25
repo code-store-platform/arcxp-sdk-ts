@@ -85,12 +85,14 @@ export const ContentElement = {
       }),
     };
   },
-  image: (id: string, properties: AnImage) => {
+  image: (id: string, properties?: AnImage) => {
     return {
       referent: {
         id,
         type: 'image' as const,
         referent_properties: {
+          _id: id,
+          type: 'image' as const,
           ...properties,
         },
       },

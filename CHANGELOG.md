@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.6.3
+
+### Patch Changes
+
+- Optimize image content element
+
 ## 4.6.2
 
 ### Patch Changes
