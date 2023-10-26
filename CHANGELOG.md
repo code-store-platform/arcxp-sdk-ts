@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.7.0
+
+### Minor Changes
+
+- add signing service and extend websked
+
 ## 4.6.3
 
 ### Patch Changes
