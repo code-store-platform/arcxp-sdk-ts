@@ -207,3 +207,28 @@ export type SectionStoriesPayload = {
   storyIds: string[];
   stories?: WebskedStory[];
 };
+
+export interface WebskedPublication {
+  createdDate: number;
+  createdBy: string;
+  id: string;
+  name: string;
+  description: string;
+  sections: WebskedPublicationSection[];
+  website: string;
+  publicationSetId: string | null;
+}
+
+export interface WebskedPublicationSection {
+  id: string;
+  name: string;
+  daysOfWeek: number[];
+  hoursOfDay: number[];
+  backlogId: string;
+}
+
+export type GetPublicationsResponse = {
+  pageNumber: number;
+  pageSize: number;
+  results: WebskedPublication[];
+};
