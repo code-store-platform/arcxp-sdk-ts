@@ -5,7 +5,7 @@ export class ArcProtoCenter extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
     super({ ...options, apiPath: 'photo/api' });
   }
-  async getImageData(photoId: string): Promise<AnImage> {
+  async getImageDataById(photoId: string): Promise<AnImage> {
     const { data } = await this.client.get(`/v2/photos/${photoId}`);
     return data;
   }
