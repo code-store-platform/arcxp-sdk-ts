@@ -1,5 +1,11 @@
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { CreateTaskPayload, CreateTaskResponse, ReportStatusChangePayload, SectionStoriesPayload } from './types';
+import {
+  CreateTaskPayload,
+  CreateTaskResponse,
+  GetPublicationsResponse,
+  ReportStatusChangePayload,
+  SectionStoriesPayload,
+} from './types';
 
 export class ArcWebsked extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -26,6 +32,11 @@ export class ArcWebsked extends ArcAbstractAPI {
       `/publications/${publicationId}/sections/${sectionId}/editions/${timestamp}`,
       { params: { includeStories } }
     );
+    return data;
+  }
+
+  async getPublications(nameRegex: string): Promise<GetPublicationsResponse> {
+    const { data } = await this.client.get(`/publications`, { params: { nameRegex } });
     return data;
   }
 }

@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.8.0
+
+### Minor Changes
+
+- publication data and image data in photo center
+
 ## 4.7.0
 
 ### Minor Changes

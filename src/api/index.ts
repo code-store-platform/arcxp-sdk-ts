@@ -5,6 +5,7 @@ import { ArcDraft } from './draft';
 import { ArcIdentity } from './identity';
 import { ArcIFX } from './ifx';
 import { ArcMigrationCenter } from './migration-center';
+import { ArcProtoCenter } from './photo-center';
 import { ArcSales } from './sales';
 import { ArcSigningService } from './signing-service';
 import { ArcSite } from './site';
@@ -23,6 +24,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     Websked: new ArcWebsked(options),
     Content: new ArcContent(options),
     SigningService: new ArcSigningService(options),
+    PhotoCenter: new ArcProtoCenter(options),
   };
 
   return {

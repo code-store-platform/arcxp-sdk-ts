@@ -12,5 +12,6 @@ export * from './api/migration-center/types';
 export * from './api/sales/types';
 export * from './api/websked/types';
 export * from './api/content/types';
+export * from './api/photo-center/types';
 
 export { ArcAPI, WsClient, ContentElement, ContentElementType, ArcTypes, ArcError };
