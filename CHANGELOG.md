@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.9.0
+
+### Minor Changes
+
+- get user data
+
 ## 4.8.0
 
 ### Minor Changes
