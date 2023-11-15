@@ -1,11 +1,5 @@
-export type MigrateIdentityCustomAttributeType = {
-  name: string;
-  value: string;
-  type: 'String' | 'Number' | 'Date' | 'Boolean';
-};
-
 export type MigrateUserPayload = {
-  identities: UserIdentity[];
+  identities: IdentityRequestMigration[];
   profile: UserProfile;
   uuid?: string;
 };
@@ -41,6 +35,26 @@ export type GetUserResponse = {
     profile: UserProfile;
   }[];
 };
+
+export interface IdentityRequestMigration {
+  /**
+   * The login username for this user
+   *  userName can be set up equal to email
+   * @minLength 5
+   * @maxLength 100
+   * @example "john.doe@donotreply.com"
+   */
+  userName: string;
+  credentials: string;
+  /** The grantType of this request */
+  grantType?: 'password' | 'facebook' | 'google' | 'apple';
+  /**
+   * The date the user last logged on for this identity, Timestamp in milliseconds.
+   * @format date-time
+   * @example "1680779480000"
+   */
+  lastLoginDate?: string;
+}
 
 export interface UserIdentity {
   /**
@@ -190,9 +204,9 @@ export interface UserAddress {
   line1?: string;
   line2: string;
   locality: string;
-  region: string;
-  postal: string;
-  country: string;
+  region?: string;
+  postal?: string;
+  country?: string;
   /**
    * @description Type of address
    * @example WORK, HOME, PRIMARY, OTHER
