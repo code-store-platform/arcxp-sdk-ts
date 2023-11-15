@@ -1,6 +1,6 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "4.9.0",
+  "version": "4.10.0",
   "description": "A strongly typed set of ArcXP API's and utilities reduce the amount of work required to develop with ArcXP, starting with reducing the boilerplate code you have to write.",
   "type": "commonjs",
   "main": "./dist/index.js",
@@ -17,7 +17,8 @@
     "lint": "tsc --noEmit && TIMING=1 eslint \"src/**/*.ts*\"",
     "test": "vitest",
     "gen:ts": "npx ts-node-dev ./src/scripts/json-schema-to-ts.ts",
-    "cs": "npx changeset && npx changeset version"
+    "cs": "npx changeset && npx changeset version",
+    "swaggerToTypes": "npx swagger-typescript-api -p ./tmp/swagger.json -o ./tmp -n swaggerTypes.ts"
   },
   "keywords": [
     "ArcXP",

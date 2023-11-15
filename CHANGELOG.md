@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.10.0
+
+### Minor Changes
+
+- get user by email && patch user profile
+
 ## 4.9.0
 
 ### Minor Changes
