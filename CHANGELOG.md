@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.11.0
+
+### Minor Changes
+
+- PhotoCenter.uploadImageANS method added
+
 ## 4.10.0
 
 ### Minor Changes
