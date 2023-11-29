@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.12.0
+
+### Minor Changes
+
+- IFX v2 bundle endpoints
+
 ## 4.11.0
 
 ### Minor Changes

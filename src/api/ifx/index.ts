@@ -1,5 +1,14 @@
+import FormData from 'form-data';
+import { createReadStream } from 'fs';
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { AddSecretPayload, CreateIntegrationPayload, SubscribePayload, UpdateIntegrationPayload } from './types';
+import {
+  AddSecretPayload,
+  Bundle,
+  CreateIntegrationPayload,
+  GetBundlesResponse,
+  SubscribePayload,
+  UpdateIntegrationPayload,
+} from './types';
 
 export class ArcIFX extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -59,6 +68,34 @@ export class ArcIFX extends ArcAbstractAPI {
 
   async getSecrets(integrationName: string) {
     const { data } = await this.client.get(`/admin/secret?integrationName=${integrationName}`);
+    return data;
+  }
+
+  async getBundles(integrationName: string) {
+    const { data } = await this.client.get<GetBundlesResponse>(`/admin/bundles/${integrationName}`);
+    return data;
+  }
+
+  async uploadBundle(integrationName: string, name: string, bundlePath: string) {
+    const bundle = createReadStream(bundlePath);
+    const form = new FormData();
+
+    form.append('bundle', bundle);
+    form.append('name', name);
+
+    const { data } = await this.client.post<Bundle>(`/admin/bundles/${integrationName}`, form, {
+      headers: form.getHeaders(),
+    });
+    return data;
+  }
+
+  async deployBundle(integrationName: string, name: string) {
+    const { data } = await this.client.post<Bundle>(`/admin/bundles/${integrationName}/deploy/${name}`);
+    return data;
+  }
+
+  async promoteBundle(integrationName: string, version: number) {
+    const { data } = await this.client.post<Bundle>(`/admin/bundles/${integrationName}/promote/${version}`);
     return data;
   }
 }

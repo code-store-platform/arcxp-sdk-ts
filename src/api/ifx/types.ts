@@ -25,3 +25,21 @@ export type AddSecretPayload = {
   secretName: string;
   secretValue: string;
 };
+
+export type GetBundlesResponse = {
+  page: number;
+  pageSize: number;
+  totalCount: number;
+  results: Bundle[];
+};
+
+export type Bundle = {
+  name: string;
+  integrationName: string;
+  organizationId: string;
+  status: string;
+  uploadedOn: string;
+  deployVersion?: number;
+  deployedOn?: string;
+  promotedOn?: string;
+};
