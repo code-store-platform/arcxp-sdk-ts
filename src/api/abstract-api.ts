@@ -4,7 +4,7 @@ import rateLimit, { RateLimitedAxiosInstance } from 'axios-rate-limit';
 import { ArcError } from './error';
 
 export type ArcAbstractAPIOptions = {
-  credentials: { organizationName: string; accessToken: string; orgSiteEnv?: string };
+  credentials: { organizationName: string; accessToken: string };
   apiPath: string;
   maxRPS?: number;
 };
