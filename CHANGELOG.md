@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.13.0
+
+### Minor Changes
+
+- add redirect api
+
 ## 4.12.0
 
 ### Minor Changes

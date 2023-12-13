@@ -4,6 +4,7 @@ import { ArcContent } from './content';
 import { ArcDraft } from './draft';
 import { ArcIdentity } from './identity';
 import { ArcIFX } from './ifx';
+import { ArcRedirect } from './redirect';
 import { ArcMigrationCenter } from './migration-center';
 import { ArcProtoCenter } from './photo-center';
 import { ArcSales } from './sales';
@@ -18,6 +19,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     Draft: new ArcDraft(options),
     Identity: new ArcIdentity(options),
     IFX: new ArcIFX(options),
+    Redirect: new ArcRedirect(options),
     MigrationCenter: new ArcMigrationCenter(options),
     Sales: new ArcSales(options),
     Site: new ArcSite(options),

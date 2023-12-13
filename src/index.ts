@@ -8,6 +8,7 @@ export * from './api/identity/types';
 export * from './api/draft/types';
 export * from './api/site/types';
 export * from './api/ifx/types';
+export * from './api/redirect/types';
 export * from './api/migration-center/types';
 export * from './api/sales/types';
 export * from './api/websked/types';
