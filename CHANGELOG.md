@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.14.0
+
+### Minor Changes
+
+- Add soundcloud content element
+
 ## 4.13.0
 
 ### Minor Changes
