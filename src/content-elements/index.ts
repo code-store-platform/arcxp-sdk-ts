@@ -154,6 +154,17 @@ export const ContentElement = {
       type: 'reference' as const,
     };
   },
+  soundcloud: (id: string, provider = 'https://soundcloud.com/oembed.json/?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'soundcloud',
+      },
+      type: 'reference' as const,
+    };
+  },
   vimeo: (id: string, provider = 'https://vimeo.com/api/oembed.json?url=') => {
     return {
       referent: {
