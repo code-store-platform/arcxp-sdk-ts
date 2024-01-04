@@ -7,6 +7,14 @@ export type SectionReference = {
   };
 };
 
+export type SectionOrder = { default?: number; footer?: number; main_navigation?: number; header?: number } & {
+  [key: string]: number | undefined;
+};
+
+export type SectionParent = { default?: string; footer?: null | string; main_navigation?: string; header?: string } & {
+  [key: string]: string | undefined;
+};
+
 export type Section = {
   _id: string;
   site?: {
@@ -25,8 +33,8 @@ export type Section = {
   _admin?: { alias_ids: string[] };
   _website?: string;
   name: string;
-  order?: any;
-  parent?: { default?: string; footer?: null | string; header?: string };
+  order?: SectionOrder;
+  parent?: SectionParent;
   ancestors?: { default: []; footer: []; header: [] };
   inactive?: false;
   node_type?: 'section';
@@ -36,11 +44,11 @@ export type SetSection = {
   _id: string;
   website: string;
   name: string;
-  parent: { default: string; footer?: null | string; header: string };
   navigation?: { nav_title: string };
   _admin?: { alias_ids: string[] };
   ancestors?: string[];
-  order?: any;
+  order?: SectionOrder;
+  parent?: SectionParent;
   inactive?: false;
   site?: Partial<{
     site_url: null;
