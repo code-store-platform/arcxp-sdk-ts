@@ -19,4 +19,14 @@ export class ArcSales extends ArcAbstractAPI {
 
     return data;
   }
+
+  async getSubscriptionDetails(id: string, site: string) {
+    const response = await this.client.get(`/subscription/${id}/details`, { params: { site } });
+    return response.data;
+  }
+
+  async getAllSubscriptions(id: string, site: string) {
+    const response = await this.client.get('/subscription/all', { params: { site, id } });
+    return response.data;
+  }
 }
