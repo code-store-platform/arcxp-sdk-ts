@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.14.2
+
+### Patch Changes
+
+- author_type added to AuthorANS. Upd pnpm and node
+
 ## 4.14.1
 
 ### Patch Changes

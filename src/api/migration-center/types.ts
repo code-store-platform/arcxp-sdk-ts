@@ -12,6 +12,7 @@ export type AuthorANS = {
   byline: string;
   email: string;
   affiliations: string;
+  author_type?: string;
   education: { name: string }[];
   awards: { name: string }[];
   bio_page: string;
