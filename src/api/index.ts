@@ -12,6 +12,7 @@ import { ArcSigningService } from './signing-service';
 import { ArcSite } from './site';
 import { ArcWebsked } from './websked';
 import { WsClient } from './ws.client';
+import { GlobalSettings } from './global-settings';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
   const API = {
@@ -27,6 +28,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     Content: new ArcContent(options),
     SigningService: new ArcSigningService(options),
     PhotoCenter: new ArcProtoCenter(options),
+    GlobalSettings: new GlobalSettings(options),
   };
 
   return {

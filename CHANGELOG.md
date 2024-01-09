@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.15.0
+
+### Minor Changes
+
+- GlobalSettings API added
+
 ## 4.14.2
 
 ### Patch Changes

@@ -16,15 +16,20 @@ npm i @code.store/arcxp-sdk-ts
 
 #### API
 
+- Author
 - Draft
+- Identity
+- IFX
+- Redirect
+- Migration Center
+- Sales
 - Site
 - Websked
-- Identity
-- Sales
 - Retail Events (WebSockets)
-- Author
-- IFX
-- Migration Center
+- Content
+- Signing Service
+- PhotoCenter
+- Global Settings
 
 ##### Usage example
 
