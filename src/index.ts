@@ -3,6 +3,7 @@ import { ContentElement, ContentElementType } from './content-elements';
 import { WsClient } from './api/ws.client';
 import { ArcError } from './api/error';
 import * as ArcTypes from './types';
+import { ArcUtils } from './utils/arc';
 
 export * from './api/identity/types';
 export * from './api/draft/types';
@@ -16,4 +17,4 @@ export * from './api/content/types';
 export * from './api/photo-center/types';
 export * from './api/global-settings/types';
 
-export { ArcAPI, WsClient, ContentElement, ContentElementType, ArcTypes, ArcError };
+export { ArcAPI, ArcUtils, WsClient, ContentElement, ContentElementType, ArcTypes, ArcError };

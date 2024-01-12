@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.16.0
+
+### Minor Changes
+
+- batch of endpoints and ArcUtils
+
 ## 4.15.0
 
 ### Minor Changes

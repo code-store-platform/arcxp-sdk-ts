@@ -4,7 +4,7 @@ export type Distributor = {
   description: string;
   organizationId: string;
   archived: boolean;
-  category: string;
+  category?: 'staff' | 'wires' | 'freelance' | 'stock' | 'handout' | 'other';
   subcategory: string;
   allowAll: boolean;
   createdAt: string;

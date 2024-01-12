@@ -40,4 +40,9 @@ export class ArcDraft extends ArcAbstractAPI {
     const { data } = await this.client.post<R>(`/redirect/${website}/${websiteUrl}`, payload);
     return data;
   }
+
+  async getRedirect(website: string, websiteUrl: string) {
+    const { data } = await this.client.get<ExternalRedirect | DocumentRedirect>(`/redirect/${website}/${websiteUrl}`);
+    return data;
+  }
 }

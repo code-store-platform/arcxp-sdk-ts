@@ -1,13 +1,14 @@
 import FormData from 'form-data';
 import { AnImage } from '../../types/story';
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
+import { GetImagesParams, GetImagesResponse } from './types';
 
 export class ArcProtoCenter extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
     super({ ...options, apiPath: 'photo/api' });
   }
-  async getImageDataById(photoId: string): Promise<AnImage> {
-    const { data } = await this.client.get(`/v2/photos/${photoId}`);
+  async getImageDataById(imageId: string): Promise<AnImage> {
+    const { data } = await this.client.get(`/v2/photos/${imageId}`);
     return data;
   }
 
@@ -18,6 +19,16 @@ export class ArcProtoCenter extends ArcAbstractAPI {
       contentType: 'application/json',
     });
     const { data } = await this.client.post<AnImage>(`/v2/photos`, form, { headers: form.getHeaders() });
+    return data;
+  }
+
+  async deleteImage(imageId: string) {
+    const { data } = await this.client.delete(`/v2/photos/${imageId}`);
+    return data;
+  }
+
+  async getImages(params: GetImagesParams) {
+    const { data } = await this.client.get<GetImagesResponse>(`/v2/photos`, { params });
     return data;
   }
 }
