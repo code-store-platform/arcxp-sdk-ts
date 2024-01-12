@@ -1,6 +1,6 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "4.16.0",
+  "version": "4.16.1",
   "description": "A strongly typed set of ArcXP API's and utilities reduce the amount of work required to develop with ArcXP, starting with reducing the boilerplate code you have to write.",
   "type": "commonjs",
   "main": "./dist/index.js",
@@ -36,7 +36,7 @@
     "@changesets/cli": "^2.26.2",
     "axios": "^1.4.0",
     "axios-rate-limit": "^1.3.0",
-    "base32-encode": "^2.0.0",
+    "base32-encode": "^1.2.0",
     "form-data": "^4.0.0",
     "uuid": "^9.0.1",
     "ws": "^8.14.0"

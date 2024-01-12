@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.16.1
+
+### Patch Changes
+
+- fix base32-encode version
+
 ## 4.16.0
 
 ### Minor Changes
