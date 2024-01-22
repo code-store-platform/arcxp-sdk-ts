@@ -2,7 +2,8 @@
 import { ContentElement, ContentElementType } from '../../content-elements';
 
 const socialRegExps = {
-  instagram: /(?:https?:\/\/)?(?:www\.)?instagram\.com\/(?:p|reel)\/([^\/?#&]+)/,
+  instagram:
+    /(?:https?:\/\/)?(?:www.)?instagram.com\/?([a-zA-Z0-9\.\_\-]+)?\/([p]+)?([reel]+)?([tv]+)?([stories]+)?\/([a-zA-Z0-9\-\_\.]+)\/?([0-9]+)?/,
   twitter: /https:\/\/(?:www\.)?twitter\.com\/[^\/]+\/status(?:es)?\/(\d+)/,
   tiktok:
     /https:\/\/(?:m|www|vm)?\.?tiktok\.com\/((?:.*\b(?:(?:usr|v|embed|user|video)\/|\?shareId=|\&item_id=)(\d+))|\w+)/,

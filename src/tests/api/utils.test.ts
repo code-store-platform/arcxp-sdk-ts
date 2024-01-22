@@ -162,8 +162,62 @@ describe('Arc Utils', () => {
   describe('Instagram', () => {
     const urls = [
       {
-        input: 'https://www.instagram.com/reel/ABCDEFG123456',
-        output: 'https://www.instagram.com/reel/ABCDEFG123456',
+        input: 'https://www.instagram.com/p/CKYJRXVnwMO/?utm_source=ig_web_copy_link',
+        output: 'https://www.instagram.com/p/CKYJRXVnwMO/',
+      },
+      { input: 'instagram.com/p/CKYJRXVnwMO', output: 'instagram.com/p/CKYJRXVnwMO' },
+      { input: 'www.instagram.com/p/CKYJRXVnwMO', output: 'www.instagram.com/p/CKYJRXVnwMO' },
+      {
+        input: 'https://www.instagram.com/taiga765/p/CYS-O2Gr8xZ/?utm_medium=copy_link',
+        output: 'https://www.instagram.com/taiga765/p/CYS-O2Gr8xZ/',
+      },
+      {
+        input: 'https://www.instagram.com/y.uuno/p/CXR5ATPls5M/?utm_medium=copy_link',
+        output: 'https://www.instagram.com/y.uuno/p/CXR5ATPls5M/',
+      },
+      {
+        input: 'http://www.instagram.com/reel/CRftq6QgG89/?utm_source=ig_web_copy_link',
+        output: 'http://www.instagram.com/reel/CRftq6QgG89/',
+      },
+      { input: 'instagram.com/reel/CRftq6QgG89/', output: 'instagram.com/reel/CRftq6QgG89/' },
+      { input: 'www.instagram.com/reel/CRftq6QgG89/', output: 'www.instagram.com/reel/CRftq6QgG89/' },
+      {
+        input: 'https://www.instagram.com/reel/CXR2xvbgCKW/?utm_medium=copy_link',
+        output: 'https://www.instagram.com/reel/CXR2xvbgCKW/',
+      },
+      {
+        input: 'https://www.instagram.com/tv/CN4RZWGn5wS/?utm_source=ig_web_copy_link',
+        output: 'https://www.instagram.com/tv/CN4RZWGn5wS/',
+      },
+      { input: 'instagram.com/tv/CN4RZWGn5wS/', output: 'instagram.com/tv/CN4RZWGn5wS/' },
+      { input: 'www.instagram.com/tv/CN4RZWGn5wS/', output: 'www.instagram.com/tv/CN4RZWGn5wS/' },
+      {
+        input: 'https://www.instagram.com/stories/sintha_tatha/2725190842360050880/',
+        output: 'https://www.instagram.com/stories/sintha_tatha/2725190842360050880',
+      },
+      {
+        input: 'https://www.instagram.com/stories/urkawaiibae/2725982322342818754/',
+        output: 'https://www.instagram.com/stories/urkawaiibae/2725982322342818754',
+      },
+      {
+        input: 'https://www.instagram.com/stories/willypangestu_/2725773180739197900/',
+        output: 'https://www.instagram.com/stories/willypangestu_/2725773180739197900',
+      },
+      {
+        input: 'https://www.instagram.com/stories/atrisna477769/',
+        output: 'https://www.instagram.com/stories/atrisna477769/',
+      },
+      {
+        input: 'https://www.instagram.com/stories/highlights/17910460144693951/',
+        output: 'https://www.instagram.com/stories/highlights/17910460144693951',
+      },
+      {
+        input: 'www.instagram.com/stories/highlights/17879710684406193/',
+        output: 'www.instagram.com/stories/highlights/17879710684406193',
+      },
+      {
+        input: 'instagram.com/stories/highlights/17879710684406193/',
+        output: 'instagram.com/stories/highlights/17879710684406193',
       },
     ];
 

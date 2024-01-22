@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.18.1
+
+### Patch Changes
+
+- fix instagram reg exp
+
 ## 4.18.0
 
 ### Minor Changes
