@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.17.0
+
+### Minor Changes
+
+- createSocial content utils added
+
 ## 4.16.1
 
 ### Patch Changes
