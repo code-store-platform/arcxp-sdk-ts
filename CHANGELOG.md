@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.18.0
+
+### Minor Changes
+
+- Facebook socials utils
+
 ## 4.17.0
 
 ### Minor Changes

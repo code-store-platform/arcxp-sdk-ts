@@ -6,6 +6,9 @@ const socialRegExps = {
   twitter: /https:\/\/(?:www\.)?twitter\.com\/[^\/]+\/status(?:es)?\/(\d+)/,
   tiktok:
     /https:\/\/(?:m|www|vm)?\.?tiktok\.com\/((?:.*\b(?:(?:usr|v|embed|user|video)\/|\?shareId=|\&item_id=)(\d+))|\w+)/,
+  facebookPost:
+    /https:\/\/www\.facebook\.com\/(photo(\.php|s)|permalink\.php|media|questions|notes|[^\/]+\/(activity|posts))[\/?].*$/,
+  facebookVideo: /https:\/\/www\.facebook\.com\/([^\/?].+\/)?video(s|\.php)[\/?].*/,
 };
 
 function match(url: string, regex: RegExp): string | undefined {
@@ -41,6 +44,14 @@ export function tiktokURLParser(url: string) {
   return match(url, socialRegExps.tiktok);
 }
 
+export function facebookVideoURLParser(url: string) {
+  return match(url, socialRegExps.facebookVideo);
+}
+
+export function facebookPostURLParser(url: string) {
+  return match(url, socialRegExps.facebookPost);
+}
+
 export function createSocial(url = ''): ContentElementType<'instagram' | 'tiktok' | 'youtube' | 'twitter'>[] {
   const embeds: ContentElementType<'instagram' | 'tiktok' | 'youtube' | 'twitter'>[] = [];
 
@@ -62,6 +73,16 @@ export function createSocial(url = ''): ContentElementType<'instagram' | 'tiktok
   const youtube = youtubeURLParser(url);
   if (youtube) {
     embeds.push(ContentElement.youtube(youtube));
+  }
+
+  const facebookPost = facebookPostURLParser(url);
+  if (facebookPost) {
+    embeds.push(ContentElement.facebook_post(facebookPost));
+  }
+
+  const facebookVideo = facebookVideoURLParser(url);
+  if (facebookVideo) {
+    embeds.push(ContentElement.facebook_video(facebookVideo));
   }
 
   return embeds;

@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, test, vi } from 'vitest';
 import { ArcUtils } from '../../utils/arc';
-import { createSocial, youtubeURLParser } from '../../utils/arc/content';
+import { createSocial } from '../../utils/arc/content';
 
 describe('Arc Utils', () => {
   const namespace = `${Date.now()}`;
@@ -172,6 +172,53 @@ describe('Arc Utils', () => {
         const [ce] = createSocial(url.input);
 
         expect(ce.referent.type).to.equal('instagram');
+        expect(ce.referent.id).toEqual(url.output);
+      });
+    }
+  });
+
+  describe('Facebook Video', () => {
+    const urls = [
+      { input: 'https://www.facebook.com/page-name/videos/1/', output: 'https://www.facebook.com/page-name/videos/1/' },
+      { input: 'https://www.facebook.com/username/videos/1/', output: 'https://www.facebook.com/username/videos/1/' },
+      { input: 'https://www.facebook.com/video.php?id=1', output: 'https://www.facebook.com/video.php?id=1' },
+      { input: 'https://www.facebook.com/video.php?v=1', output: 'https://www.facebook.com/video.php?v=1' },
+    ];
+
+    for (const url of urls) {
+      test(url.input, () => {
+        const [ce] = createSocial(url.input);
+
+        expect(ce.referent.type).to.equal('facebook-video');
+        expect(ce.referent.id).toEqual(url.output);
+      });
+    }
+  });
+
+  describe('Facebook Post', () => {
+    const urls = [
+      { input: 'https://www.facebook.com/page-name/posts/1', output: 'https://www.facebook.com/page-name/posts/1' },
+      { input: 'https://www.facebook.com/username/posts/1', output: 'https://www.facebook.com/username/posts/1' },
+      { input: 'https://www.facebook.com/username/activity/1', output: 'https://www.facebook.com/username/activity/1' },
+      { input: 'https://www.facebook.com/photo.php?fbid=1', output: 'https://www.facebook.com/photo.php?fbid=1' },
+      { input: 'https://www.facebook.com/photos/1', output: 'https://www.facebook.com/photos/1' },
+      {
+        input: 'https://www.facebook.com/permalink.php?story_fbid=1',
+        output: 'https://www.facebook.com/permalink.php?story_fbid=1',
+      },
+      { input: 'https://www.facebook.com/media/set?set=1', output: 'https://www.facebook.com/media/set?set=1' },
+      { input: 'https://www.facebook.com/questions/1', output: 'https://www.facebook.com/questions/1' },
+      {
+        input: 'https://www.facebook.com/notes/username/note-url/1',
+        output: 'https://www.facebook.com/notes/username/note-url/1',
+      },
+    ];
+
+    for (const url of urls) {
+      test(url.input, () => {
+        const [ce] = createSocial(url.input);
+
+        expect(ce.referent.type).to.equal('facebook-post');
         expect(ce.referent.id).toEqual(url.output);
       });
     }
