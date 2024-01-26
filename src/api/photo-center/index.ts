@@ -1,7 +1,7 @@
 import FormData from 'form-data';
 import { AnImage } from '../../types/story';
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { GetImagesParams, GetImagesResponse } from './types';
+import { GetGalleriesParams, GetGalleriesResponse, GetImagesParams, GetImagesResponse } from './types';
 
 export class ArcProtoCenter extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -27,8 +27,18 @@ export class ArcProtoCenter extends ArcAbstractAPI {
     return data;
   }
 
+  async deleteGallery(galleryId: string) {
+    const { data } = await this.client.delete(`/v2/galleries/${galleryId}`);
+    return data;
+  }
+
   async getImages(params: GetImagesParams) {
     const { data } = await this.client.get<GetImagesResponse>(`/v2/photos`, { params });
+    return data;
+  }
+
+  async getGalleries(params: GetGalleriesParams) {
+    const { data } = await this.client.get<GetGalleriesResponse>(`/v2//galleries`, { params });
     return data;
   }
 }

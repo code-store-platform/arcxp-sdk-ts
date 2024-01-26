@@ -1,3 +1,4 @@
+import { AGallery } from '../../types/gallery';
 import { AnImage } from '../../types/story';
 
 export type GetImagesParams = Partial<{
@@ -6,4 +7,11 @@ export type GetImagesParams = Partial<{
   limit: number;
 }>;
 
+export type GetGalleriesParams = Partial<{
+  offset: number;
+  limit: number;
+}>;
+
 export type GetImagesResponse = AnImage[];
+
+export type GetGalleriesResponse = AGallery[];

@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.19.0
+
+### Minor Changes
+
+- add some galleries endpoints
+
 ## 4.18.1
 
 ### Patch Changes
