@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.20.0
+
+### Minor Changes
+
+- getGallery added
+
 ## 4.19.0
 
 ### Minor Changes

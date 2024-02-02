@@ -2,6 +2,7 @@ import FormData from 'form-data';
 import { AnImage } from '../../types/story';
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
 import { GetGalleriesParams, GetGalleriesResponse, GetImagesParams, GetImagesResponse } from './types';
+import { AGallery } from '../../types/gallery';
 
 export class ArcProtoCenter extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -38,7 +39,12 @@ export class ArcProtoCenter extends ArcAbstractAPI {
   }
 
   async getGalleries(params: GetGalleriesParams) {
-    const { data } = await this.client.get<GetGalleriesResponse>(`/v2//galleries`, { params });
+    const { data } = await this.client.get<GetGalleriesResponse>(`/v2/galleries`, { params });
+    return data;
+  }
+
+  async getGallery(galleryId: string) {
+    const { data } = await this.client.get<AGallery>(`/v2/galleries/${galleryId}`);
     return data;
   }
 }
