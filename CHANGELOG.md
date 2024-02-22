@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.21.0
+
+### Minor Changes
+
+- CountRequest params added
+
 ## 4.20.0
 
 ### Minor Changes

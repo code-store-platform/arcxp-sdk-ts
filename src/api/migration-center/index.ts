@@ -7,6 +7,7 @@ import {
   DetailReportRequest,
   SummaryReportRequest,
   DetailReport,
+  CountRequest,
 } from './types';
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
 import { stringify } from 'querystring';
@@ -26,8 +27,13 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
     return data;
   }
 
-  async count() {
-    const { data } = await this.client.get<Count>('/report/status/count');
+  async count(params?: CountRequest) {
+    const { data } = await this.client.get<Count>('/report/status/count', {
+      params: {
+        startDate: params?.startDate?.toISOString(),
+        endDate: params?.endDate?.toISOString(),
+      },
+    });
     return data;
   }
 

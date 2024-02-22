@@ -152,6 +152,11 @@ export type DetailReportRequest = {
   documentType?: string;
 };
 
+export type CountRequest = {
+  startDate?: Date;
+  endDate?: Date;
+};
+
 export type SummaryReportRequest = {
   status?: MigrationStatus;
   website: string;
