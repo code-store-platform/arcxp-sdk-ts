@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.21.1
+
+### Patch Changes
+
+- add pagination to the ArcMigrationCenter.summary
+
 ## 4.21.0
 
 ### Minor Changes

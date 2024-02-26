@@ -18,8 +18,10 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
   }
 
   async summary(params?: SummaryReportRequest) {
-    const { data } = await this.client.get<Summary>(`/report/summary?${stringify(params)}`);
-    return data;
+    const { data, headers } = await this.client.get<Summary>(`/report/summary?${stringify(params)}`);
+    const nextFromId: string | undefined = headers['amc-record-id'];
+
+    return { records: data, nextFromId };
   }
 
   async detailed(params?: DetailReportRequest) {
