@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.22.0
+
+### Minor Changes
+
+- Add tags api
+
 ## 4.21.1
 
 ### Patch Changes

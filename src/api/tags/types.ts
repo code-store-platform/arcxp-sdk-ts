@@ -10,15 +10,24 @@ export type Tag = {
   path: string;
 };
 
-export type TagParams = {
-  term: string;
+export type GetTagsParams = {
+  term?: string;
+   /**
+   *  Should always set to /.
+   */
+  path?: string;
+  /**
+  *  Limit the number of items to return. Does not currently work. Check the documentation
+  */
+  size?: number;
+
 };
 
 export type DeleteTagParams = {
   path: string;
 };
 
-export type TagsResponse = {
+export type GetTagsResponse = {
   StatusCode: 200 | 400;
   Payload: {
     items: Tag[];
@@ -31,7 +40,7 @@ export type TagsResponse = {
 /**
  * Create new tags. The maximum limit per request is 25 tags or 16 MB of data.
  */
-export type MigrateBatchTags = {
+export type AddTagRequest = {
   slug: string;
   name: string;
   description?: string;
@@ -39,4 +48,4 @@ export type MigrateBatchTags = {
 /**
  * Delete tags. The maximum limit per request is 25 tags or 16 MB of data.
  */
-export type DeleteBatchTags = string[];
+export type DeleteTagRequest = string[];
