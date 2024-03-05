@@ -10,12 +10,12 @@ export class ArcTags extends ArcAbstractAPI {
     return data;
   }
 
-  async migrateBatch(payload: AddTagRequest) {
+  async addTags(payload: AddTagRequest) {
     const { data } = await this.client.post(`/add`, payload);
     return data;
   }
 
-  async deleteBatch(payload: DeleteTagRequest) {
+  async deleteTags(payload: DeleteTagRequest) {
     const { data } = await this.client.post(`/delete`, payload);
     return data;
   }

@@ -23,10 +23,6 @@ export type GetTagsParams = {
 
 };
 
-export type DeleteTagParams = {
-  path: string;
-};
-
 export type GetTagsResponse = {
   StatusCode: 200 | 400;
   Payload: {
