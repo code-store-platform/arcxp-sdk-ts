@@ -33,6 +33,19 @@ export type GetTagsResponse = {
   };
 };
 
+export type AddTagsResponse = {
+  StatusCode: 200 | 400;
+  Payload: {
+    message?: string
+  };
+}
+export type DeleteTagsResponse = {
+  StatusCode: 200 | 400;
+  Payload: {
+    message?: string
+  };
+}
+
 /**
  * Create new tags. The maximum limit per request is 25 tags or 16 MB of data.
  */

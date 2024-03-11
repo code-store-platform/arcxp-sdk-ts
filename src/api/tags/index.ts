@@ -1,5 +1,12 @@
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { DeleteTagRequest, GetTagsParams, AddTagRequest, GetTagsResponse } from './types';
+import {
+  DeleteTagRequest,
+  GetTagsParams,
+  AddTagRequest,
+  GetTagsResponse,
+  AddTagsResponse,
+  DeleteTagsResponse,
+} from './types';
 
 export class ArcTags extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -11,12 +18,12 @@ export class ArcTags extends ArcAbstractAPI {
   }
 
   async addTags(payload: AddTagRequest) {
-    const { data } = await this.client.post(`/add`, payload);
+    const { data } = await this.client.post<AddTagsResponse>(`/add`, payload);
     return data;
   }
 
   async deleteTags(payload: DeleteTagRequest) {
-    const { data } = await this.client.post(`/delete`, payload);
+    const { data } = await this.client.post<DeleteTagsResponse>(`/delete`, payload);
     return data;
   }
 }
