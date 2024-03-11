@@ -16,5 +16,6 @@ export * from './api/websked/types';
 export * from './api/content/types';
 export * from './api/photo-center/types';
 export * from './api/global-settings/types';
+export * from './api/tags/types';
 
 export { ArcAPI, ArcUtils, WsClient, ContentElement, ContentElementType, ArcTypes, ArcError };
