@@ -29,6 +29,11 @@ export class ArcDraft extends ArcAbstractAPI {
     return data;
   }
 
+  async getPublishedRevision(id: string, type = 'story') {
+    const { data } = await this.client.delete<Revision>(`/${type}/${id}/revision/published`);
+    return data;
+  }
+
   async createRedirect<
     P extends CreateRedirectPayload,
     R = P extends CreateExternalRedirectPayload
