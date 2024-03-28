@@ -30,7 +30,7 @@ export class ArcDraft extends ArcAbstractAPI {
   }
 
   async getPublishedRevision(id: string, type = 'story') {
-    const { data } = await this.client.delete<Revision>(`/${type}/${id}/revision/published`);
+    const { data } = await this.client.get<Revision>(`/${type}/${id}/revision/published`);
     return data;
   }
 

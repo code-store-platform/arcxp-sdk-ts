@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.23.1
+
+### Patch Changes
+
+- fix getPublishedRevision
+
 ## 4.23.0
 
 ### Minor Changes
