@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.24.0
+
+### Minor Changes
+
+- PhotoCenter.updateImage added
+
 ## 4.23.1
 
 ### Patch Changes
