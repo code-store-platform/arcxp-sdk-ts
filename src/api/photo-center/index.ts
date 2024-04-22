@@ -47,4 +47,9 @@ export class ArcProtoCenter extends ArcAbstractAPI {
     const { data } = await this.client.get<AGallery>(`/v2/galleries/${galleryId}`);
     return data;
   }
+
+  async updateImage(imageId: string, photoDto: AnImage) {
+    const { data } = await this.client.put<AnImage>(`/v2/photos/${imageId}`, { data: photoDto });
+    return data;
+  }
 }

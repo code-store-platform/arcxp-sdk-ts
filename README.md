@@ -30,6 +30,7 @@ npm i @code.store/arcxp-sdk-ts
 - Signing Service
 - PhotoCenter
 - Global Settings
+- Tags
 
 ##### Usage example
 
