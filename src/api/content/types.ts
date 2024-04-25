@@ -26,4 +26,7 @@ export type SearchParams = {
 export type SearchResponse = {
   type: 'results';
   content_elements: (AStory | AGallery | ARedirectObject)[];
+  count: number;
+  next?: number;
+  previous?: number;
 };
