@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.24.1
+
+### Patch Changes
+
+- Add next, count & previous fields in search response type
+
 ## 4.24.0
 
 ### Minor Changes
