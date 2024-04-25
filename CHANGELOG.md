@@ -4,7 +4,7 @@
 
 ### Patch Changes
 
-- Add next & previous fields in search response type
+- Add next, count & previous fields in search response type
 
 ## 4.24.0
 
