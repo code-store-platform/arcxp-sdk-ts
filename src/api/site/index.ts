@@ -1,6 +1,6 @@
 import { Section, SetSection } from '../../types/section';
 import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { GetSectionsResponse, Website } from './types';
+import { GetLinksParams, GetLinksResponse, GetSectionsResponse, Link, Website } from './types';
 
 export class ArcSite extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -33,6 +33,24 @@ export class ArcSite extends ArcAbstractAPI {
 
   async getWebsites() {
     const { data } = await this.client.get<Website[]>('/website');
+
+    return data;
+  }
+
+  async putLink(link: Link) {
+    const { data } = await this.client.put<Link>(`/website/${link._website}/link/${link._id}`, link);
+
+    return data;
+  }
+
+  async deleteLink(id: string, website: string) {
+    const { data } = await this.client.delete(`/website/${website}/link/${id}`);
+
+    return data;
+  }
+
+  async getLinks(params: GetLinksParams) {
+    const { data } = await this.client.get<GetLinksResponse>(`/website/${params.website}/link`, { params });
 
     return data;
   }

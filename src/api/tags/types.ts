@@ -10,17 +10,28 @@ export type Tag = {
   path: string;
 };
 
-export type GetTagsParams = {
+export type SearchTagsParams = {
   term?: string;
-   /**
+  /**
    *  Should always set to /.
    */
   path?: string;
   /**
-  *  Limit the number of items to return. Does not currently work. Check the documentation
-  */
+   *  Limit the number of items to return. Does not currently work. Check the documentation
+   */
   size?: number;
+};
 
+export type GetAllTagsParams = {
+  from?: string;
+  /**
+   *  Should always set to /.
+   */
+  path?: string;
+  /**
+   *  Limit the number of items to return. Does not currently work. Check the documentation
+   */
+  size?: number;
 };
 
 export type GetTagsResponse = {
@@ -36,15 +47,15 @@ export type GetTagsResponse = {
 export type AddTagsResponse = {
   StatusCode: 200 | 400;
   Payload: {
-    message?: string
+    message?: string;
   };
-}
+};
 export type DeleteTagsResponse = {
   StatusCode: 200 | 400;
   Payload: {
-    message?: string
+    message?: string;
   };
-}
+};
 
 /**
  * Create new tags. The maximum limit per request is 25 tags or 16 MB of data.

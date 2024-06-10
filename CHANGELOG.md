@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.25.0
+
+### Minor Changes
+
+- new Author, Site, Tag methods
+
 ## 4.24.1
 
 ### Patch Changes

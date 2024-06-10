@@ -15,3 +15,22 @@ export type GetSectionsResponse = {
   total_count: number;
   q_results: Section[];
 };
+
+export type Link = {
+  _id: string;
+  _website: string;
+  url: string;
+  display_name: string;
+  parent: Record<string, string | number | boolean>;
+  order: Record<string, string | number | boolean>;
+};
+
+export type GetLinksParams = {
+  website: string;
+  offset?: number;
+  limit?: number;
+};
+
+export type GetLinksResponse = {
+  q_results: Link[];
+};
