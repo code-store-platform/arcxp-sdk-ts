@@ -5,6 +5,7 @@ export type GetStoryParams = {
   _id: string;
   published: boolean;
   website: string;
+  included_fields?: string;
 };
 
 export type SearchParams = {

@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.25.1
+
+### Patch Changes
+
+- add included_fields param in getStory
+
 ## 4.25.0
 
 ### Minor Changes

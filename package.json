@@ -1,6 +1,6 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "4.25.0",
+  "version": "4.25.1",
   "description": "A strongly typed set of ArcXP API's and utilities reduce the amount of work required to develop with ArcXP, starting with reducing the boilerplate code you have to write.",
   "type": "commonjs",
   "main": "./dist/index.js",
