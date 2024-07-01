@@ -5,6 +5,9 @@ export type GetImagesParams = Partial<{
   primaryWebsite: string;
   offset: number;
   limit: number;
+  source: string;
+  sourceName: string;
+  sourceType: string;
 }>;
 
 export type GetGalleriesParams = Partial<{

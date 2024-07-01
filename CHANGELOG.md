@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.25.2
+
+### Patch Changes
+
+- add some params to getImages method
+
 ## 4.25.1
 
 ### Patch Changes
