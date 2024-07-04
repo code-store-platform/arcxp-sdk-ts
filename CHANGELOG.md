@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.26.1
+
+### Patch Changes
+
+- upd lock file
+
 ## 4.26.0
 
 ### Minor Changes
