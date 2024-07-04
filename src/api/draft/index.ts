@@ -34,6 +34,11 @@ export class ArcDraft extends ArcAbstractAPI {
     return data;
   }
 
+  async getDraftRevision(id: string, type = 'story') {
+    const { data } = await this.client.get<Revision>(`/${type}/${id}/revision/draft`);
+    return data;
+  }
+
   async createRedirect<
     P extends CreateRedirectPayload,
     R = P extends CreateExternalRedirectPayload

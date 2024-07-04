@@ -14,6 +14,7 @@ import { ArcWebsked } from './websked';
 import { WsClient } from './ws.client';
 import { GlobalSettings } from './global-settings';
 import { ArcTags } from './tags';
+import { ArcContentOps } from './content-ops';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
   const API = {
@@ -31,6 +32,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     PhotoCenter: new ArcProtoCenter(options),
     GlobalSettings: new GlobalSettings(options),
     Tags: new ArcTags(options),
+    ContentOps: new ArcContentOps(options),
   };
 
   return {

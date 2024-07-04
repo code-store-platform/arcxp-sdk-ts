@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.26.0
+
+### Minor Changes
+
+- add ContentOps API
+
 ## 4.25.2
 
 ### Patch Changes
