@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.27.1
+
+### Patch Changes
+
+- fix updateDraftRevision url
+
 ## 4.27.0
 
 ### Minor Changes

@@ -58,7 +58,7 @@ export class ArcDraft extends ArcAbstractAPI {
   }
 
   async updateDraftRevision(id: string, payload: UpdateDraftRevisionPayload, type = 'story') {
-    const { data } = await this.client.put<Revision>(`/draft/v1/${type}/${id}/revision/draft`, payload);
+    const { data } = await this.client.put<Revision>(`/${type}/${id}/revision/draft`, payload);
     return data;
   }
 }
