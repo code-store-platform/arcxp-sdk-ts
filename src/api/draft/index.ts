@@ -1,5 +1,5 @@
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import {
+import { ArcAbstractAPI, type ArcAPIOptions } from '../abstract-api';
+import type {
   CreateDocumentRedirectPayload,
   CreateExternalRedirectPayload,
   CreateRedirectPayload,
@@ -7,6 +7,7 @@ import {
   ExternalRedirect,
   Revision,
   Document,
+  UpdateDraftRevisionPayload,
 } from './types';
 
 export class ArcDraft extends ArcAbstractAPI {
@@ -53,6 +54,11 @@ export class ArcDraft extends ArcAbstractAPI {
 
   async getRedirect(website: string, websiteUrl: string) {
     const { data } = await this.client.get<ExternalRedirect | DocumentRedirect>(`/redirect/${website}/${websiteUrl}`);
+    return data;
+  }
+
+  async updateDraftRevision(id: string, payload: UpdateDraftRevisionPayload, type = 'story') {
+    const { data } = await this.client.put<Revision>(`/draft/v1/${type}/${id}/revision/draft`, payload);
     return data;
   }
 }

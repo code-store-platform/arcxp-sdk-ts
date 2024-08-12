@@ -11,10 +11,10 @@ import { ArcSales } from './sales';
 import { ArcSigningService } from './signing-service';
 import { ArcSite } from './site';
 import { ArcWebsked } from './websked';
-import { WsClient } from './ws.client';
 import { GlobalSettings } from './global-settings';
 import { ArcTags } from './tags';
 import { ArcContentOps } from './content-ops';
+import { ArcRetailEvents } from './retail-events';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
   const API = {
@@ -40,12 +40,6 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     setMaxRPS: (rps: number) => {
       Object.values(API).forEach((a) => a.setMaxRPS(rps));
     },
-    RetailEvents: (index: '0' | '1' | 'string' = '0') => {
-      const address = `wss://api.${options.credentials.organizationName}.arcpublishing.com/retail/api/v1/event/stream/${index}`;
-      const headers = {
-        Authorization: `Bearer ${options.credentials.accessToken}`,
-      };
-      return new WsClient(address, { headers });
-    },
+    RetailEvents: new ArcRetailEvents(options),
   };
 };
