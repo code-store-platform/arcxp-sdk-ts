@@ -1,4 +1,6 @@
-import { Alignment, AnImage } from '../types/story';
+import type { Alignment, AnImage, AnElementThatCanBeListedAsPartOfContentElements } from '../types/story';
+
+export type CElement = AnElementThatCanBeListedAsPartOfContentElements;
 
 export type ContentElementType<T extends keyof typeof ContentElement> = ReturnType<(typeof ContentElement)[T]>;
 
@@ -15,20 +17,15 @@ export const ContentElement = {
       alignment,
     };
   },
-  quote: (content: string, citationContent = '', subtype: 'blockquote' | 'pullquote' = 'pullquote') => {
+  quote: (items: CElement[], citation = '', subtype: 'blockquote' | 'pullquote' = 'pullquote') => {
     return {
       type: 'quote' as const,
       subtype,
       citation: {
         type: 'text' as const,
-        content: citationContent,
+        content: citation,
       },
-      content_elements: [
-        {
-          content,
-          type: 'text' as const,
-        },
-      ],
+      content_elements: items,
     };
   },
   interstitial_link: (url: string, content: string) => {
@@ -60,16 +57,11 @@ export const ContentElement = {
       },
     };
   },
-  list: (type: 'ordered' | 'unordered', items: string[]) => {
+  list: (type: 'ordered' | 'unordered', items: CElement[]) => {
     return {
       type: 'list' as const,
       list_type: type,
-      items: items.map((content) => {
-        return {
-          type: 'text' as const,
-          content,
-        };
-      }),
+      items,
     };
   },
   link_list: (title: string, links: { content: string; url: string }[]) => {

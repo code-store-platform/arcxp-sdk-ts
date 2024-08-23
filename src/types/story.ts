@@ -12,7 +12,7 @@ export type GloballyUniqueIDTrait = string;
 /**
  * The version of ANS that this object was serialized as, in major.minor.patch format.  For top-level content objects, this is a required trait.
  */
-export type DescribesTheANSVersionOfThisObject = '0.10.9';
+export type DescribesTheANSVersionOfThisObject = '0.10.10';
 /**
  * A user-defined categorization method to supplement type. In Arc, this field is reserved for organization-defined purposes, such as selecting the PageBuilder template that should be used to render a document.
  */
@@ -354,7 +354,7 @@ export type VoiceTranscriptSConfigurationAndOutput = [
     subtype?: SubtypeOrTemplate;
     options: OptionsRequested;
     options_used?: OptionsUsed;
-    output?: HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109AudioJson;
+    output?: HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns01010AudioJson;
     [k: string]: unknown;
   },
   ...{
@@ -363,7 +363,7 @@ export type VoiceTranscriptSConfigurationAndOutput = [
     subtype?: SubtypeOrTemplate;
     options: OptionsRequested;
     options_used?: OptionsUsed;
-    output?: HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109AudioJson;
+    output?: HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns01010AudioJson;
     [k: string]: unknown;
   }[]
 ];
@@ -386,7 +386,7 @@ export type VoiceID1 = string;
 /**
  * Audio Content
  */
-export type HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109AudioJson = {
+export type HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns01010AudioJson = {
   type: 'audio';
   _id?: GloballyUniqueIDTrait;
   version: DescribesTheANSVersionOfThisObject;
@@ -828,7 +828,27 @@ export interface Taxonomy {
   auxiliaries?: Auxiliary[];
   tags?: Tag[];
   /**
-   * Deprecated in 0.10.9. (See `primary_section` instead.) A primary site object or reference to one. In the Arc ecosystem, a reference here is denormalized into a site from the arc-site-service.
+   * A list of categories.  Categories are overall, high-level classification of what the content is about.
+   */
+  categories?: Category[];
+  /**
+   * A list of topics. Topics are the subjects that the content is about.
+   */
+  content_topics?: ContentTopic[];
+  /**
+   * A list of entities. Entities are proper nouns, like people, places, and organizations.
+   */
+  entities?: Entity[];
+  /**
+   * A list of custom categories.  Categories are overall, high-level classification of what the content is about.
+   */
+  custom_categories?: CustomCategory[];
+  /**
+   * A list of custom entities. Entities are proper nouns, like people, places, and organizations.
+   */
+  custom_entities?: CustomEntity[];
+  /**
+   * Deprecated in 0.10.10. (See `primary_section` instead.) A primary site object or reference to one. In the Arc ecosystem, a reference here is denormalized into a site from the arc-site-service.
    */
   primary_site?:
     | Site
@@ -852,7 +872,7 @@ export interface Taxonomy {
         [k: string]: unknown;
       });
   /**
-   * Deprecated in 0.10.9. (See `sections` instead.) A list of site objects or references to them. In the Arc ecosystem, references in this list are denormalized into sites from the arc-site-service.  In a multi-site context, sites will be denormalized against an organization's default website only.
+   * Deprecated in 0.10.10. (See `sections` instead.) A list of site objects or references to them. In the Arc ecosystem, references in this list are denormalized into sites from the arc-site-service.  In a multi-site context, sites will be denormalized against an organization's default website only.
    */
   sites?: (
     | Site
@@ -989,6 +1009,115 @@ export interface Tag {
   slug?: Slug;
 }
 /**
+ * Models a category used in classifying a piece of content.
+ */
+export interface Category {
+  /**
+   * The unique ID for this category within its classifier.
+   */
+  _id: string;
+  /**
+   * The unique identifier for the classifier that matched this category.
+   */
+  classifier: string;
+  /**
+   * The human readable label for this category.
+   */
+  name: string;
+  /**
+   * The score assigned to this category between 0 and 1, where 1 is an exact match.
+   */
+  score?: number;
+}
+/**
+ * Models a keyword used in describing a piece of content.
+ */
+export interface ContentTopic {
+  /**
+   * The unique Wikidata ID for this topic.
+   */
+  _id: string;
+  /**
+   * A topic this piece of content is about.
+   */
+  label: string;
+  /**
+   * The score assigned to this topic between 0 and 1, where 1 is an exact match.
+   */
+  score: number;
+}
+/**
+ * Models a named entity (i.e. name of a person, place, or organization) used in a piece of content.
+ */
+export interface Entity {
+  /**
+   * The unique Wikidata ID for this entity.
+   */
+  _id?: string;
+  /**
+   * A unique identifier for a custom-defined entity.
+   */
+  custom_id?: string;
+  /**
+   * The actual string of text that was identified as a named entity.
+   */
+  label: string;
+  /**
+   * A description of what the named entity is. E.g. 'organization', 'person', or 'location'.
+   */
+  type?: string;
+  /**
+   * The score assigned to this entity between 0 and 1, where 1 is an exact match.
+   */
+  score?: number;
+}
+/**
+ * Models a category used in classifying a piece of content.
+ */
+export interface CustomCategory {
+  /**
+   * The unique ID for this category within its classifier.
+   */
+  _id: string;
+  /**
+   * The unique identifier for the classifier that matched this category.
+   */
+  classifier: string;
+  /**
+   * The human readable label for this category.
+   */
+  name: string;
+  /**
+   * The score assigned to this category between 0 and 1, where 1 is an exact match.
+   */
+  score?: number;
+}
+/**
+ * Models a named custom entity (i.e. name of a person, place, or organization) used in a piece of content.
+ */
+export interface CustomEntity {
+  /**
+   * The unique ID for this entity.
+   */
+  _id?: string;
+  /**
+   * A unique identifier for a custom-defined entity.
+   */
+  custom_id?: string;
+  /**
+   * The actual string of text that was identified as a named entity.
+   */
+  label: string;
+  /**
+   * A description of what the named entity is. E.g. 'organization', 'person', or 'location'.
+   */
+  type?: string;
+  /**
+   * The score assigned to this entity between 0 and 1, where 1 is an exact match.
+   */
+  score?: number;
+}
+/**
  * A hierarchical section or 'site' in a taxonomy. In the Arc ecosystem, these are stored in the arc-site-service.
  */
 export interface Site {
@@ -1061,7 +1190,7 @@ export interface PromoItems {
   basic?:
     | AContentObject
     | RepresentationOfANormalizedElement
-    | HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109StoryElementsRawHtmlJson
+    | HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns01010StoryElementsRawHtmlJson
     | CustomEmbed;
   /**
    * This interface was referenced by `PromoItems`'s JSON-Schema definition
@@ -1070,7 +1199,7 @@ export interface PromoItems {
   [k: string]:
     | AContentObject
     | RepresentationOfANormalizedElement
-    | HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109StoryElementsRawHtmlJson
+    | HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns01010StoryElementsRawHtmlJson
     | CustomEmbed
     | undefined;
 }
@@ -1138,7 +1267,7 @@ export interface Related_Content {
    * This interface was referenced by `Related_Content`'s JSON-Schema definition
    * via the `patternProperty` ".*".
    */
-  [k: string]: undefined | [ARedirectObject] | (AContentObject | RepresentationOfANormalizedElement | CustomEmbed)[];
+  [k: string]: (AContentObject | RepresentationOfANormalizedElement | CustomEmbed)[] | [ARedirectObject] | undefined;
 }
 /**
  * A redirect to another story.
@@ -1161,7 +1290,7 @@ export interface OwnerInformation {
    */
   id?: string;
   /**
-   * Deprecated in 0.10.9. See `distributor.name`. (Formerly: The human-readable name of original producer of content. Distinguishes between Wires, Staff and other sources.)
+   * Deprecated in 0.10.10. See `distributor.name`. (Formerly: The human-readable name of original producer of content. Distinguishes between Wires, Staff and other sources.)
    */
   name?: string;
   /**
@@ -1456,11 +1585,11 @@ export interface Source {
    */
   source_id?: string;
   /**
-   * Deprecated in 0.10.9. See `distributor.category` and `distributor.subcategory`. (Formerly: The method used to enter this content. E.g. 'staff', 'wires'.)
+   * Deprecated in 0.10.10. See `distributor.category` and `distributor.subcategory`. (Formerly: The method used to enter this content. E.g. 'staff', 'wires'.)
    */
   source_type?: string;
   /**
-   * Deprecated in  0.10.9. See `distributor.name`. (Formerly: The human-readable name of the organization who first produced this content. E.g., 'Reuters'.)
+   * Deprecated in  0.10.10. See `distributor.name`. (Formerly: The human-readable name of the organization who first produced this content. E.g., 'Reuters'.)
    */
   name?: string;
   /**
@@ -1616,7 +1745,7 @@ export interface Contributors {
 /**
  * An html content element
  */
-export interface HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns0109StoryElementsRawHtmlJson {
+export interface HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns01010StoryElementsRawHtmlJson {
   type: 'raw_html';
   _id?: GloballyUniqueIDTrait;
   subtype?: SubtypeOrTemplate;
