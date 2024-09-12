@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.29.0
+
+### Minor Changes
+
+- Draft.publishDocument method added
+
 ## 4.28.0
 
 ### Minor Changes

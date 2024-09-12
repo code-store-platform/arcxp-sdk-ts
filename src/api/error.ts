@@ -1,4 +1,4 @@
-import { AxiosError, InternalAxiosRequestConfig } from 'axios';
+import type { AxiosError, InternalAxiosRequestConfig } from 'axios';
 import { safeJSONStringify } from '../utils';
 
 export class ArcError extends Error {
@@ -14,6 +14,7 @@ export class ArcError extends Error {
     const ratelimitReset = e.response?.headers['arcpub-ratelimit-reset'];
     const data = {
       name: `${service}Error`,
+      message: e.message,
       responseData: e.response?.data,
       responseStatus: e.response?.status,
       responseConfig: e.response?.config,
@@ -26,5 +27,6 @@ export class ArcError extends Error {
     super(message);
 
     Object.assign(this, data);
+    this.stack = e.stack;
   }
 }

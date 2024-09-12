@@ -20,6 +20,11 @@ export class ArcDraft extends ArcAbstractAPI {
     return data.id;
   }
 
+  async publishDocument(id: string, type = 'story') {
+    const { data } = await this.client.post<Revision>(`/${type}/${id}/revision/published`);
+    return data;
+  }
+
   async unpublishDocument(id: string, type = 'story') {
     const { data } = await this.client.delete<Revision>(`/${type}/${id}/revision/published`);
     return data;
