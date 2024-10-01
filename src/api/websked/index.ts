@@ -4,7 +4,8 @@ import {
   CreateTaskResponse,
   GetPublicationsResponse,
   ReportStatusChangePayload,
-  SectionStoriesPayload,
+  SectionEdition,
+  WebskedPublication,
 } from './types';
 
 export class ArcWebsked extends ArcAbstractAPI {
@@ -27,7 +28,7 @@ export class ArcWebsked extends ArcAbstractAPI {
     sectionId: string,
     timestamp: number,
     includeStories = true
-  ): Promise<SectionStoriesPayload> {
+  ): Promise<SectionEdition> {
     const { data } = await this.client.get(
       `/publications/${publicationId}/sections/${sectionId}/editions/${timestamp}`,
       { params: { includeStories } }
@@ -35,8 +36,25 @@ export class ArcWebsked extends ArcAbstractAPI {
     return data;
   }
 
+  async getSectionEditions(
+    publicationId: string,
+    sectionId: string,
+    startDate: number,
+    numEditions = 100
+  ): Promise<SectionEdition[]> {
+    const { data } = await this.client.get(`/publications/${publicationId}/sections/${sectionId}/editions`, {
+      params: { startDate, numEditions },
+    });
+    return data;
+  }
+
   async getPublications(nameRegex: string): Promise<GetPublicationsResponse> {
     const { data } = await this.client.get(`/publications`, { params: { nameRegex } });
+    return data;
+  }
+
+  async getPublicationById(publicationId: string): Promise<WebskedPublication> {
+    const { data } = await this.client.get(`/publications/${publicationId}`);
     return data;
   }
 }

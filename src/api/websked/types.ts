@@ -194,7 +194,7 @@ export interface WebskedStoryImage {
   location: (string | null)[];
 }
 
-export type SectionStoriesPayload = {
+export type SectionEdition = {
   id: string;
   publicationId: string;
   sectionId: string;
@@ -207,6 +207,8 @@ export type SectionStoriesPayload = {
   storyIds: string[];
   stories?: WebskedStory[];
 };
+
+export type SectionStoriesPayload = SectionEdition;
 
 export interface WebskedPublication {
   createdDate: number;
