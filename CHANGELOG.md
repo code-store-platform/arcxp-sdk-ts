@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.30.0
+
+### Minor Changes
+
+- websked get editions & get publication by id
+
 ## 4.29.0
 
 ### Minor Changes
