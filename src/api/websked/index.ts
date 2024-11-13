@@ -33,7 +33,6 @@ export class ArcWebsked extends ArcAbstractAPI {
     const { data } = await this.client.get(`/publications/${publicationId}/editionTimes`, {
       params: { startDate, endDate, numEditions },
     });
-    console.log(data);
     return data;
   }
 
