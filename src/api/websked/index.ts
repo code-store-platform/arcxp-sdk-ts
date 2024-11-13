@@ -2,6 +2,7 @@ import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
 import {
   CreateTaskPayload,
   CreateTaskResponse,
+  GetEditionTimesResponse,
   GetPublicationsResponse,
   ReportStatusChangePayload,
   SectionEdition,
@@ -20,6 +21,18 @@ export class ArcWebsked extends ArcAbstractAPI {
 
   async createTask(payload: CreateTaskPayload): Promise<CreateTaskResponse> {
     const { data } = await this.client.post('/tasks', payload);
+    return data;
+  }
+
+  async getEditionTimes(
+    publicationId: string,
+    startDate: number,
+    endDate: number,
+    numEditions = 1
+  ): Promise<GetEditionTimesResponse> {
+    const { data } = await this.client.get(`/publications/${publicationId}/editionTimes`, {
+      params: { startDate, endDate, numEditions },
+    });
     return data;
   }
 

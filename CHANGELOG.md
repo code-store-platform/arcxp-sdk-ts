@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.31.0
+
+### Minor Changes
+
+- ArcAPI.Content.getStoriesByIds & ArcAPI.Websked.getEditionTimes
+
 ## 4.30.0
 
 ### Minor Changes
