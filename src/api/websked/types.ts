@@ -234,3 +234,8 @@ export type GetPublicationsResponse = {
   pageSize: number;
   results: WebskedPublication[];
 };
+
+export type GetEditionTimesResponse = {
+  sections: string[];
+  publicationTime: number;
+}[];

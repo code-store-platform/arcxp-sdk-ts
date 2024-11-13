@@ -8,6 +8,13 @@ export type GetStoryParams = {
   included_fields?: string;
 };
 
+export type GetStoriesByIdsParams = {
+  ids: string[];
+  published?: boolean;
+  website: string;
+  included_fields?: string;
+};
+
 export type SearchParams = {
   website: string;
   q?: string;
