@@ -6,6 +6,8 @@ import {
   Bundle,
   CreateIntegrationPayload,
   GetBundlesResponse,
+  GetSubscriptionsResponse,
+  Integration,
   SubscribePayload,
   UpdateIntegrationPayload,
 } from './types';
@@ -24,7 +26,7 @@ export class ArcIFX extends ArcAbstractAPI {
   }
 
   async getIntegrations() {
-    const { data } = await this.client.get('/admin/integrations');
+    const { data } = await this.client.get<Integration[]>('/admin/integrations');
     return data;
   }
 
@@ -53,8 +55,13 @@ export class ArcIFX extends ArcAbstractAPI {
     return data;
   }
 
+  async updateSubscription(payload: SubscribePayload) {
+    const { data } = await this.client.put('/admin/events/subscriptions', payload);
+    return data;
+  }
+
   async getSubscriptions() {
-    const { data } = await this.client.get('/admin/events/subscriptions');
+    const { data } = await this.client.get<GetSubscriptionsResponse>('/admin/events/subscriptions');
     return data;
   }
 

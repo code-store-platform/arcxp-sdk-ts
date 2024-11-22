@@ -20,6 +20,13 @@ export type SubscribePayload = {
   enabled: boolean;
 };
 
+export type EventSubscription = {
+  eventName: string;
+  enabled: boolean;
+  integrationEnabled: boolean;
+  integrationName: string;
+};
+
 export type AddSecretPayload = {
   integrationName: string;
   secretName: string;
@@ -33,6 +40,10 @@ export type GetBundlesResponse = {
   results: Bundle[];
 };
 
+export type GetSubscriptionsResponse = {
+  subscriptions: EventSubscription[];
+};
+
 export type Bundle = {
   name: string;
   integrationName: string;
@@ -42,4 +53,18 @@ export type Bundle = {
   deployVersion?: number;
   deployedOn?: string;
   promotedOn?: string;
+};
+
+export type Integration = {
+  ProvisionedConcurrencyMin: number;
+  Runtime: 'node';
+  Description: string;
+  ProvisionedConcurrencyMax: number;
+  ProvisionPAT: boolean;
+  IntegrationName: string;
+  Enabled: boolean;
+  OrganizationIntegrationName: string;
+  CreationDate: number;
+  DatadogEnabled: boolean;
+  OrganizationName: string;
 };

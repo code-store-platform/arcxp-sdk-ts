@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.31.1
+
+### Patch Changes
+
+- add types to IFX methods
+
 ## 4.31.0
 
 ### Minor Changes
