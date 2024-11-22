@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.32.0
+
+### Minor Changes
+
+- IFX.deleteIntegration added
+
 ## 4.31.2
 
 ### Patch Changes

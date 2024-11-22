@@ -25,6 +25,10 @@ export class ArcIFX extends ArcAbstractAPI {
     await this.client.put(`/admin/integration/${integrationName}`, payload);
   }
 
+  async deleteIntegration(integrationName: string) {
+    await this.client.delete(`/admin/integration/${integrationName}`);
+  }
+
   async getIntegrations() {
     const { data } = await this.client.get<Integration[]>('/admin/integrations');
     return data;
