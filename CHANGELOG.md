@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.31.2
+
+### Patch Changes
+
+- fix ifx create and update methods input
+
 ## 4.31.1
 
 ### Patch Changes

@@ -21,8 +21,8 @@ export class ArcIFX extends ArcAbstractAPI {
     await this.client.post('/admin/integration', payload);
   }
 
-  async updateIntegration(payload: UpdateIntegrationPayload) {
-    await this.client.put('/admin/integration', payload);
+  async updateIntegration(integrationName: string, payload: UpdateIntegrationPayload) {
+    await this.client.put(`/admin/integration/${integrationName}`, payload);
   }
 
   async getIntegrations() {

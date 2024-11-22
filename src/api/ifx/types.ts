@@ -2,16 +2,12 @@ export type CreateIntegrationPayload = {
   integrationName: string;
   description: string;
   email: string;
-  provisionPAT: boolean;
-  githubUsernames: string[];
   runtime: 'node';
 };
 
 export type UpdateIntegrationPayload = {
-  integrationName: string;
+  email: string;
   enabled: boolean;
-  githubUsernames: string[];
-  githubUserAction: 'add' | 'replace';
 };
 
 export type SubscribePayload = {
