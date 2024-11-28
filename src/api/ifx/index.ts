@@ -5,6 +5,7 @@ import {
   AddSecretPayload,
   Bundle,
   CreateIntegrationPayload,
+  GenereteDeleteTokenResponse,
   GetBundlesResponse,
   GetSubscriptionsResponse,
   Integration,
@@ -25,8 +26,14 @@ export class ArcIFX extends ArcAbstractAPI {
     await this.client.put(`/admin/integration/${integrationName}`, payload);
   }
 
-  async deleteIntegration(integrationName: string) {
-    await this.client.delete(`/admin/integration/${integrationName}`);
+  async deleteIntegration(integrationName: string, token: string) {
+    await this.client.delete(`/admin/integration/${integrationName}`, { params: { token } });
+  }
+
+  async generateDeleteIntegrationToken(integrationName: string) {
+    const response = await this.client.get<GenereteDeleteTokenResponse>(`/admin/integration/${integrationName}/token`);
+
+    return response.data;
   }
 
   async getIntegrations() {

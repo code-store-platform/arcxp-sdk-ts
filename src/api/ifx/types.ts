@@ -64,3 +64,7 @@ export type Integration = {
   DatadogEnabled: boolean;
   OrganizationName: string;
 };
+
+export type GenereteDeleteTokenResponse = {
+  deleteToken: string;
+};
