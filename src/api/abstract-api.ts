@@ -1,6 +1,6 @@
 import axios from 'axios';
+import rateLimit, { type RateLimitedAxiosInstance } from 'axios-rate-limit';
 import { AxiosResponseErrorInterceptor } from '../utils';
-import rateLimit, { RateLimitedAxiosInstance } from 'axios-rate-limit';
 import { ArcError } from './error';
 
 export type ArcAbstractAPIOptions = {

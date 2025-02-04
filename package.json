@@ -1,6 +1,6 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "4.32.1",
+  "version": "4.33.0",
   "description": "A strongly typed set of ArcXP API's and utilities reduce the amount of work required to develop with ArcXP, starting with reducing the boilerplate code you have to write.",
   "type": "commonjs",
   "main": "./dist/index.js",
@@ -13,22 +13,18 @@
     "url": "https://github.com/code-store-platform/arcxp-sdk-ts"
   },
   "homepage": "https://github.com/code-store-platform/arcxp-sdk-ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsc",
-    "lint": "tsc --noEmit && TIMING=1 eslint \"src/**/*.ts*\"",
+    "format": "npx @biomejs/biome format --write .",
+    "check": "npx @biomejs/biome check --write .",
+    "lint": "tsc --noEmit && npx @biomejs/biome lint --write --unsafe .",
     "test": "vitest",
     "gen:ts": "npx ts-node-dev ./src/scripts/json-schema-to-ts.ts",
     "cs": "npx changeset && npx changeset version",
     "swaggerToTypes": "npx swagger-typescript-api -p ./tmp/swagger.json -o ./tmp -n swaggerTypes.ts"
   },
-  "keywords": [
-    "ArcXP",
-    "SDK",
-    "Code.Store"
-  ],
+  "keywords": ["ArcXP", "SDK", "Code.Store"],
   "author": "code.store",
   "license": "MIT",
   "dependencies": {
@@ -40,16 +36,13 @@
     "ws": "^8.14.0"
   },
   "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "@types/node": "^20.0.0",
     "@types/tap": "^15.0.8",
     "@types/uuid": "^9.0.7",
     "@types/ws": "^8.5.5",
-    "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.47.1",
-    "eslint": "^8.31.0",
-    "eslint-config-custom-server": "*",
     "json-schema-to-typescript": "13.1.1",
     "openapi-typescript": "^6.2.7",
     "tap": "^16.3.4",

@@ -1,16 +1,15 @@
-import {
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type {
+  Count,
+  CountRequest,
+  DetailReport,
+  DetailReportRequest,
+  GetANSParams,
   PostANSParams,
   PostANSPayload,
-  GetANSParams,
   Summary,
-  Count,
-  DetailReportRequest,
   SummaryReportRequest,
-  DetailReport,
-  CountRequest,
 } from './types';
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { stringify } from 'querystring';
 
 export class ArcMigrationCenter extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -18,14 +17,14 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
   }
 
   async summary(params?: SummaryReportRequest) {
-    const { data, headers } = await this.client.get<Summary>(`/report/summary?${stringify(params)}`);
+    const { data, headers } = await this.client.get<Summary>('/report/summary', { params });
     const nextFromId: string | undefined = headers['amc-record-id'];
 
     return { records: data, nextFromId };
   }
 
   async detailed(params?: DetailReportRequest) {
-    const { data } = await this.client.get<DetailReport>(`/report/detail?${stringify(params)}`);
+    const { data } = await this.client.get<DetailReport>('/report/detail', { params });
     return data;
   }
 
@@ -40,16 +39,12 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
   }
 
   async postAns(params: PostANSParams, payload: PostANSPayload) {
-    const search = stringify(params);
-
-    const { data } = await this.client.post(`/content/ans?${search}`, payload);
+    const { data } = await this.client.post('/content/ans', payload, { params });
     return data;
   }
 
   async getAns(params: GetANSParams) {
-    const search = stringify(params);
-
-    const { data } = await this.client.get(`/content/ans?${search}`);
+    const { data } = await this.client.get('/content/ans', { params });
     return data;
   }
 }

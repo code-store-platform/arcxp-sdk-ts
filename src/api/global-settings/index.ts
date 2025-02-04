@@ -1,5 +1,5 @@
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { Distributor, GetDistributorsParams, GetDistributorsResponse, CreateDistributorPayload } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { CreateDistributorPayload, Distributor, GetDistributorsParams, GetDistributorsResponse } from './types';
 
 export class GlobalSettings extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -7,13 +7,13 @@ export class GlobalSettings extends ArcAbstractAPI {
   }
 
   async getDistributors(params?: GetDistributorsParams) {
-    const { data } = await this.client.get<GetDistributorsResponse>(`/distributor`, { params });
+    const { data } = await this.client.get<GetDistributorsResponse>('/distributor', { params });
 
     return data;
   }
 
   async createDistributors(payload: CreateDistributorPayload): Promise<Distributor> {
-    const { data } = await this.client.post(`/distributor`, payload);
+    const { data } = await this.client.post('/distributor', payload);
 
     return data;
   }

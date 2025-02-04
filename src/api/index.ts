@@ -1,20 +1,20 @@
-import { ArcAPIOptions } from './abstract-api';
+import type { ArcAPIOptions } from './abstract-api';
 import { ArcAuthor } from './author';
 import { ArcContent } from './content';
+import { ArcContentOps } from './content-ops';
 import { ArcDraft } from './draft';
+import { GlobalSettings } from './global-settings';
 import { ArcIdentity } from './identity';
 import { ArcIFX } from './ifx';
-import { ArcRedirect } from './redirect';
 import { ArcMigrationCenter } from './migration-center';
 import { ArcProtoCenter } from './photo-center';
+import { ArcRedirect } from './redirect';
+import { ArcRetailEvents } from './retail-events';
 import { ArcSales } from './sales';
 import { ArcSigningService } from './signing-service';
 import { ArcSite } from './site';
-import { ArcWebsked } from './websked';
-import { GlobalSettings } from './global-settings';
 import { ArcTags } from './tags';
-import { ArcContentOps } from './content-ops';
-import { ArcRetailEvents } from './retail-events';
+import { ArcWebsked } from './websked';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
   const API = {

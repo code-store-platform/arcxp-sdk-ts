@@ -3,7 +3,10 @@ import { Duration } from './duration';
 export type CacheItem<Data> = { data: Data; ttl: number; timer?: NodeJS.Timeout };
 
 export default class Cache<Data = any> {
-  public constructor(private ttl = Duration.minutes(1), private maxSize = 1000) {}
+  public constructor(
+    private ttl = Duration.minutes(1),
+    private maxSize = 1000
+  ) {}
 
   private cache: Record<string, CacheItem<Data>> = {};
 
@@ -19,7 +22,7 @@ export default class Cache<Data = any> {
     return Object.values(this.cache).map(({ data }) => data);
   }
 
-  public get(key: string): Data | void {
+  public get(key: string): Data | undefined {
     this.resetTimeout(key);
     return this.cache[key]?.data;
   }
@@ -46,11 +49,11 @@ export default class Cache<Data = any> {
     const item = this.cache[key];
     if (!item) return;
     if (item.timer) clearTimeout(item.timer);
-    ttl = ttl ?? item.ttl;
-    if (Number.isFinite(ttl)) {
+    const itemTtl = ttl ?? item.ttl;
+    if (Number.isFinite(itemTtl)) {
       item.timer = setTimeout(() => {
         this.del(key);
-      }, ttl);
+      }, itemTtl);
     }
   }
 

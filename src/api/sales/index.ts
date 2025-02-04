@@ -1,6 +1,6 @@
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
 import FormData from 'form-data';
-import { MigrateBatchSubscriptionsPayload, MigrateBatchSubscriptionsResponse } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { MigrateBatchSubscriptionsPayload, MigrateBatchSubscriptionsResponse } from './types';
 
 export class ArcSales extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

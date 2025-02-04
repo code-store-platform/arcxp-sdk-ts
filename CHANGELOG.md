@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.33.0
+
+### Minor Changes
+
+- video ans added, eslint replaced with biomejs
+
 ## 4.32.1
 
 ### Patch Changes

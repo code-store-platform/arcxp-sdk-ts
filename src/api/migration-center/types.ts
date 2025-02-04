@@ -1,6 +1,7 @@
-import { AGallery } from '../../types/gallery';
-import { SectionReference } from '../../types/section';
-import { AStory, AnImage, Tag } from '../../types/story';
+import type { AGallery } from '../../types/gallery';
+import type { SectionReference } from '../../types/section';
+import type { AStory, AnImage, Tag } from '../../types/story';
+import type { VideoContent } from '../../types/video';
 
 type TagANS = Tag & { name: string };
 
@@ -51,10 +52,12 @@ export type Operation = {
   endpoint: string;
 };
 
+export type ANSContent = AStory | AGallery | AnImage | AuthorANS | TagANS | VideoContent;
+
 export type PostANSPayload = {
   sourceId: string;
   sourceType: string;
-  ANS: AStory | AGallery | AnImage | AuthorANS | TagANS;
+  ANS: ANSContent;
   references?: unknown[];
   circulations?: CirculationReference[];
   operations?: Operation[];
@@ -133,7 +136,7 @@ export type SummaryRecord = {
   tags?: null;
 };
 
-export type DetailReport = SummaryRecord & { ansContent: AStory | AGallery | AnImage | AuthorANS | TagANS };
+export type DetailReport = SummaryRecord & { ansContent: ANSContent };
 
 export type Count = {
   historical: {

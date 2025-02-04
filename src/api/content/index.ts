@@ -1,7 +1,6 @@
-import { GetStoriesByIdsParams, GetStoryParams, SearchParams, SearchResponse } from './types';
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { AStory } from '../../types/story';
-import { stringify } from 'querystring';
+import type { AStory } from '../../types/story';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { GetStoriesByIdsParams, GetStoryParams, SearchParams, SearchResponse } from './types';
 
 export class ArcContent extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -9,22 +8,19 @@ export class ArcContent extends ArcAbstractAPI {
   }
 
   async getStory(params: GetStoryParams): Promise<AStory> {
-    const search = stringify(params);
-
-    const { data } = await this.client.get(`/stories?${search}`);
+    const { data } = await this.client.get('/stories', { params });
     return data;
   }
 
   async search(params: SearchParams): Promise<SearchResponse> {
-    const search = stringify(params);
-
-    const { data } = await this.client.get(`/search?${search}`);
+    const { data } = await this.client.get('/search', { params });
     return data;
   }
 
   async getStoriesByIds(params: GetStoriesByIdsParams): Promise<SearchResponse> {
-    const search = stringify({ ...params, ids: params.ids.join(',') });
-    const { data } = await this.client.get(`/ids?${search}`);
+    const { data } = await this.client.get('/ids', {
+      params: { ...params, ids: params.ids.join(',') },
+    });
     return data;
   }
 }

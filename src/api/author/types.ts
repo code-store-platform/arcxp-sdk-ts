@@ -1,4 +1,4 @@
-import { AuthorANS } from '../migration-center/types';
+import type { AuthorANS } from '../migration-center/types';
 
 export type ListAuthorsParams = Partial<{
   limit: number;

@@ -1,5 +1,5 @@
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import {
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type {
   CreateTaskPayload,
   CreateTaskResponse,
   GetEditionTimesResponse,
@@ -62,7 +62,7 @@ export class ArcWebsked extends ArcAbstractAPI {
   }
 
   async getPublications(nameRegex: string): Promise<GetPublicationsResponse> {
-    const { data } = await this.client.get(`/publications`, { params: { nameRegex } });
+    const { data } = await this.client.get('/publications', { params: { nameRegex } });
     return data;
   }
 

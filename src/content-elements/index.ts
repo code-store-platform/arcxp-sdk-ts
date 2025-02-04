@@ -1,4 +1,4 @@
-import type { Alignment, AnImage, AnElementThatCanBeListedAsPartOfContentElements } from '../types/story';
+import type { Alignment, AnElementThatCanBeListedAsPartOfContentElements, AnImage } from '../types/story';
 
 export type CElement = AnElementThatCanBeListedAsPartOfContentElements;
 

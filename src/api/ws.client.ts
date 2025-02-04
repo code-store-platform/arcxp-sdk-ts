@@ -6,11 +6,14 @@ export type Callback<Args extends any[] = any[]> = (...args: Args) => PromiseOr<
 export class WsClient {
   private socket?: ws.WebSocket;
 
-  constructor(private address: string, private readonly options: ws.ClientOptions) {}
+  constructor(
+    private address: string,
+    private readonly options: ws.ClientOptions
+  ) {}
 
   onOpen?: Callback<[]>;
   onMessage?: Callback<[any]>;
-  onClose?: Callback<[ws.CloseEvent | void]>;
+  onClose?: Callback<[ws.CloseEvent | undefined]>;
 
   async connect() {
     if (this.socket && this.socket.readyState === this.socket.OPEN) return;
@@ -27,7 +30,7 @@ export class WsClient {
       let message: Record<string, any>;
       try {
         message = JSON.parse(data.toString());
-      } catch (error) {
+      } catch {
         throw new Error('failed to parse message');
       }
 

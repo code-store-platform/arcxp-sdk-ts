@@ -1,5 +1,5 @@
-import { AGallery } from '../../types/gallery';
-import { ARedirectObject, AStory } from '../../types/story';
+import type { AGallery } from '../../types/gallery';
+import type { ARedirectObject, AStory } from '../../types/story';
 
 export type GetStoryParams = {
   _id: string;

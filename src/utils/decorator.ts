@@ -1,7 +1,7 @@
-import Cache from './cache';
+import type Cache from './cache';
 
 export function Cached(cache: Cache) {
-  return (target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor): void => {
+  return (_target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor): void => {
     const original = descriptor.value;
 
     descriptor.value = async function value(...args: any[]) {

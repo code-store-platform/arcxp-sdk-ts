@@ -1,5 +1,4 @@
-/* eslint-disable no-useless-escape */
-import { ContentElement, ContentElementType } from '../../content-elements';
+import { ContentElement, type ContentElementType } from '../../content-elements';
 
 const socialRegExps = {
   instagram:
@@ -18,7 +17,6 @@ function match(url: string, regex: RegExp): string | undefined {
 
 export function youtubeURLParser(url: string | null = '') {
   const regExp =
-    // eslint-disable-next-line no-useless-escape
     /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]vi?=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   const id = url?.match(regExp)?.[1];
   if (id) {

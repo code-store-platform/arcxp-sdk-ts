@@ -1,6 +1,6 @@
-import { Section, SetSection } from '../../types/section';
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { GetLinksParams, GetLinksResponse, GetSectionsResponse, Link, Website } from './types';
+import type { Section, SetSection } from '../../types/section';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { GetLinksParams, GetLinksResponse, GetSectionsResponse, Link, Website } from './types';
 
 export class ArcSite extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

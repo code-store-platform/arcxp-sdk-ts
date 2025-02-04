@@ -1,7 +1,7 @@
 import { ArcAPI } from './api';
-import { ContentElement, ContentElementType } from './content-elements';
-import { WsClient } from './api/ws.client';
 import { ArcError } from './api/error';
+import { WsClient } from './api/ws.client';
+import { ContentElement, ContentElementType } from './content-elements';
 import * as ArcTypes from './types';
 import { ArcUtils } from './utils/arc';
 

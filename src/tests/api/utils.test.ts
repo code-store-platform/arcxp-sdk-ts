@@ -33,7 +33,7 @@ describe('Arc Utils', () => {
 
     test('Different namespaces', () => {
       const id1 = ArcUtils.common.generateArcId('1', namespace);
-      const id2 = ArcUtils.common.generateArcId('1', namespace + '1');
+      const id2 = ArcUtils.common.generateArcId('1', `${namespace}1`);
 
       expect(id1).not.toEqual(id2);
     });

@@ -1,5 +1,5 @@
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { ListAuthorsParams, ListAuthorsResponse } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { ListAuthorsParams, ListAuthorsResponse } from './types';
 
 export class ArcAuthor extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -7,7 +7,7 @@ export class ArcAuthor extends ArcAbstractAPI {
   }
 
   async listAuthors(params?: ListAuthorsParams): Promise<ListAuthorsResponse> {
-    const { data } = await this.client.get(`/v2/author-service`, { params });
+    const { data } = await this.client.get('/v2/author-service', { params });
 
     return data;
   }

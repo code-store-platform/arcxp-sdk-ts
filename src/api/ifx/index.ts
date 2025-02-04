@@ -1,7 +1,7 @@
+import { createReadStream } from 'node:fs';
 import FormData from 'form-data';
-import { createReadStream } from 'fs';
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import {
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type {
   AddSecretPayload,
   Bundle,
   CreateIntegrationPayload,

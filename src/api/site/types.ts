@@ -1,4 +1,4 @@
-import { Section } from '../../types/section';
+import type { Section } from '../../types/section';
 
 export type Website = {
   _id: string;

@@ -1,4 +1,4 @@
-import { writeFileSync } from 'fs';
+import { writeFileSync } from 'node:fs';
 import { compileFromFile } from 'json-schema-to-typescript';
 
 const input = './input.json';

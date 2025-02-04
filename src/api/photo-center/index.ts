@@ -1,8 +1,8 @@
 import FormData from 'form-data';
-import { AnImage } from '../../types/story';
-import { ArcAbstractAPI, ArcAPIOptions } from '../abstract-api';
-import { GetGalleriesParams, GetGalleriesResponse, GetImagesParams, GetImagesResponse } from './types';
-import { AGallery } from '../../types/gallery';
+import type { AGallery } from '../../types/gallery';
+import type { AnImage } from '../../types/story';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { GetGalleriesParams, GetGalleriesResponse, GetImagesParams, GetImagesResponse } from './types';
 
 export class ArcProtoCenter extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -19,7 +19,7 @@ export class ArcProtoCenter extends ArcAbstractAPI {
       filename: 'ans.json',
       contentType: 'application/json',
     });
-    const { data } = await this.client.post<AnImage>(`/v2/photos`, form, { headers: form.getHeaders() });
+    const { data } = await this.client.post<AnImage>('/v2/photos', form, { headers: form.getHeaders() });
     return data;
   }
 
@@ -34,12 +34,12 @@ export class ArcProtoCenter extends ArcAbstractAPI {
   }
 
   async getImages(params: GetImagesParams) {
-    const { data } = await this.client.get<GetImagesResponse>(`/v2/photos`, { params });
+    const { data } = await this.client.get<GetImagesResponse>('/v2/photos', { params });
     return data;
   }
 
   async getGalleries(params: GetGalleriesParams) {
-    const { data } = await this.client.get<GetGalleriesResponse>(`/v2/galleries`, { params });
+    const { data } = await this.client.get<GetGalleriesResponse>('/v2/galleries', { params });
     return data;
   }
 
