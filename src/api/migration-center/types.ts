@@ -54,10 +54,10 @@ export type Operation = {
 
 export type ANSContent = AStory | AGallery | AnImage | AuthorANS | TagANS | VideoContent;
 
-export type PostANSPayload = {
+export type PostANSPayload<ANS extends ANSContent = ANSContent> = {
   sourceId: string;
   sourceType: string;
-  ANS: ANSContent;
+  ANS: ANS;
   references?: unknown[];
   circulations?: CirculationReference[];
   operations?: Operation[];

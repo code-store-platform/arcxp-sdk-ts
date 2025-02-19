@@ -1,9 +1,10 @@
-import { ArcAPI } from './api';
+import { ArcAPI, ArcAPIType } from './api';
 import { ArcError } from './api/error';
 import { WsClient } from './api/ws.client';
 import { ContentElement, ContentElementType } from './content-elements';
 import * as ArcTypes from './types';
 import { ArcUtils } from './utils/arc';
+import * as ArcAns from './ans';
 
 export * from './api/identity/types';
 export * from './api/draft/types';
@@ -19,4 +20,4 @@ export * from './api/global-settings/types';
 export * from './api/tags/types';
 export * from './api/content-ops/types';
 
-export { ArcAPI, ArcUtils, WsClient, ContentElement, ContentElementType, ArcTypes, ArcError };
+export { ArcAPI, ArcAPIType, ArcUtils, WsClient, ContentElement, ContentElementType, ArcTypes, ArcError, ArcAns };

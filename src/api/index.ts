@@ -43,3 +43,5 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     RetailEvents: new ArcRetailEvents(options),
   };
 };
+
+export type ArcAPIType = ReturnType<typeof ArcAPI>;

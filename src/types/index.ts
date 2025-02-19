@@ -3,3 +3,4 @@ export * as Story from './story';
 export * as Section from './section';
 export * as Gallery from './gallery';
 export * as Video from './video';
+export * as Utils from './utils';

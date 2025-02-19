@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.34.0
+
+### Minor Changes
+
+- Added abstract ArcDocument, ArcStory and ArcImage classes
+
 ## 4.33.0
 
 ### Minor Changes
