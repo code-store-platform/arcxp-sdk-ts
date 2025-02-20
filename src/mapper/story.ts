@@ -1,5 +1,6 @@
-import type { Story } from '../types';
-import { ArcDocument } from './doc';
+import type { ANSContent } from '../api/migration-center/types';
+import type * as Types from '../types';
+import { Document } from './doc';
 
 /**
  * Base class for all arc stories, it provides common methods and properties
@@ -18,11 +19,15 @@ import { ArcDocument } from './doc';
  *     }];
  * }
  */
-export abstract class ArcStory extends ArcDocument<Story.AStory> {
-  type = 'story' as const;
+export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends Document<ANS> {
+  type() {
+    return 'story' as const;
+  }
 
   async getAns() {
-    const id = this.arcId;
+    const id = await this.arcId();
+    const version = this.version();
+    const type = this.type();
     const publicationDate = this.getPublicationDate();
     const headlines = this.getHeadlines();
     const subheadlines = this.getSubheadlines();
@@ -38,13 +43,17 @@ export abstract class ArcStory extends ArcDocument<Story.AStory> {
     const promoItems = await this.getPromoItems();
     const contentElements = await this.getContentElements();
     const webskedStatusCode = await this.getWebskedStatusCode();
+    const websiteId = await this.websiteId();
+    const source = await this.getSource();
+    const comments = await this.getComments();
+    const legacyUrl = await this.legacyUrl();
 
     return {
-      type: this.type,
+      type,
       _id: id,
-      version: this.version,
-      website: this.websiteId,
-      canonical_website: this.websiteId,
+      version,
+      website: websiteId,
+      canonical_website: websiteId,
       language,
       subtype,
       label,
@@ -62,8 +71,8 @@ export abstract class ArcStory extends ArcDocument<Story.AStory> {
       first_publish_date: this.formatDate(publicationDate),
       publish_date: this.formatDate(publicationDate),
       display_date: this.formatDate(this.getDisplayDate()),
-      source: this.getSource(),
-      comments: this.getComments(),
+      source,
+      comments,
       taxonomy: {
         tags,
       },
@@ -72,8 +81,8 @@ export abstract class ArcStory extends ArcDocument<Story.AStory> {
       },
       content_elements: contentElements,
       additional_properties: {
-        url: this.legacyUrl,
+        url: legacyUrl,
       },
-    };
+    } as unknown as ANS;
   }
 }

@@ -12,7 +12,7 @@ import type { MaybePromise, Optional } from '../types/utils';
  *
  * To migrate it call .migrate() method
  */
-export abstract class ArcDocument<ANS extends ANSContent> {
+export abstract class Document<ANS extends ANSContent> {
   public ans: ANS | null = null;
   public circulations: CirculationReference[] = [];
 
@@ -20,19 +20,18 @@ export abstract class ArcDocument<ANS extends ANSContent> {
     // fetch necessary data and validate it here
   }
 
-  abstract get sourceId(): string;
-  abstract get sourceType(): string;
-  abstract get websiteId(): string;
-  abstract get legacyUrl(): string;
-  abstract get arcId(): string;
-  abstract get type(): string;
-  abstract get groupId(): string;
-  abstract get version(): ArcTypes.Story.DescribesTheANSVersionOfThisObject;
+  abstract sourceId(): MaybePromise<string>;
+  abstract sourceType(): MaybePromise<string>;
+  abstract websiteId(): MaybePromise<string>;
+  abstract legacyUrl(): MaybePromise<string>;
+  abstract arcId(): MaybePromise<string>;
+  abstract type(): MaybePromise<string>;
+  abstract groupId(): MaybePromise<string>;
+  abstract version(): ArcTypes.Story.DescribesTheANSVersionOfThisObject;
 
   abstract getAns(): MaybePromise<ANS>;
-  abstract post(params: PostANSParams, payload: PostANSPayload): Promise<void>;
 
-  async migrate(): Promise<{
+  async prepare(): Promise<{
     params: PostANSParams;
     payload: PostANSPayload<ANS>;
   }> {
@@ -40,8 +39,6 @@ export abstract class ArcDocument<ANS extends ANSContent> {
 
     const payload = await this.payload();
     const params = await this.params();
-
-    await this.post(params, payload);
 
     return { payload, params };
   }
@@ -51,27 +48,27 @@ export abstract class ArcDocument<ANS extends ANSContent> {
     this.circulations = await this.getCirculations();
 
     return {
-      sourceId: this.sourceId,
-      sourceType: this.sourceType,
+      sourceId: await this.sourceId(),
+      sourceType: await this.sourceType(),
       ANS: this.ans,
       circulations: this.circulations,
-      arcAdditionalProperties: this.additionalProperties,
+      arcAdditionalProperties: this.additionalProperties(),
     };
   }
 
   private async params(): Promise<PostANSParams> {
-    if (!this.websiteId) {
+    if (!this.websiteId()) {
       throw new Error('Website is not initialized! get params() should be called after payload()!');
     }
 
     return {
-      website: this.websiteId,
-      groupId: this.groupId,
-      priority: this.priority,
+      website: await this.websiteId(),
+      groupId: await this.groupId(),
+      priority: this.priority(),
     };
   }
 
-  protected get additionalProperties(): PostANSPayload['arcAdditionalProperties'] {
+  protected additionalProperties(): PostANSPayload['arcAdditionalProperties'] {
     return {
       story: {
         publish: false,
@@ -79,7 +76,7 @@ export abstract class ArcDocument<ANS extends ANSContent> {
     };
   }
 
-  protected get priority(): 'historical' | 'live' {
+  protected priority(): 'historical' | 'live' {
     return 'historical';
   }
 
@@ -95,11 +92,11 @@ export abstract class ArcDocument<ANS extends ANSContent> {
     return;
   }
 
-  protected getSource(): Optional<ArcTypes.Story.Source> {
+  protected async getSource(): Promise<Optional<ArcTypes.Story.Source>> {
     return {
       name: 'code-store',
       system: 'code-store',
-      source_id: this.sourceId,
+      source_id: await this.sourceId(),
     };
   }
 

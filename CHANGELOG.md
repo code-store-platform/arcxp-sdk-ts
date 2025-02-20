@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.34.1
+
+### Patch Changes
+
+- fix mapper types and methods
+
 ## 4.34.0
 
 ### Minor Changes
