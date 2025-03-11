@@ -1,5 +1,6 @@
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
 import type {
+  Circulations,
   CreateDocumentRedirectPayload,
   CreateExternalRedirectPayload,
   CreateRedirectPayload,
@@ -42,6 +43,11 @@ export class ArcDraft extends ArcAbstractAPI {
 
   async getDraftRevision(id: string, type = 'story') {
     const { data } = await this.client.get<Revision>(`/${type}/${id}/revision/draft`);
+    return data;
+  }
+
+  async getCirculations(id: string, type = 'story', after?: string) {
+    const { data } = await this.client.get<Circulations>(`/${type}/${id}/circulation`, { params: { after } });
     return data;
   }
 

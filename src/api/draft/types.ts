@@ -1,4 +1,5 @@
 import type { AStory } from '../../types/story';
+import type { CirculationReference } from '../migration-center/types';
 
 export type CreateExternalRedirectPayload = {
   redirect_to: string;
@@ -52,4 +53,9 @@ export type UpdateDraftRevisionPayload = {
   document_id: string;
   ans: AStory;
   type: 'DRAFT';
+};
+
+export type Circulations = {
+  circulations: CirculationReference[];
+  last?: string;
 };

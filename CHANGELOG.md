@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.35.0
+
+### Minor Changes
+
+- DraftAPI.getCirculations added
+
 ## 4.34.1
 
 ### Patch Changes
