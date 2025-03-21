@@ -1,6 +1,6 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "4.36.0",
+  "version": "4.37.0",
   "description": "A strongly typed set of ArcXP API's and utilities reduce the amount of work required to develop with ArcXP, starting with reducing the boilerplate code you have to write.",
   "type": "commonjs",
   "main": "./dist/index.js",
@@ -13,7 +13,9 @@
     "url": "https://github.com/code-store-platform/arcxp-sdk-ts"
   },
   "homepage": "https://github.com/code-store-platform/arcxp-sdk-ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "format": "npx @biomejs/biome format --write .",
@@ -25,7 +27,11 @@
     "cs": "npx changeset && npx changeset version",
     "swaggerToTypes": "npx swagger-typescript-api -p ./tmp/swagger.json -o ./tmp -n swaggerTypes.ts"
   },
-  "keywords": ["ArcXP", "SDK", "Code.Store"],
+  "keywords": [
+    "ArcXP",
+    "SDK",
+    "Code.Store"
+  ],
   "author": "code.store",
   "license": "MIT",
   "dependencies": {

@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.37.0
+
+### Minor Changes
+
+- IdGenerator class added
+
 ## 4.36.0
 
 ### Minor Changes

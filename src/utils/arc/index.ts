@@ -1,11 +1,9 @@
-import * as ans from './ans';
-import * as content from './content';
-import { generateArcId } from './generate-id';
+import * as ANS from './ans';
+import * as ContentElements from './content';
+import * as Id from './id';
 
 export const ArcUtils = {
-  common: {
-    generateArcId,
-  },
-  ans,
-  content,
+  Id,
+  ANS,
+  ContentElements,
 };
