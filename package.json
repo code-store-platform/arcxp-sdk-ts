@@ -13,24 +13,19 @@
     "url": "https://github.com/code-store-platform/arcxp-sdk-ts"
   },
   "homepage": "https://github.com/code-store-platform/arcxp-sdk-ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsc",
     "format": "npx @biomejs/biome format --write .",
     "check": "npx @biomejs/biome check --write .",
     "lint": "tsc --noEmit && npx @biomejs/biome lint --write --unsafe .",
     "test": "vitest",
+    "coverage": "vitest run --coverage",
     "gen:ts": "npx ts-node-dev ./src/scripts/json-schema-to-ts.ts",
     "cs": "npx changeset && npx changeset version",
     "swaggerToTypes": "npx swagger-typescript-api -p ./tmp/swagger.json -o ./tmp -n swaggerTypes.ts"
   },
-  "keywords": [
-    "ArcXP",
-    "SDK",
-    "Code.Store"
-  ],
+  "keywords": ["ArcXP", "SDK", "Code.Store"],
   "author": "code.store",
   "license": "MIT",
   "dependencies": {
@@ -56,6 +51,7 @@
     "tap": "^16.3.4",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.3.3",
-    "vitest": "^0.33.0"
+    "@vitest/coverage-v8": "^3.0.9",
+    "vitest": "^3.0.9"
   }
 }

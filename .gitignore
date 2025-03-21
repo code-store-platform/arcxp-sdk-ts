@@ -10,3 +10,4 @@ dashboard/.next
 dashboard/.vscode
 
 tmp
+coverage
