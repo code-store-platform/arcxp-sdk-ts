@@ -1,5 +1,5 @@
+import type { ArcTypes } from '..';
 import type { ANSContent, CirculationReference, PostANSParams, PostANSPayload } from '../api/migration-center/types';
-import type { ArcTypes, ContentElementType } from '..';
 import type { MaybePromise, Optional } from '../types/utils';
 
 /**
@@ -119,7 +119,7 @@ export abstract class Document<ANS extends ANSContent> {
     return new Date();
   }
 
-  protected async getContentElements(): Promise<ContentElementType<any>[]> {
+  protected async getContentElements(): Promise<ArcTypes.ContentElements.ContentElementType<any>[]> {
     return [];
   }
 
