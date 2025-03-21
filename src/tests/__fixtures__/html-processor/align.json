@@ -1,0 +1,26 @@
+[
+  {
+    "additional_properties": {
+      "isBlockElement": true
+    },
+    "alignment": "left",
+    "content": "left",
+    "type": "text"
+  },
+  {
+    "additional_properties": {
+      "isBlockElement": true
+    },
+    "alignment": "center",
+    "content": "center",
+    "type": "text"
+  },
+  {
+    "additional_properties": {
+      "isBlockElement": true
+    },
+    "alignment": "right",
+    "content": "right",
+    "type": "text"
+  }
+]

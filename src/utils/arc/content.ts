@@ -1,4 +1,5 @@
-import { ContentElement, type ContentElementType } from '../../content-elements';
+import { ContentElement } from '../../content-elements';
+import type { ContentElementType } from '../../types/content-elements';
 
 const socialRegExps = {
   instagram:
@@ -86,3 +87,5 @@ export function createSocial(url = ''): ContentElementType<'instagram' | 'tiktok
 
   return embeds;
 }
+
+export const randomId = () => `${new Date().toISOString()}-${Math.random()}`;

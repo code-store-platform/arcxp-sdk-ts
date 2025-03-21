@@ -1,0 +1,114 @@
+[
+  {
+    "items": [
+      {
+        "additional_properties": {
+          "isBlockElement": true
+        },
+        "alignment": "left",
+        "content": "unordered 1",
+        "type": "text"
+      },
+      {
+        "additional_properties": {
+          "isBlockElement": true
+        },
+        "alignment": "left",
+        "content": "unordered 2",
+        "type": "text"
+      },
+      {
+        "additional_properties": {
+          "isBlockElement": true
+        },
+        "alignment": "left",
+        "content": "unordered 3",
+        "type": "text"
+      }
+    ],
+    "list_type": "unordered",
+    "type": "list"
+  },
+  {
+    "items": [
+      {
+        "additional_properties": {
+          "isBlockElement": true
+        },
+        "alignment": "left",
+        "content": "ordered 1",
+        "type": "text"
+      },
+      {
+        "additional_properties": {
+          "isBlockElement": true
+        },
+        "alignment": "left",
+        "content": "ordered 2",
+        "type": "text"
+      },
+      {
+        "additional_properties": {
+          "isBlockElement": true
+        },
+        "alignment": "left",
+        "content": "ordered 3",
+        "type": "text"
+      }
+    ],
+    "list_type": "ordered",
+    "type": "list"
+  },
+  {
+    "items": [
+      {
+        "items": [
+          {
+            "additional_properties": {
+              "isBlockElement": true
+            },
+            "alignment": "left",
+            "content": "nested unordered 1",
+            "type": "text"
+          },
+          {
+            "additional_properties": {
+              "isBlockElement": true
+            },
+            "alignment": "left",
+            "content": "nested unordered 2",
+            "type": "text"
+          },
+          {
+            "additional_properties": {
+              "isBlockElement": true
+            },
+            "alignment": "left",
+            "content": "nestedunordered 3",
+            "type": "text"
+          }
+        ],
+        "list_type": "unordered",
+        "type": "list"
+      },
+      {
+        "additional_properties": {
+          "isBlockElement": true
+        },
+        "alignment": "left",
+        "content": "unordered 2",
+        "type": "text"
+      },
+      {
+        "additional_properties": {
+          "isBlockElement": true
+        },
+        "alignment": "left",
+        "content": "unordered 3",
+        "type": "text"
+      }
+    ],
+    "list_type": "unordered",
+    "type": "list"
+  }
+]

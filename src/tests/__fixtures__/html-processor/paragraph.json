@@ -1,0 +1,14 @@
+[
+  {
+    "type": "text",
+    "content": "em text<b> strong text</b><u> u text</u>",
+    "alignment": "center",
+    "additional_properties": { "isBlockElement": true }
+  },
+  {
+    "type": "text",
+    "content": " not centered paragraph",
+    "alignment": "left",
+    "additional_properties": { "isBlockElement": true }
+  }
+]

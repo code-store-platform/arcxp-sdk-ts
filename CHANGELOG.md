@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.36.0
+
+### Minor Changes
+
+- add HTMLProcessor and HTMLUtils
+
 ## 4.35.0
 
 ### Minor Changes

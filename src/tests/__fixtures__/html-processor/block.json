@@ -1,0 +1,10 @@
+[
+  {
+    "additional_properties": {
+      "isBlockElement": true
+    },
+    "alignment": "left",
+    "content": "main, section, div has no impact on the output",
+    "type": "text"
+  }
+]

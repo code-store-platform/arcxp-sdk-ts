@@ -17,5 +17,5 @@ export { ArcAPI, ArcAPIType } from './api';
 export { ArcUtils } from './utils/arc';
 export { ArcError } from './api/error';
 export { WsClient } from './api/ws.client';
-export { ContentElement, ContentElementType } from './content-elements';
 export * as AnsMapper from './mapper';
+export * as ContentElements from './content-elements';
