@@ -59,3 +59,8 @@ export type Circulations = {
   circulations: CirculationReference[];
   last?: string;
 };
+
+export type Revisions = {
+  revisions: Revision[];
+  last?: string;
+};

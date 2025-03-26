@@ -10,9 +10,7 @@ export default defineConfig({
     },
     coverage: {
       reporter: ['text', 'json', 'html'],
-      provider: 'v8', // or 'v8'
+      provider: 'v8',
     },
-    /* for example, use global to avoid globals imports (describe, test, expect): */
-    // globals: true,
   },
 });

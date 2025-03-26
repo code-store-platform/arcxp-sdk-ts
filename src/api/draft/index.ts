@@ -8,6 +8,7 @@ import type {
   DocumentRedirect,
   ExternalRedirect,
   Revision,
+  Revisions,
   UpdateDraftRevisionPayload,
 } from './types';
 
@@ -48,6 +49,16 @@ export class ArcDraft extends ArcAbstractAPI {
 
   async getCirculations(id: string, type = 'story', after?: string) {
     const { data } = await this.client.get<Circulations>(`/${type}/${id}/circulation`, { params: { after } });
+    return data;
+  }
+
+  async getRevisions(id: string, type = 'story', after?: string) {
+    const { data } = await this.client.get<Revisions>(`/${type}/${id}/revision`, { params: { after } });
+    return data;
+  }
+
+  async getRevision(id: string, revisionId: string, type = 'story') {
+    const { data } = await this.client.get<Revision>(`/${type}/${id}/revision/${revisionId}`);
     return data;
   }
 

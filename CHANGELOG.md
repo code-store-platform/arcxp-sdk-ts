@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.38.0
+
+### Minor Changes
+
+- DraftAPI.getRevisions, DraftAPI.getRevision added
+
 ## 4.37.0
 
 ### Minor Changes
