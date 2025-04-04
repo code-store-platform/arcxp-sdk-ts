@@ -36,6 +36,8 @@ describe('Mapper', () => {
     getGroupId: vi.fn().mockResolvedValue('group_id'),
     getSubtype: vi.fn().mockResolvedValue('subtype'),
     getContentElements: vi.fn().mockResolvedValue([ContentElement.text('')]),
+    getTaxonomy: vi.fn().mockResolvedValue({}),
+    getTags: vi.fn().mockResolvedValue([]),
   };
 
   class CodeStory extends Story {
@@ -50,6 +52,8 @@ describe('Mapper', () => {
     init = mocks.init;
     getSubtype = mocks.getSubtype;
     getContentElements = mocks.getContentElements;
+    getTaxonomy = mocks.getTaxonomy;
+    getTags = mocks.getTags;
   }
 
   beforeEach(() => {
@@ -79,6 +83,8 @@ describe('Mapper', () => {
     expect(payload).toBeCalledTimes(1);
     expect(params).toBeCalledTimes(1);
     expect(mocks.getContentElements).toBeCalledTimes(1);
+    expect(mocks.getTaxonomy).toBeCalledTimes(1);
+    expect(mocks.getTags).toBeCalledTimes(1);
 
     expect(result.params).toBeDefined();
     expect(result.params.website).toBe('website_id');
