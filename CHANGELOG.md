@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.39.0
+
+### Minor Changes
+
+- new DocumentMapper methods added
+
 ## 4.38.0
 
 ### Minor Changes

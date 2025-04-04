@@ -134,7 +134,7 @@ export abstract class Document<ANS extends ANSContent> {
   }
 
   protected getTags(): MaybePromise<Optional<ArcTypes.Story.Tag[]>> {
-    return [];
+    return;
   }
 
   protected getSubtype(): MaybePromise<Optional<ArcTypes.Story.SubtypeOrTemplate>> {
@@ -166,6 +166,18 @@ export abstract class Document<ANS extends ANSContent> {
   }
 
   protected getEditorNote(): MaybePromise<Optional<ArcTypes.Story.Editor_Note>> {
+    return;
+  }
+
+  protected getContentRestrictions(): MaybePromise<Optional<ArcTypes.Story.ContentRestrictions>> {
+    return;
+  }
+
+  protected getSchedulingInformation(): MaybePromise<Optional<ArcTypes.Story.SchedulingInformation>> {
+    return;
+  }
+
+  protected getTaxonomy(): MaybePromise<Optional<ArcTypes.Story.Taxonomy>> {
     return;
   }
 }

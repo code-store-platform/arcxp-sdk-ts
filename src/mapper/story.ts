@@ -47,6 +47,9 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
     const source = await this.getSource();
     const comments = await this.getComments();
     const legacyUrl = await this.legacyUrl();
+    const contentRestrictions = await this.getContentRestrictions();
+    const planning = await this.getSchedulingInformation();
+    const taxonomy = await this.getTaxonomy();
 
     return {
       type,
@@ -65,8 +68,10 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
       subheadlines,
       description,
       distributor,
+      planning,
       promo_items: promoItems,
       related_content: relatedContent,
+      content_restrictions: contentRestrictions,
       created_date: this.formatDate(new Date()),
       first_publish_date: this.formatDate(publicationDate),
       publish_date: this.formatDate(publicationDate),
@@ -74,6 +79,7 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
       source,
       comments,
       taxonomy: {
+        ...taxonomy,
         tags,
       },
       workflow: {
