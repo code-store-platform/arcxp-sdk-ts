@@ -220,13 +220,13 @@ export const ContentElement = {
       type: 'reference' as const,
     };
   },
-  polldady: (id: string, provider = 'https://polldaddy.com/oembed/?url=') => {
+  polldaddy: (id: string, provider = 'https://polldaddy.com/oembed/?url=') => {
     return {
       referent: {
         id,
         provider,
         service: 'oembed',
-        type: 'polldady',
+        type: 'polldaddy',
       },
       type: 'reference' as const,
     };

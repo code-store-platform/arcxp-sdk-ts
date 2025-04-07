@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.40.1
+
+### Patch Changes
+
+- fix polldaddy typo
+
 ## 4.40.0
 
 ### Minor Changes
