@@ -198,4 +198,37 @@ export const ContentElement = {
       type: 'reference' as const,
     };
   },
+  issuu: (id: string, provider = 'https://issuu.com/oembed_wp?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'issuu',
+      },
+      type: 'reference' as const,
+    };
+  },
+  kickstarter: (id: string, provider = 'https://www.kickstarter.com/services/oembed?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'kickstarter',
+      },
+      type: 'reference' as const,
+    };
+  },
+  polldady: (id: string, provider = 'https://polldaddy.com/oembed/?url=') => {
+    return {
+      referent: {
+        id,
+        provider,
+        service: 'oembed',
+        type: 'polldady',
+      },
+      type: 'reference' as const,
+    };
+  },
 };

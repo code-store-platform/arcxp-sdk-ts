@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.40.0
+
+### Minor Changes
+
+- new types of content elements added
+
 ## 4.39.0
 
 ### Minor Changes
