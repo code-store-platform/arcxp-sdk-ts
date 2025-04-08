@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.40.2
+
+### Patch Changes
+
+- fix default text alignment
+
 ## 4.40.1
 
 ### Patch Changes

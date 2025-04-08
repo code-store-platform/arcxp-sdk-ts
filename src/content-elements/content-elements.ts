@@ -7,11 +7,11 @@ export const ContentElement = {
       type: 'divider' as const,
     };
   },
-  text: (content: string, alignment: Alignment = 'left') => {
+  text: (content: string, alignment: Alignment | null = 'left') => {
     return {
       type: 'text' as const,
       content,
-      alignment,
+      alignment: alignment || undefined,
     };
   },
   quote: (items: CElement[], citation = '', subtype: 'blockquote' | 'pullquote' = 'pullquote') => {
