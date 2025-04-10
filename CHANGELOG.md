@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.40.3
+
+### Patch Changes
+
+- set raw=true IFX.getLogs default params
+
 ## 4.40.2
 
 ### Patch Changes

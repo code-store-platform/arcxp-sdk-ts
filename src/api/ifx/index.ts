@@ -56,8 +56,8 @@ export class ArcIFX extends ArcAbstractAPI {
     return data;
   }
 
-  async getLogs(queryId: string) {
-    const { data } = await this.client.get(`/admin/logs/results?queryId=${queryId}`);
+  async getLogs(queryId: string, raw = true) {
+    const { data } = await this.client.get('/admin/logs/results', { params: { queryId, raw } });
     return data;
   }
 
