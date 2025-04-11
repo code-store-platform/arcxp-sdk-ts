@@ -20,16 +20,6 @@ import { Document } from './doc';
  * }
  */
 export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends Document<ANS> {
-  async getMigrationMetaProperties() {
-    return {
-      // used in dashboard for migration
-      'migration.source_id': await this.sourceId(),
-      'migration.source_type': await this.sourceType(),
-      // used in dashboard to show the original url
-      'migration.url': await this.legacyUrl(),
-    };
-  }
-
   type() {
     return 'story' as const;
   }
@@ -102,5 +92,15 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
         ...additionalMetaProperties,
       },
     } as unknown as ANS;
+  }
+
+  protected async getMigrationMetaProperties(): Promise<Record<string, any>> {
+    return {
+      // used in dashboard for migration
+      migration_source_id: await this.sourceId(),
+      migration_source_type: await this.sourceType(),
+      // used in dashboard to show the original url
+      migration_url: await this.legacyUrl(),
+    };
   }
 }

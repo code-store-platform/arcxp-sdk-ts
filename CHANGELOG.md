@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.40.6
+
+### Patch Changes
+
+- fix meta fields
+
 ## 4.40.5
 
 ### Patch Changes
