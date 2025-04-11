@@ -20,6 +20,15 @@ import { Document } from './doc';
  * }
  */
 export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends Document<ANS> {
+  async getMigrationMetaProperties() {
+    return {
+      // used in dashboard for migration
+      'migration.sourceId': await this.sourceId(),
+      // used in dashboard to show the original url
+      'migration.url': await this.legacyUrl(),
+    };
+  }
+
   type() {
     return 'story' as const;
   }
@@ -50,6 +59,7 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
     const contentRestrictions = await this.getContentRestrictions();
     const planning = await this.getSchedulingInformation();
     const taxonomy = await this.getTaxonomy();
+    const additionalMetaProperties = await this.getMigrationMetaProperties();
 
     return {
       type,
@@ -88,6 +98,7 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
       content_elements: contentElements,
       additional_properties: {
         url: legacyUrl,
+        ...additionalMetaProperties,
       },
     } as unknown as ANS;
   }

@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.40.4
+
+### Patch Changes
+
+- added Story.getMigrationMetaProperties
+
 ## 4.40.3
 
 ### Patch Changes
