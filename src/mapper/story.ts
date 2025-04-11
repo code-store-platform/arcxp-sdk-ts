@@ -23,7 +23,8 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
   async getMigrationMetaProperties() {
     return {
       // used in dashboard for migration
-      'migration.sourceId': await this.sourceId(),
+      'migration.source_id': await this.sourceId(),
+      'migration.source_type': await this.sourceType(),
       // used in dashboard to show the original url
       'migration.url': await this.legacyUrl(),
     };

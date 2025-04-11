@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.40.5
+
+### Patch Changes
+
+- add source_type to meta properties
+
 ## 4.40.4
 
 ### Patch Changes
