@@ -39,6 +39,8 @@ export type WrapHandler = (node: Node, content: ContentElementType<'text'>) => C
  * using the `handle()` and `wrap()` methods.
  */
 export class HTMLProcessor {
+  protected parallelProcessing = true;
+
   protected handlers = {
     node: new Map<string, NodeHandler>(),
     wrap: new Map<string, WrapHandler>(),
@@ -61,6 +63,7 @@ export class HTMLProcessor {
         };
       }
     });
+
     this.wrap('i', (node, text) => {
       if (nodeTagIn(node, ['i'])) {
         return {
@@ -280,12 +283,24 @@ export class HTMLProcessor {
    * @param node - The HTML node to process
    **/
   protected async handleNested(node: Node) {
-    const children = await Promise.all(node.childNodes.map((child) => this.process(child)));
+    const children = await this.processChildNodes(node);
     const filtered = children.filter(Boolean).flat() as CElement[];
     const merged = this.mergeParagraphs(filtered);
     const wrapped = this.wrapChildrenTextNodes(node, merged);
 
     return wrapped;
+  }
+
+  protected async processChildNodes(node: Node): Promise<(CElement[] | undefined)[]> {
+    if (this.parallelProcessing) {
+      return await Promise.all(node.childNodes.map((child) => this.process(child)));
+    }
+
+    const children: (CElement[] | undefined)[] = [];
+    for (const child of node.childNodes) {
+      children.push(await this.process(child));
+    }
+    return children;
   }
 
   /**
@@ -325,7 +340,7 @@ export class HTMLProcessor {
    *
    * @param items - The array of content elements to merge
    **/
-  private mergeParagraphs(items: CElement[]): CElement[] {
+  protected mergeParagraphs(items: CElement[]): CElement[] {
     const merged: CElement[] = [];
     let toMerge: ContentElementType<'text'>[] = [];
 

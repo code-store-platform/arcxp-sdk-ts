@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.41.0
+
+### Minor Changes
+
+- add parallel processing flag to HTMLProcessor
+
 ## 4.40.6
 
 ### Patch Changes
