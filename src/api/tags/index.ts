@@ -19,8 +19,18 @@ export class ArcTags extends ArcAbstractAPI {
     return data;
   }
 
+  /*
+   * @Deprecated
+   * May return incorrect results
+   * Use searchTagsV2 instead
+   */
   async searchTags(params: SearchTagsParams) {
     const { data } = await this.client.get<GetTagsResponse>('/search', { params });
+    return data;
+  }
+
+  async searchTagsV2(params: SearchTagsParams) {
+    const { data } = await this.client.get<GetTagsResponse>('/v2/search', { params });
     return data;
   }
 

@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.42.0
+
+### Minor Changes
+
+- add searchTagsV2
+
 ## 4.41.0
 
 ### Minor Changes
