@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.42.1
+
+### Patch Changes
+
+- fix searchtagsv2 params
+
 ## 4.42.0
 
 ### Minor Changes

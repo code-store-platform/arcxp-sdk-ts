@@ -7,6 +7,7 @@ import type {
   GetAllTagsParams,
   GetTagsResponse,
   SearchTagsParams,
+  SearchTagsV2Params,
 } from './types';
 
 export class ArcTags extends ArcAbstractAPI {
@@ -29,7 +30,7 @@ export class ArcTags extends ArcAbstractAPI {
     return data;
   }
 
-  async searchTagsV2(params: SearchTagsParams) {
+  async searchTagsV2(params: SearchTagsV2Params) {
     const { data } = await this.client.get<GetTagsResponse>('/v2/search', { params });
     return data;
   }

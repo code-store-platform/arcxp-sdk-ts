@@ -10,6 +10,14 @@ export type Tag = {
   path: string;
 };
 
+export type SearchTagsV2Params = {
+  prefix?: string;
+  size?: number;
+  from?: string;
+  before?: string;
+  order?: string;
+};
+
 export type SearchTagsParams = {
   term?: string;
   /**
