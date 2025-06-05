@@ -101,6 +101,7 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
       migration_source_type: await this.sourceType(),
       // used in dashboard to show the original url
       migration_url: await this.legacyUrl(),
+      migration_group_id: await this.groupId(),
     };
   }
 }

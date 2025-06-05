@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.42.2
+
+### Patch Changes
+
+- add group_id to meta props
+
 ## 4.42.1
 
 ### Patch Changes
