@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.43.0
+
+### Minor Changes
+
+- ContentAPI.scan added
+
 ## 4.42.2
 
 ### Patch Changes

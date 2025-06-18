@@ -24,6 +24,7 @@ export type SearchParams = {
   from?: number;
   size?: number;
   single?: boolean;
+  track_total_hits?: boolean;
   _sourceInclude?: string;
   _sourceExclude?: string;
   include_distributor_name?: string;
@@ -32,10 +33,25 @@ export type SearchParams = {
   exclude_distributor_category?: string;
 };
 
+export type ScanParams = {
+  website: string;
+  q?: string;
+  body?: string;
+  scrollId?: string;
+  size?: number;
+};
+
 export type SearchResponse = {
   type: 'results';
   content_elements: (AStory | AGallery | ARedirectObject)[];
   count: number;
   next?: number;
   previous?: number;
+};
+
+export type ScanResponse = {
+  type: 'results';
+  content_elements: (AStory | AGallery | ARedirectObject)[];
+  count: number;
+  next: string;
 };

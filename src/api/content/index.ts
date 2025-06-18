@@ -1,6 +1,13 @@
 import type { AStory } from '../../types/story';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { GetStoriesByIdsParams, GetStoryParams, SearchParams, SearchResponse } from './types';
+import type {
+  GetStoriesByIdsParams,
+  GetStoryParams,
+  ScanParams,
+  ScanResponse,
+  SearchParams,
+  SearchResponse,
+} from './types';
 
 export class ArcContent extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -14,6 +21,11 @@ export class ArcContent extends ArcAbstractAPI {
 
   async search(params: SearchParams): Promise<SearchResponse> {
     const { data } = await this.client.get('/search', { params });
+    return data;
+  }
+
+  async scan(params: ScanParams): Promise<ScanResponse> {
+    const { data } = await this.client.get('/scan', { params });
     return data;
   }
 
