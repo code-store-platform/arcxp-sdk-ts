@@ -1,15 +1,15 @@
 import type { Section, SetSection } from '../../types/section';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { GetLinksParams, GetLinksResponse, GetSectionsResponse, Link, Website } from './types';
+import type { GetLinksParams, GetLinksResponse, GetSectionParams, GetSectionsResponse, Link, Website } from './types';
 
 export class ArcSite extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
     super({ ...options, apiPath: 'site/v3' });
   }
 
-  async getSections(website: string, offset?: number) {
-    const { data } = await this.client.get<GetSectionsResponse>(`/website/${website}/section`, {
-      params: { _website: website, offset },
+  async getSections(params: GetSectionParams) {
+    const { data } = await this.client.get<GetSectionsResponse>(`/website/${params.website}/section`, {
+      params: { _website: params.website, ...params },
     });
 
     return data;

@@ -34,3 +34,9 @@ export type GetLinksParams = {
 export type GetLinksResponse = {
   q_results: Link[];
 };
+
+export type GetSectionParams ={
+  website: string;
+  offset?: number;
+  include_inactive?: boolean;
+}

@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.43.1
+
+### Patch Changes
+
+- GetSectionParams added
+
 ## 4.43.0
 
 ### Minor Changes
