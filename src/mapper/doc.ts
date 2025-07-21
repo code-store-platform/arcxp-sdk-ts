@@ -115,7 +115,7 @@ export abstract class Document<ANS extends ANSContent> {
     return date.toISOString();
   }
 
-  protected getDisplayDate(): Optional<Date> {
+  protected getDisplayDate(): MaybePromise<Optional<Date>> {
     return new Date();
   }
 
@@ -123,7 +123,7 @@ export abstract class Document<ANS extends ANSContent> {
     return [];
   }
 
-  protected getPublicationDate(): Optional<Date> {
+  protected getPublicationDate(): MaybePromise<Optional<Date>> {
     return new Date();
   }
 
