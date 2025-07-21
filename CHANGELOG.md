@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.43.2
+
+### Patch Changes
+
+- MaybePromise for getPublicationDate and getDisplayDate
+
 ## 4.43.1
 
 ### Patch Changes
