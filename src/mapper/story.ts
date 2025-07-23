@@ -47,6 +47,8 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
     const source = await this.getSource();
     const comments = await this.getComments();
     const legacyUrl = await this.legacyUrl();
+    const owner = await this.getOwnerInformation();
+    const syndication = await this.getSyndication();
     const contentRestrictions = await this.getContentRestrictions();
     const planning = await this.getSchedulingInformation();
     const taxonomy = await this.getTaxonomy();
@@ -79,6 +81,8 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
       display_date: this.formatDate(this.getDisplayDate()),
       source,
       comments,
+      owner,
+      syndication,
       taxonomy: {
         ...taxonomy,
         tags,

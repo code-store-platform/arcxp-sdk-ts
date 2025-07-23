@@ -173,6 +173,14 @@ export abstract class Document<ANS extends ANSContent> {
     return;
   }
 
+  protected getOwnerInformation(): MaybePromise<Optional<ArcTypes.Story.OwnerInformation>> {
+    return;
+  }
+
+  protected getSyndication(): MaybePromise<Optional<ArcTypes.Story.Syndication>> {
+    return;
+  }
+
   protected getSchedulingInformation(): MaybePromise<Optional<ArcTypes.Story.SchedulingInformation>> {
     return;
   }

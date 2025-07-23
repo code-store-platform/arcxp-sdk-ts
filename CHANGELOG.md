@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.44.0
+
+### Minor Changes
+
+- add syndication and owner information
+
 ## 4.43.1
 
 ### Patch Changes
