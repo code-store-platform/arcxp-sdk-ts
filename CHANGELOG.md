@@ -6,6 +6,12 @@
 
 - add syndication and owner information
 
+## 4.43.2
+
+### Patch Changes
+
+- MaybePromise for getPublicationDate and getDisplayDate
+
 ## 4.43.1
 
 ### Patch Changes

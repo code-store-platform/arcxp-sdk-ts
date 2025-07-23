@@ -28,7 +28,8 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
     const id = await this.arcId();
     const version = this.version();
     const type = this.type();
-    const publicationDate = this.getPublicationDate();
+    const publicationDate = await this.getPublicationDate();
+    const displayDate = await this.getDisplayDate();
     const headlines = this.getHeadlines();
     const subheadlines = this.getSubheadlines();
     const description = this.getDescription();
@@ -78,7 +79,7 @@ export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends
       created_date: this.formatDate(new Date()),
       first_publish_date: this.formatDate(publicationDate),
       publish_date: this.formatDate(publicationDate),
-      display_date: this.formatDate(this.getDisplayDate()),
+      display_date: this.formatDate(displayDate),
       source,
       comments,
       owner,
