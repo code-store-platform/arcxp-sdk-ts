@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.45.0
+
+### Minor Changes
+
+- Add uploadImageStream method & Fix updateImage method in ArcProtoCenter
+
 ## 4.44.0
 
 ### Minor Changes
