@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.46.0
+
+### Minor Changes
+
+- add Identity.migrateBatchGenerator
+
 ## 4.45.0
 
 ### Minor Changes

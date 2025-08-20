@@ -12,6 +12,20 @@ export class ArcIdentity extends ArcAbstractAPI {
     return data;
   }
 
+  async *migrateBatchGenerator(
+    payload: MigrateBatchUsersPayload,
+    batchSize = 100
+  ): AsyncGenerator<MigrateBatchUsersResponse> {
+    const copy = [...payload.records];
+
+    while (copy.length) {
+      const records = copy.splice(0, batchSize);
+      const response = await this.migrateBatch({ records });
+
+      yield response;
+    }
+  }
+
   async getUser(id: string): Promise<GetUserResponse> {
     const { data } = await this.client.get(`/user?search=uuid=${id}`);
 
