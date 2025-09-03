@@ -217,7 +217,7 @@ export class HTMLProcessor {
 
   protected handle(name: string, handler: NodeHandler) {
     if (this.handlers.node.has(name)) {
-      return this.warn({ name }, `${name} node handler already set`);
+      this.warn({ name }, `${name} node handler already set`);
     }
 
     this.handlers.node.set(name, handler);
@@ -225,7 +225,7 @@ export class HTMLProcessor {
 
   protected wrap(name: string, handler: WrapHandler) {
     if (this.handlers.wrap.has(name)) {
-      throw new Error(`${name} wrap handler already set`);
+      this.warn({ name }, `${name} wrap handler already set`);
     }
 
     this.handlers.wrap.set(name, handler);

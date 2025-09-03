@@ -1,6 +1,6 @@
-import FormData from 'form-data';
+import type { ReadStream } from 'node:fs';
 import path from 'node:path';
-import { type ReadStream } from 'node:fs';
+import FormData from 'form-data';
 import type { AGallery } from '../../types/gallery';
 import type { AnImage } from '../../types/story';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
