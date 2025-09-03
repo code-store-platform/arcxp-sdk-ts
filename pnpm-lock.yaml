@@ -78,8 +78,11 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.9.2
+      vite:
+        specifier: ^7.1.4
+        version: 7.1.4(@types/node@20.19.11)
       vitest:
-        specifier: ^3.0.9
+        specifier: ^3.2.4
         version: 3.2.4(@types/node@20.19.11)
 
 packages:
