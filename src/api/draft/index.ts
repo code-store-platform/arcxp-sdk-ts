@@ -1,3 +1,4 @@
+import { AStory } from '../../types/story';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
 import type {
   Circulations,
@@ -20,6 +21,11 @@ export class ArcDraft extends ArcAbstractAPI {
   async generateId(id: string) {
     const { data } = await this.client.get<{ id: string }>('/arcuuid', { params: { id } });
     return data.id;
+  }
+
+  async createDocument(ans: AStory, type = 'story') {
+    const { data } = await this.client.post<Document>(`/${type}`, ans);
+    return data;
   }
 
   async publishDocument(id: string, type = 'story') {

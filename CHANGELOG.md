@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.47.2
+
+### Patch Changes
+
+- add Draft.createDocument
+
 ## 4.47.1
 
 ### Patch Changes
