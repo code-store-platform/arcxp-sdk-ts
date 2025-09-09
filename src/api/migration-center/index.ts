@@ -5,6 +5,8 @@ import type {
   DetailReport,
   DetailReportRequest,
   GetANSParams,
+  GetRemainingTimeParams,
+  GetRemainingTimeResponse,
   PostANSParams,
   PostANSPayload,
   Summary,
@@ -45,6 +47,11 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
 
   async getAns(params: GetANSParams) {
     const { data } = await this.client.get('/content/ans', { params });
+    return data;
+  }
+
+  async getRemainingTime(params: GetRemainingTimeParams) {
+    const { data } = await this.client.get<GetRemainingTimeResponse>('/report/remaining-time', { params });
     return data;
   }
 }

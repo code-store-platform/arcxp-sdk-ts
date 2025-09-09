@@ -1,3 +1,10 @@
+export type WebskedStatus = {
+  color: string;
+  displayOrder: number;
+  id: number;
+  name: string;
+};
+
 export type ReportStatusChangePayload = {
   storyId: string;
   sourceId: string;
@@ -239,3 +246,8 @@ export type GetEditionTimesResponse = {
   sections: string[];
   publicationTime: number;
 }[];
+
+export type GetStatusesResponse = {
+  publish: WebskedStatus[];
+  workflow: WebskedStatus[];
+};

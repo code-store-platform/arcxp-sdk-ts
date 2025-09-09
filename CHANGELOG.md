@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.47.1
+
+### Patch Changes
+
+- add Websked.getStatuses, MC.getRemainingTime
+
 ## 4.47.0
 
 ### Minor Changes

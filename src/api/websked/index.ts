@@ -4,6 +4,7 @@ import type {
   CreateTaskResponse,
   GetEditionTimesResponse,
   GetPublicationsResponse,
+  GetStatusesResponse,
   ReportStatusChangePayload,
   SectionEdition,
   WebskedPublication,
@@ -68,6 +69,11 @@ export class ArcWebsked extends ArcAbstractAPI {
 
   async getPublicationById(publicationId: string): Promise<WebskedPublication> {
     const { data } = await this.client.get(`/publications/${publicationId}`);
+    return data;
+  }
+
+  async getStatuses(): Promise<GetStatusesResponse> {
+    const { data } = await this.client.get('/statuses');
     return data;
   }
 }

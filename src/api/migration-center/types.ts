@@ -180,3 +180,19 @@ export enum SummarySortOrder {
   ASC = 'ASC',
   DESC = 'DESC',
 }
+
+export type GetRemainingTimeParams = {
+  priority: 'historical' | 'live';
+  ansType: ANSType;
+  timeUnit: 'hour' | 'day' | 'minute';
+};
+
+export type GetRemainingTimeResponse = {
+  estTimeRemaining: {
+    value: number;
+    unit: string;
+  };
+  estCompletionDate: string;
+  estCount: number;
+  reportDate: string;
+};

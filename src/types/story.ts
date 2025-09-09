@@ -165,7 +165,7 @@ export type SEOFilename = string;
 export type SocialLinks = {
   site?: string;
   url?: string;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }[];
 /**
  * The real first name of a human author.
@@ -267,7 +267,7 @@ export type Org = string;
 export type SocialLinks1 = {
   site?: string;
   url?: string;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }[];
 /**
  * The primary author(s) of this document. For a story, is is the writer or reporter. For an image, it is the photographer.
@@ -354,7 +354,7 @@ export type VoiceTranscriptSConfigurationAndOutput = [
     options: OptionsRequested;
     options_used?: OptionsUsed;
     output?: HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns01010AudioJson;
-    [k: string]: unknown;
+    [k: string]: unknown | undefined;
   },
   ...{
     _id?: GloballyUniqueIDTrait;
@@ -363,7 +363,7 @@ export type VoiceTranscriptSConfigurationAndOutput = [
     options: OptionsRequested;
     options_used?: OptionsUsed;
     output?: HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainResourcesSchemaAns01010AudioJson;
-    [k: string]: unknown;
+    [k: string]: unknown | undefined;
   }[],
 ];
 /**
@@ -461,10 +461,10 @@ export type HttpsRawGithubusercontentComWashingtonpostAnsSchemaMasterSrcMainReso
   streams?: [AStreamOfAudio, ...AStreamOfAudio[]];
 } & (
   | {
-      [k: string]: unknown;
+      [k: string]: unknown | undefined;
     }
   | {
-      [k: string]: unknown;
+      [k: string]: unknown | undefined;
     }
 );
 /**
@@ -553,7 +553,7 @@ export interface AStory {
 export interface Geo {
   latitude?: number;
   longitude?: number;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * An Address following the convention of http://microformats.org/wiki/hcard
@@ -572,7 +572,7 @@ export interface Address {
  * A grab-bag object for non-validatable data.
  */
 export interface HasAdditionalProperties {
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * The headline(s) or title for this content.  The 'basic' key is required.
@@ -801,7 +801,7 @@ export interface RepresentationOfANormalizedElement {
      * An object for key-value pairs that should override the values of keys with the same name in the denormalized object
      */
     referent_properties?: {
-      [k: string]: unknown;
+      [k: string]: unknown | undefined;
     };
   };
 }
@@ -854,9 +854,9 @@ export interface Taxonomy {
     | (RepresentationOfANormalizedElement & {
         referent?: {
           type?: 'site';
-          [k: string]: unknown;
+          [k: string]: unknown | undefined;
         };
-        [k: string]: unknown;
+        [k: string]: unknown | undefined;
       });
   /**
    * A primary section object or reference to one. In the Arc ecosystem, a reference here is denormalized into a site from the arc-site-service.
@@ -866,9 +866,9 @@ export interface Taxonomy {
     | (RepresentationOfANormalizedElement & {
         referent?: {
           type?: 'section';
-          [k: string]: unknown;
+          [k: string]: unknown | undefined;
         };
-        [k: string]: unknown;
+        [k: string]: unknown | undefined;
       });
   /**
    * Deprecated in 0.10.10. (See `sections` instead.) A list of site objects or references to them. In the Arc ecosystem, references in this list are denormalized into sites from the arc-site-service.  In a multi-site context, sites will be denormalized against an organization's default website only.
@@ -878,9 +878,9 @@ export interface Taxonomy {
     | (RepresentationOfANormalizedElement & {
         referent?: {
           type?: 'site';
-          [k: string]: unknown;
+          [k: string]: unknown | undefined;
         };
-        [k: string]: unknown;
+        [k: string]: unknown | undefined;
       })
   )[];
   /**
@@ -891,9 +891,9 @@ export interface Taxonomy {
     | (RepresentationOfANormalizedElement & {
         referent?: {
           type?: 'section';
-          [k: string]: unknown;
+          [k: string]: unknown | undefined;
         };
-        [k: string]: unknown;
+        [k: string]: unknown | undefined;
       })
   )[];
   /**
@@ -1175,7 +1175,7 @@ export interface Section {
    */
   parent?: {
     default?: string;
-    [k: string]: unknown;
+    [k: string]: unknown | undefined;
   };
   /**
    * Is this the primary site?
@@ -1250,7 +1250,7 @@ export interface AContentObject {
   additional_properties?: HasAdditionalProperties;
   content_aliases?: AliasesTrait;
   contributors?: Contributors;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Lists of content items or references this story is related to, arbitrarily keyed. In the Arc ecosystem, references in this object will be denormalized into the fully-inflated content objects they represent.
@@ -1296,7 +1296,7 @@ export interface OwnerInformation {
    * True if this content is advertorial or native advertising.
    */
   sponsored?: boolean;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Trait that applies revision information to a document. In the Arc ecosystem, many of these fields are populated in stories by the Story API.
@@ -1353,19 +1353,19 @@ export interface Embed {
  */
 export interface EmbedConfiguration {
   referent?: {
-    [k: string]: unknown;
+    [k: string]: unknown | undefined;
   };
   type?: {
-    [k: string]: unknown;
+    [k: string]: unknown | undefined;
   };
   version?: {
-    [k: string]: unknown;
+    [k: string]: unknown | undefined;
   };
   /**
    * This interface was referenced by `EmbedConfiguration`'s JSON-Schema definition
    * via the `patternProperty` "^([a-zA-Z0-9_])*$".
    */
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Trait that applies planning information to a document or resource. In the Arc ecosystem, this data is generated by WebSked. Newsroom use only. All these fields should be available and editable in WebSked.
@@ -1605,7 +1605,7 @@ export interface Source {
  * Tracking information, probably implementation-dependent
  */
 export interface Tracking {
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Comment configuration data
@@ -1628,7 +1628,7 @@ export interface Comments {
    */
   moderation_required?: boolean;
   additional_properties?: HasAdditionalProperties;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * What the Washington Post calls a Kicker
@@ -1720,7 +1720,7 @@ export interface ContentRestrictions {
       },
     ];
   };
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Trait that holds information on who created and contributed to a given document in Arc.
@@ -1738,7 +1738,7 @@ export interface Contributors {
      * The display name of the Arc user who created the Document
      */
     display_name?: string;
-    [k: string]: unknown;
+    [k: string]: unknown | undefined;
   };
 }
 /**
@@ -1768,7 +1768,7 @@ export interface FocalPoint {
    * The coordinate point on the vertical axis
    */
   y: number;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Mapping of integers to tokens, where the integer represents the Signing Service's secret version, and token represents an object's public key for usage on the frontend.
@@ -1795,7 +1795,7 @@ export interface RenderingGuides {
    * The preferred rendering method of the story. Blank means there is no preference. If the rendering application is aware of these other options, it can decide to either use one of them, render messaging to the viewer, or render the story as normal
    */
   preferred_method?: (('website' | 'native') | string)[];
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Describes a change that has been made to the document for transparency, or describes inaccuracies or falsehoods that remain in the document.
@@ -1827,13 +1827,13 @@ export interface AnElementThatCanBeListedAsPartOfContentElements {
   alignment?: Alignment;
   additional_properties?: HasAdditionalProperties;
   gallery_properties?: HasGalleryProperties;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * An object for overrides for images when images are used in a gallery. Example usage: Each image in a gallery may have the images own focal point overridden by the gallery.
  */
 export interface HasGalleryProperties {
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * The current published state of all editions of a content item as well as any scheduled publishing information. Machine-generated.
@@ -1997,7 +1997,7 @@ export interface AStory1 {
 export interface OptionsRequested {
   enabled: Enabled;
   voice?: VoiceID;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * The transcription settings that were used by the renderer to generate the final output. (If these differ from 'options' it may indicate an inability to render exactly as specified.) These values can be used when rendering to readers or external users.
@@ -2005,7 +2005,7 @@ export interface OptionsRequested {
 export interface OptionsUsed {
   enabled: Enabled1;
   voice?: VoiceID1;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Configuration for a piece of audio content, over a stream.
@@ -2016,7 +2016,7 @@ export interface AStreamOfAudio {
   stream_type?: AudioStreamType;
   url: URL1;
   bitrate?: Bitrate;
-  [k: string]: unknown;
+  [k: string]: unknown | undefined;
 }
 /**
  * Website-specific  metadata for url generation for multi-site copies. These fields are not indexed in Content API.
