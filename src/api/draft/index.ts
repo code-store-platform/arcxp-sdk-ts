@@ -1,4 +1,4 @@
-import { AStory } from '../../types/story';
+import type { AStory } from '../../types/story';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
 import type {
   Circulations,

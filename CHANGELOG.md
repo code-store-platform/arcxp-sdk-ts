@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.48.0
+
+### Minor Changes
+
+- Add custom request function to ArcAPI
+
 ## 4.47.2
 
 ### Patch Changes
