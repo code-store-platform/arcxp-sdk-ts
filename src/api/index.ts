@@ -2,6 +2,7 @@ import type { ArcAPIOptions } from './abstract-api';
 import { ArcAuthor } from './author';
 import { ArcContent } from './content';
 import { ArcContentOps } from './content-ops';
+import { Custom } from './custom';
 import { ArcDraft } from './draft';
 import { GlobalSettings } from './global-settings';
 import { ArcIdentity } from './identity';
@@ -33,6 +34,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     GlobalSettings: new GlobalSettings(options),
     Tags: new ArcTags(options),
     ContentOps: new ArcContentOps(options),
+    Custom: new Custom(options),
   };
 
   return {
