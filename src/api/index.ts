@@ -9,6 +9,7 @@ import { ArcIFX } from './ifx';
 import { ArcMigrationCenter } from './migration-center';
 import { ArcProtoCenter } from './photo-center';
 import { ArcRedirect } from './redirect';
+import { createRequestFunction } from './request';
 import { ArcRetailEvents } from './retail-events';
 import { ArcSales } from './sales';
 import { ArcSigningService } from './signing-service';
@@ -40,6 +41,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     setMaxRPS: (rps: number) => {
       Object.values(API).forEach((a) => a.setMaxRPS(rps));
     },
+    request: createRequestFunction(options),
     RetailEvents: new ArcRetailEvents(options),
   };
 };
