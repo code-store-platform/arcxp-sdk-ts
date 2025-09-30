@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.49.0
+
+### Minor Changes
+
+- MigrationCenter.getRecentGroupIds added
+
 ## 4.48.0
 
 ### Minor Changes

@@ -196,3 +196,7 @@ export type GetRemainingTimeResponse = {
   estCount: number;
   reportDate: string;
 };
+
+export type GetRecentGroupIdsResponse = {
+  groupIds: string[];
+};

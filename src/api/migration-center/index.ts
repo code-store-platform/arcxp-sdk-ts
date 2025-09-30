@@ -5,6 +5,7 @@ import type {
   DetailReport,
   DetailReportRequest,
   GetANSParams,
+  GetRecentGroupIdsResponse,
   GetRemainingTimeParams,
   GetRemainingTimeResponse,
   PostANSParams,
@@ -52,6 +53,11 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
 
   async getRemainingTime(params: GetRemainingTimeParams) {
     const { data } = await this.client.get<GetRemainingTimeResponse>('/report/remaining-time', { params });
+    return data;
+  }
+
+  async getRecentGroupIds() {
+    const { data } = await this.client.get<GetRecentGroupIdsResponse>('/report/group-ids');
     return data;
   }
 }
