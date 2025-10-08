@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 4.49.1
+
+### Patch Changes
+
+- fix GetStoryParams
+
 ## 4.49.0
 
 ### Minor Changes

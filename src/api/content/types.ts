@@ -2,10 +2,15 @@ import type { AGallery } from '../../types/gallery';
 import type { ARedirectObject, AStory } from '../../types/story';
 
 export type GetStoryParams = {
-  _id: string;
-  published: boolean;
+  /** Specifies the ID of the website making the request. Required. */
   website: string;
-  website_url: string;
+  /** Specifies the Arc ID of the target document. Either _id or website_url must be provided. */
+  _id?: string;
+  /** The relative URL path of the document on the specified website. Either _id or website_url must be provided. */
+  website_url?: string;
+  /** Determines whether to return published or draft documents. Defaults to true. */
+  published?: boolean;
+  /** A comma-separated list of fields to include in the response. Improves performance when specified. */
   included_fields?: string;
 };
 
