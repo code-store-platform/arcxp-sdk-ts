@@ -1,6 +1,6 @@
-import type { ANSContent } from '../api/migration-center/types';
-import type * as Types from '../types';
-import { Document } from './doc';
+import type { ANSContent } from '../api/migration-center/types.js';
+import type * as Types from '../types/index.js';
+import { Document } from './doc.js';
 
 /**
  * Base class for all arc stories, it provides common methods and properties

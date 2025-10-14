@@ -1,21 +1,12 @@
-export * as ArcTypes from './types';
-export * from './api/identity/types';
-export * from './api/draft/types';
-export * from './api/site/types';
-export * from './api/ifx/types';
-export * from './api/redirect/types';
-export * from './api/migration-center/types';
-export * from './api/sales/types';
-export * from './api/websked/types';
-export * from './api/content/types';
-export * from './api/photo-center/types';
-export * from './api/global-settings/types';
-export * from './api/tags/types';
-export * from './api/content-ops/types';
+import { ArcAPI } from './api/index.js';
 
-export { ArcAPI, ArcAPIType } from './api';
-export { ArcUtils } from './utils/arc';
-export { ArcError } from './api/error';
-export { WsClient } from './api/ws.client';
-export * as AnsMapper from './mapper';
-export * as ContentElements from './content-elements';
+export * as ArcTypes from './types/index.js';
+
+export { ArcAPI, ArcAPIType } from './api/index.js';
+export { ArcUtils } from './utils/arc/index.js';
+export { ArcError } from './api/error.js';
+export { WsClient } from './api/ws.client.js';
+export * as AnsMapper from './mapper/index.js';
+export * as ContentElements from './content-elements/index.js';
+
+export default ArcAPI;

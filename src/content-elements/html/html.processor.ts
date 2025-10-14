@@ -1,8 +1,8 @@
 import { type CommentNode, type HTMLElement, type Node, parse } from 'node-html-parser';
-import type { CElement, ContentElementType } from '../../types/content-elements';
-import type { MaybePromise } from '../../types/utils';
-import { ContentElement } from '../content-elements';
-import { BLOCK_ELEMENT_TAGS } from './html.constants';
+import type { MaybePromise } from '../../types/utils.js';
+import { ContentElement } from '../content-elements.js';
+import type { CElement, ContentElementType } from '../types.js';
+import { BLOCK_ELEMENT_TAGS } from './html.constants.js';
 import {
   getHTMLElementAttribute,
   isCommentNode,
@@ -11,7 +11,7 @@ import {
   isTextNode,
   nodeTagIn,
   nodeTagIs,
-} from './html.utils';
+} from './html.utils.js';
 
 export type NodeHandler = (node: Node) => MaybePromise<CElement[] | undefined>;
 export type WrapHandler = (node: Node, content: ContentElementType<'text'>) => ContentElementType<'text'> | undefined;

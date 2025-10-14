@@ -1,5 +1,5 @@
-import type { AGallery } from '../../types/gallery';
-import type { ARedirectObject, AStory } from '../../types/story';
+import type { AGallery } from '../../types/gallery.js';
+import type { ARedirectObject, AStory } from '../../types/story.js';
 
 export type GetStoryParams = {
   /** Specifies the ID of the website making the request. Required. */

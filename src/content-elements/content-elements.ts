@@ -1,5 +1,5 @@
-import type { CElement } from '../types/content-elements';
-import type { Alignment, AnImage } from '../types/story';
+import type { Alignment, AnImage } from '../types/story.js';
+import type { CElement } from './types.js';
 
 export const ContentElement = {
   divider: () => {

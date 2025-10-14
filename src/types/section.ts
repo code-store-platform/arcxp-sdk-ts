@@ -40,7 +40,7 @@ export type Section = {
   node_type?: 'section';
 };
 
-export type SetSection = {
+export type SetSectionPayload = {
   _id: string;
   website: string;
   name: string;

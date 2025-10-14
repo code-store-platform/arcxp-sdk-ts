@@ -1,4 +1,4 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   AddTagRequest,
   AddTagsResponse,
@@ -8,7 +8,7 @@ import type {
   GetTagsResponse,
   SearchTagsParams,
   SearchTagsV2Params,
-} from './types';
+} from './types.js';
 
 export class ArcTags extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

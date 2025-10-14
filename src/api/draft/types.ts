@@ -1,5 +1,5 @@
-import type { AStory } from '../../types/story';
-import type { CirculationReference } from '../migration-center/types';
+import type { AStory } from '../../types/story.js';
+import type { CirculationReference } from '../migration-center/types.js';
 
 export type CreateExternalRedirectPayload = {
   redirect_to: string;

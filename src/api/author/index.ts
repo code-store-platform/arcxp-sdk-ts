@@ -1,5 +1,5 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { ListAuthorsParams, ListAuthorsResponse } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import type { ListAuthorsParams, ListAuthorsResponse } from './types.js';
 
 export class ArcAuthor extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

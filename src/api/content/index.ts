@@ -1,5 +1,5 @@
-import type { AStory } from '../../types/story';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { AStory } from '../../types/story.js';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   GetStoriesByIdsParams,
   GetStoryParams,
@@ -7,7 +7,7 @@ import type {
   ScanResponse,
   SearchParams,
   SearchResponse,
-} from './types';
+} from './types.js';
 
 export class ArcContent extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

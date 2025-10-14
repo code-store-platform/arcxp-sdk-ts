@@ -1,5 +1,5 @@
-import type { ArcAPIOptions } from '../abstract-api';
-import { WsClient } from '../ws.client';
+import type { ArcAPIOptions } from '../abstract-api.js';
+import { WsClient } from '../ws.client.js';
 
 export class ArcRetailEvents {
   constructor(private readonly options: Pick<ArcAPIOptions, 'credentials'>) {}

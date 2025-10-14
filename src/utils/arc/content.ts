@@ -1,5 +1,5 @@
-import { ContentElement } from '../../content-elements';
-import type { ContentElementType } from '../../types/content-elements';
+import { ContentElement } from '../../content-elements/content-elements.js';
+import type { ContentElementType } from '../../content-elements/types.js';
 
 const socialRegExps = {
   instagram:

@@ -47,7 +47,7 @@ import type {
   WebsiteURL,
   WebsitesInput,
   WorkflowInformation,
-} from './story';
+} from './story.js';
 
 export interface AGallery {
   type: 'gallery';

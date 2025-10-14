@@ -1,5 +1,5 @@
-import type { AGallery } from '../../types/gallery';
-import type { AnImage } from '../../types/story';
+import type { AGallery } from '../../types/gallery.js';
+import type { AnImage } from '../../types/story.js';
 
 export type GetImagesParams = Partial<{
   primaryWebsite: string;

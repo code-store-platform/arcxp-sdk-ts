@@ -1,5 +1,5 @@
-import type { AStory } from '../../types/story';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { Story } from '../../types/index.js';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   Circulations,
   CreateDocumentRedirectPayload,
@@ -11,7 +11,7 @@ import type {
   Revision,
   Revisions,
   UpdateDraftRevisionPayload,
-} from './types';
+} from './types.js';
 
 export class ArcDraft extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -23,7 +23,7 @@ export class ArcDraft extends ArcAbstractAPI {
     return data.id;
   }
 
-  async createDocument(ans: AStory, type = 'story') {
+  async createDocument(ans: Story.AStory, type = 'story') {
     const { data } = await this.client.post<Document>(`/${type}`, ans);
     return data;
   }

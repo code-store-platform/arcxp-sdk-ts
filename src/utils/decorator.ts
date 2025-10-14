@@ -1,4 +1,4 @@
-import type Cache from './cache';
+import type Cache from './cache.js';
 
 export function Cached(cache: Cache) {
   return (_target: any, propertyKey: string | symbol, descriptor: PropertyDescriptor): void => {

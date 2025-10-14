@@ -1,10 +1,9 @@
 import type { ReadStream } from 'node:fs';
-import path from 'node:path';
-import FormData from 'form-data';
-import type { AGallery } from '../../types/gallery';
-import type { AnImage } from '../../types/story';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { GetGalleriesParams, GetGalleriesResponse, GetImagesParams, GetImagesResponse } from './types';
+import platform from '../../lib/platform/index.js';
+import type { AGallery } from '../../types/gallery.js';
+import type { AnImage } from '../../types/story.js';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import type { GetGalleriesParams, GetGalleriesResponse, GetImagesParams, GetImagesResponse } from './types.js';
 
 export class ArcProtoCenter extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -16,7 +15,9 @@ export class ArcProtoCenter extends ArcAbstractAPI {
   }
 
   async uploadImageANS(image: AnImage) {
+    const FormData = await platform.form_data();
     const form = new FormData();
+
     form.append('ans', JSON.stringify(image), {
       filename: 'ans.json',
       contentType: 'application/json',
@@ -29,6 +30,8 @@ export class ArcProtoCenter extends ArcAbstractAPI {
     readableStream: ReadStream,
     options?: { contentType?: string; filename?: string }
   ): Promise<AnImage> {
+    const path = await platform.path();
+    const FormData = await platform.form_data();
     const form = new FormData();
     const contentType = options?.contentType ?? 'application/octet-stream';
     const filename = path.basename(String(options?.filename || readableStream.path || 'file.jpg'));

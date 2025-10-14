@@ -1,21 +1,21 @@
-import type { ArcAPIOptions } from './abstract-api';
-import { ArcAuthor } from './author';
-import { ArcContent } from './content';
-import { ArcContentOps } from './content-ops';
-import { Custom } from './custom';
-import { ArcDraft } from './draft';
-import { GlobalSettings } from './global-settings';
-import { ArcIdentity } from './identity';
-import { ArcIFX } from './ifx';
-import { ArcMigrationCenter } from './migration-center';
-import { ArcProtoCenter } from './photo-center';
-import { ArcRedirect } from './redirect';
-import { ArcRetailEvents } from './retail-events';
-import { ArcSales } from './sales';
-import { ArcSigningService } from './signing-service';
-import { ArcSite } from './site';
-import { ArcTags } from './tags';
-import { ArcWebsked } from './websked';
+import type { ArcAPIOptions } from './abstract-api.js';
+import { ArcAuthor } from './author/index.js';
+import { ArcContentOps } from './content-ops/index.js';
+import { ArcContent } from './content/index.js';
+import { Custom } from './custom/index.js';
+import { ArcDraft } from './draft/index.js';
+import { GlobalSettings } from './global-settings/index.js';
+import { ArcIdentity } from './identity/index.js';
+import { ArcIFX } from './ifx/index.js';
+import { ArcMigrationCenter } from './migration-center/index.js';
+import { ArcProtoCenter } from './photo-center/index.js';
+import { ArcRedirect } from './redirect/index.js';
+import { ArcRetailEvents } from './retail-events/index.js';
+import { ArcSales } from './sales/index.js';
+import { ArcSigningService } from './signing-service/index.js';
+import { ArcSite } from './site/index.js';
+import { ArcTags } from './tags/index.js';
+import { ArcWebsked } from './websked/index.js';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
   const API = {
@@ -34,16 +34,15 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     GlobalSettings: new GlobalSettings(options),
     Tags: new ArcTags(options),
     ContentOps: new ArcContentOps(options),
+    RetailEvents: new ArcRetailEvents(options),
     Custom: new Custom(options),
   };
 
-  return {
-    ...API,
-    setMaxRPS: (rps: number) => {
-      Object.values(API).forEach((a) => a.setMaxRPS(rps));
-    },
-    RetailEvents: new ArcRetailEvents(options),
-  };
+  API.MigrationCenter.setMaxRPS(8);
+  API.Draft.setMaxRPS(4);
+  API.Content.setMaxRPS(3);
+
+  return API;
 };
 
 export type ArcAPIType = ReturnType<typeof ArcAPI>;

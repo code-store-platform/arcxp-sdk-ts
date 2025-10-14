@@ -1,4 +1,4 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   Count,
   CountRequest,
@@ -12,7 +12,7 @@ import type {
   PostANSPayload,
   Summary,
   SummaryReportRequest,
-} from './types';
+} from './types.js';
 
 export class ArcMigrationCenter extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

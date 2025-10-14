@@ -1,5 +1,5 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { GetUserResponse, MigrateBatchUsersPayload, MigrateBatchUsersResponse, UserProfile } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import type { GetUserResponse, MigrateBatchUsersPayload, MigrateBatchUsersResponse, UserProfile } from './types.js';
 
 export class ArcIdentity extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

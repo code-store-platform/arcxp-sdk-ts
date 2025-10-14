@@ -1,5 +1,5 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { ScheduleOperationPayload, UnscheduleOperationPayload } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import type { ScheduleOperationPayload, UnscheduleOperationPayload } from './types.js';
 
 export class ArcContentOps extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

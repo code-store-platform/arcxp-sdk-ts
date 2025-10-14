@@ -62,8 +62,8 @@ src/api/{service}/
 
 ```typescript
 import type { GlobalType } from '../../types/entity';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { LocalParamsType } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import type { LocalParamsType } from './types.js';
 
 export class ArcServiceName extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -219,7 +219,7 @@ Ensure types are exported from the service's `types.ts` and re-exported in `src/
 
 ```typescript
 // In src/index.ts
-export * from './api/{service}/types';
+export * from './api/{service}/types.js';
 ```
 
 #### 6. Document Changes
@@ -339,7 +339,7 @@ import type { AGallery } from '../../types/gallery';
 import type { AnImage } from '../../types/story';
 
 // Importing local types
-import type { GetStoryParams, SearchResponse } from './types';
+import type { GetStoryParams, SearchResponse } from './types.js';
 ```
 
 ### Handling Unclear Specifications
@@ -423,7 +423,7 @@ Write tests for new functionality:
 
 ```typescript
 import { describe, it, expect } from 'vitest';
-import { ArcServiceName } from './index';
+import { ArcServiceName } from './index.js';
 
 describe('ArcServiceName', () => {
   it('should fetch item by id', async () => {

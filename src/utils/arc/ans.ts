@@ -1,4 +1,4 @@
-import type { RepresentationOfANormalizedElement } from '../../types/story';
+import type { RepresentationOfANormalizedElement } from '../../types/story.js';
 
 export const reference = (ref: RepresentationOfANormalizedElement['referent']): RepresentationOfANormalizedElement => {
   return {

@@ -1,5 +1,5 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { ArcRedirectRuleContentType, ArcRedirectRuleType, ArcRedirectRulesResponse } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import type { ArcRedirectRuleContentType, ArcRedirectRuleType, ArcRedirectRulesResponse } from './types.js';
 
 export class ArcRedirect extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
