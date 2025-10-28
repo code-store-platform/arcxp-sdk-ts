@@ -1,4 +1,4 @@
-import type { Alignment, AnImage } from '../types/story.js';
+import type { ANS } from '../types/index.js';
 import type { CElement } from './types.js';
 
 export const ContentElement = {
@@ -7,7 +7,7 @@ export const ContentElement = {
       type: 'divider' as const,
     };
   },
-  text: (content: string, alignment: Alignment | null = 'left') => {
+  text: (content: string, alignment: ANS.Alignment | null = 'left') => {
     return {
       type: 'text' as const,
       content,
@@ -74,7 +74,7 @@ export const ContentElement = {
       }),
     };
   },
-  image: (id: string, properties?: AnImage) => {
+  image: (id: string, properties?: ANS.AnImage) => {
     return {
       referent: {
         id,

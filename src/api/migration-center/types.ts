@@ -1,10 +1,7 @@
-import type { AGallery } from '../../types/gallery.js';
-import type { SectionReference } from '../../types/section.js';
-import type { AStory, AnImage, Tag } from '../../types/story.js';
-import type { VideoContent } from '../../types/video.js';
+import type { ANS, SectionReference } from '../../types/index.js';
 import type { AuthorANS } from '../author/types.js';
 
-type TagANS = Tag & { name: string };
+type TagANS = ANS.Tag & { name: string };
 
 export type CirculationReference = {
   document_id: string;
@@ -24,7 +21,7 @@ export type Operation = {
   endpoint: string;
 };
 
-export type ANSContent = AStory | AGallery | AnImage | AuthorANS | TagANS | VideoContent;
+export type ANSContent = ANS.AStory | ANS.AGallery | ANS.AnImage | AuthorANS | TagANS | ANS.VideoContent;
 
 export type PostANSPayload<ANS extends ANSContent = ANSContent> = {
   sourceId: string;

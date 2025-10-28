@@ -1,6 +1,6 @@
 import type { ANSContent, CirculationReference, PostANSParams, PostANSPayload } from '../api/migration-center/types.js';
 import type { ContentElementType } from '../content-elements/types.js';
-import type { Story } from '../types/index.js';
+import type { ANS } from '../types/index.js';
 import type { MaybePromise, Optional } from '../types/utils.js';
 
 /**
@@ -8,7 +8,7 @@ import type { MaybePromise, Optional } from '../types/utils.js';
  * If you want to create a new entity subtype you should extend this class
  *
  * Use case: You want to migrate stories from BBC
- * You define `class BBCStory extends ArcDocument<Story.AStory>` and implement all abstract methods
+ * You define `class BBCStory extends ArcDocument<ANS.AStory>` and implement all abstract methods
  * Then you can override the specific methods to enrich the story with the data from BBC
  *
  * To migrate it call .migrate() method
@@ -28,7 +28,7 @@ export abstract class Document<ANS extends ANSContent> {
   abstract arcId(): MaybePromise<string>;
   abstract type(): MaybePromise<string>;
   abstract groupId(): MaybePromise<string>;
-  abstract version(): Story.DescribesTheANSVersionOfThisObject;
+  abstract version(): ANS.DescribesTheANSVersionOfThisObject;
 
   abstract getAns(): MaybePromise<ANS>;
 
@@ -81,7 +81,7 @@ export abstract class Document<ANS extends ANSContent> {
     return 'historical';
   }
 
-  protected getDistributor(): MaybePromise<Optional<Story.Distributor>> {
+  protected getDistributor(): MaybePromise<Optional<ANS.Distributor>> {
     return;
   }
 
@@ -89,11 +89,11 @@ export abstract class Document<ANS extends ANSContent> {
     return 'en-GB';
   }
 
-  protected getComments(): Optional<Story.Comments> {
+  protected getComments(): Optional<ANS.Comments> {
     return;
   }
 
-  protected async getSource(): Promise<Optional<Story.Source>> {
+  protected async getSource(): Promise<Optional<ANS.Source>> {
     return {
       name: 'code-store',
       system: 'code-store',
@@ -101,13 +101,13 @@ export abstract class Document<ANS extends ANSContent> {
     };
   }
 
-  protected getSubheadlines(): Optional<Story.SubHeadlines> {
+  protected getSubheadlines(): Optional<ANS.SubHeadlines> {
     return {
       basic: '',
     };
   }
 
-  protected getDescription(): Optional<Story.Description> {
+  protected getDescription(): Optional<ANS.Description> {
     return this.getSubheadlines();
   }
 
@@ -128,37 +128,37 @@ export abstract class Document<ANS extends ANSContent> {
     return new Date();
   }
 
-  protected getHeadlines(): Optional<Story.Headlines> {
+  protected getHeadlines(): Optional<ANS.Headlines> {
     return {
       basic: '',
     };
   }
 
-  protected getTags(): MaybePromise<Optional<Story.Tag[]>> {
+  protected getTags(): MaybePromise<Optional<ANS.Tag[]>> {
     return;
   }
 
-  protected getSubtype(): MaybePromise<Optional<Story.SubtypeOrTemplate>> {
+  protected getSubtype(): MaybePromise<Optional<ANS.SubtypeOrTemplate>> {
     return;
   }
 
-  protected getLabel(): MaybePromise<Optional<Story.Label>> {
+  protected getLabel(): MaybePromise<Optional<ANS.Label>> {
     return;
   }
 
-  protected getRelatedContent(): MaybePromise<Optional<Story.Related_Content>> {
+  protected getRelatedContent(): MaybePromise<Optional<ANS.Related_Content>> {
     return;
   }
 
-  protected async getPromoItems(): Promise<Optional<Story.PromoItems>> {
+  protected async getPromoItems(): Promise<Optional<ANS.PromoItems>> {
     return;
   }
 
-  protected getWebskedStatusCode(): MaybePromise<Story.WorkflowInformation['status_code']> {
+  protected getWebskedStatusCode(): MaybePromise<ANS.WorkflowInformation['status_code']> {
     return;
   }
 
-  protected getCreditsBy(): MaybePromise<Story.By> {
+  protected getCreditsBy(): MaybePromise<ANS.By> {
     return [];
   }
 
@@ -166,27 +166,27 @@ export abstract class Document<ANS extends ANSContent> {
     return [];
   }
 
-  protected getEditorNote(): MaybePromise<Optional<Story.Editor_Note>> {
+  protected getEditorNote(): MaybePromise<Optional<ANS.Editor_Note>> {
     return;
   }
 
-  protected getContentRestrictions(): MaybePromise<Optional<Story.ContentRestrictions>> {
+  protected getContentRestrictions(): MaybePromise<Optional<ANS.ContentRestrictions>> {
     return;
   }
 
-  protected getOwnerInformation(): MaybePromise<Optional<Story.OwnerInformation>> {
+  protected getOwnerInformation(): MaybePromise<Optional<ANS.OwnerInformation>> {
     return;
   }
 
-  protected getSyndication(): MaybePromise<Optional<Story.Syndication>> {
+  protected getSyndication(): MaybePromise<Optional<ANS.Syndication>> {
     return;
   }
 
-  protected getSchedulingInformation(): MaybePromise<Optional<Story.SchedulingInformation>> {
+  protected getSchedulingInformation(): MaybePromise<Optional<ANS.SchedulingInformation>> {
     return;
   }
 
-  protected getTaxonomy(): MaybePromise<Optional<Story.Taxonomy>> {
+  protected getTaxonomy(): MaybePromise<Optional<ANS.Taxonomy>> {
     return;
   }
 }

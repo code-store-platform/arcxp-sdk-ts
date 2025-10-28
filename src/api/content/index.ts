@@ -1,4 +1,4 @@
-import type { AStory } from '../../types/story.js';
+import type { ANS } from '../../types/index.js';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   GetStoriesByIdsParams,
@@ -14,7 +14,7 @@ export class ArcContent extends ArcAbstractAPI {
     super({ ...options, apiPath: 'content/v4' });
   }
 
-  async getStory(params: GetStoryParams): Promise<AStory> {
+  async getStory(params: GetStoryParams): Promise<ANS.AStory> {
     const { data } = await this.client.get('/stories', { params });
     return data;
   }

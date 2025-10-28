@@ -1,4 +1,3 @@
-import type { Section, SetSectionPayload } from '../../types/section.js';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   GetLinksParams,
@@ -6,6 +5,8 @@ import type {
   GetSectionParams,
   GetSectionsResponse,
   Link,
+  Section,
+  SetSectionPayload,
   Website,
 } from './types.js';
 

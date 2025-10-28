@@ -1,4 +1,4 @@
-import type { Story } from '../../types/index.js';
+import type { ANS } from '../../types/index.js';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   Circulations,
@@ -23,7 +23,7 @@ export class ArcDraft extends ArcAbstractAPI {
     return data.id;
   }
 
-  async createDocument(ans: Story.AStory, type = 'story') {
+  async createDocument(ans: ANS.AStory, type = 'story') {
     const { data } = await this.client.post<Document>(`/${type}`, ans);
     return data;
   }

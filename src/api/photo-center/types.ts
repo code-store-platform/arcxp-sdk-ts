@@ -1,5 +1,4 @@
-import type { AGallery } from '../../types/gallery.js';
-import type { AnImage } from '../../types/story.js';
+import type { ANS } from '../../types/index.js';
 
 export type GetImagesParams = Partial<{
   primaryWebsite: string;
@@ -15,6 +14,6 @@ export type GetGalleriesParams = Partial<{
   limit: number;
 }>;
 
-export type GetImagesResponse = AnImage[];
+export type GetImagesResponse = ANS.AnImage[];
 
-export type GetGalleriesResponse = AGallery[];
+export type GetGalleriesResponse = ANS.AGallery[];

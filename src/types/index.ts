@@ -1,9 +1,5 @@
-export * as Author from './author.js';
-export * as Story from './story.js';
-export * as Section from './section.js';
-export * as Gallery from './gallery.js';
-export * as Video from './video.js';
-export * as Utils from './utils.js';
+export * as ANS from './ans-types';
+export * as TypeUtils from './utils';
 
 export * from '../api/identity/types.js';
 export * from '../api/draft/types.js';
