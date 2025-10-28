@@ -38,7 +38,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     Custom: new Custom(options),
   };
 
-  API.MigrationCenter.setMaxRPS(8);
+  API.MigrationCenter.setMaxRPS(12);
   API.Draft.setMaxRPS(4);
   API.Content.setMaxRPS(3);
 
