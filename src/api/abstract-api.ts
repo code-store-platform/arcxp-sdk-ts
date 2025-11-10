@@ -1,8 +1,8 @@
 import axios, { type AxiosError } from 'axios';
-import rateLimit, { type RateLimitedAxiosInstance } from 'axios-rate-limit';
+import * as rateLimit from 'axios-rate-limit';
 import axiosRetry from 'axios-retry';
-import { AxiosResponseErrorInterceptor } from '../utils';
-import { ArcError } from './error';
+import { AxiosResponseErrorInterceptor } from '../utils/index.js';
+import { ArcError } from './error.js';
 
 export type ArcAbstractAPIOptions = {
   credentials: { organizationName: string; accessToken: string };
@@ -14,7 +14,7 @@ export type ArcAPIOptions = Omit<ArcAbstractAPIOptions, 'apiPath'>;
 
 export abstract class ArcAbstractAPI {
   protected name = this.constructor.name;
-  protected client: RateLimitedAxiosInstance;
+  protected client: rateLimit.RateLimitedAxiosInstance;
 
   private token = '';
   private host = '';
@@ -33,13 +33,14 @@ export abstract class ArcAbstractAPI {
     });
 
     // apply rate limiting
-    this.client = rateLimit(instance, { maxRPS: options.maxRPS || 10 });
+    this.client = (rateLimit as any).default(instance, { maxRPS: options.maxRPS || 10 });
 
     // apply retry
-    axiosRetry(this.client, {
+    const retry = typeof axiosRetry === 'function' ? axiosRetry : (axiosRetry as any).default;
+    retry(this.client, {
       retries: 5,
       retryDelay: axiosRetry.exponentialDelay,
-      retryCondition: (err) => this.retryCondition(err),
+      retryCondition: (err: AxiosError) => this.retryCondition(err),
     });
 
     // wrap response errors

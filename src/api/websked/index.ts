@@ -1,4 +1,4 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   CreateTaskPayload,
   CreateTaskResponse,
@@ -8,7 +8,7 @@ import type {
   ReportStatusChangePayload,
   SectionEdition,
   WebskedPublication,
-} from './types';
+} from './types.js';
 
 export class ArcWebsked extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {

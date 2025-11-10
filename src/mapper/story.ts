@@ -1,6 +1,6 @@
-import type { ANSContent } from '../api/migration-center/types';
-import type * as Types from '../types';
-import { Document } from './doc';
+import type { ANSContent } from '../api/migration-center/types.js';
+import type { ANS } from '../types/index.js';
+import { Document } from './doc.js';
 
 /**
  * Base class for all arc stories, it provides common methods and properties
@@ -19,7 +19,7 @@ import { Document } from './doc';
  *     }];
  * }
  */
-export abstract class Story<ANS extends ANSContent = Types.Story.AStory> extends Document<ANS> {
+export abstract class Story<ANS extends ANSContent = ANS.AStory> extends Document<ANS> {
   type() {
     return 'story' as const;
   }

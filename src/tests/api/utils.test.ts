@@ -37,6 +37,12 @@ describe('Arc Utils', () => {
 
       expect(id1).not.toEqual(id2);
     });
+
+    test('Resolves to same id', () => {
+      const id = ArcUtils.Id.generateArcId('123456789', 'code.store');
+
+      expect(id).toEqual('2VODOGXJ4ZLSBFE4Z6ZYTLFNE4');
+    });
   });
 
   describe('ArcUtils.content.createSocial', () => {

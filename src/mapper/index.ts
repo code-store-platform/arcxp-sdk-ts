@@ -1,2 +1,2 @@
-export { Document } from './doc';
-export { Story } from './story';
+export { Document } from './doc.js';
+export { Story } from './story.js';

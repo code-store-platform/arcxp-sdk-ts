@@ -1,6 +1,8 @@
-import type { RepresentationOfANormalizedElement } from '../../types/story';
+import type { ANS } from '../../types';
 
-export const reference = (ref: RepresentationOfANormalizedElement['referent']): RepresentationOfANormalizedElement => {
+export const reference = (
+  ref: ANS.RepresentationOfANormalizedElement['referent']
+): ANS.RepresentationOfANormalizedElement => {
   return {
     _id: ref.id,
     type: 'reference' as const,

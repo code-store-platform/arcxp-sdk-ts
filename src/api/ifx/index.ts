@@ -1,6 +1,5 @@
-import { createReadStream } from 'node:fs';
-import FormData from 'form-data';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import platform from '../../lib/platform/index.js';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   AddSecretPayload,
   Bundle,
@@ -11,7 +10,7 @@ import type {
   Integration,
   SubscribePayload,
   UpdateIntegrationPayload,
-} from './types';
+} from './types.js';
 
 export class ArcIFX extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
@@ -95,8 +94,14 @@ export class ArcIFX extends ArcAbstractAPI {
   }
 
   async uploadBundle(integrationName: string, name: string, bundlePath: string) {
-    const bundle = createReadStream(bundlePath);
+    const fs = await platform.fs();
+    const FormData = await platform.form_data();
+
     const form = new FormData();
+
+    console.log('platform', platform);
+    console.log(form);
+    const bundle = fs.createReadStream(bundlePath);
 
     form.append('bundle', bundle);
     form.append('name', name);

@@ -1,5 +1,5 @@
-import type { AStory } from '../../types/story';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
+import type { ANS } from '../../types/index.js';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   GetStoriesByIdsParams,
   GetStoryParams,
@@ -7,14 +7,14 @@ import type {
   ScanResponse,
   SearchParams,
   SearchResponse,
-} from './types';
+} from './types.js';
 
 export class ArcContent extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
     super({ ...options, apiPath: 'content/v4' });
   }
 
-  async getStory(params: GetStoryParams): Promise<AStory> {
+  async getStory(params: GetStoryParams): Promise<ANS.AStory> {
     const { data } = await this.client.get('/stories', { params });
     return data;
   }

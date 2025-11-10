@@ -1,5 +1,5 @@
 import type { AxiosError, InternalAxiosRequestConfig } from 'axios';
-import { safeJSONStringify } from '../utils';
+import { safeJSONStringify } from '../utils/index.js';
 
 export class ArcError extends Error {
   public responseData: unknown;

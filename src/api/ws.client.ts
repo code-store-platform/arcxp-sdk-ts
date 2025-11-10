@@ -1,4 +1,4 @@
-import ws from 'ws';
+import * as ws from 'ws';
 
 export type PromiseOr<T> = Promise<T> | T;
 export type Callback<Args extends any[] = any[]> = (...args: Args) => PromiseOr<void>;

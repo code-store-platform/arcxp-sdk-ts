@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "https://github.com/washingtonpost/ans-schema",
+  "title": "Root",
+  "description": "",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "gallery_root": {
+      "$ref": "https://raw.githubusercontent.com/washingtonpost/ans-schema/master/src/main/resources/schema/ans/0.10.12/gallery.json"
+    },
+    "story_root": {
+      "$ref": "https://raw.githubusercontent.com/washingtonpost/ans-schema/master/src/main/resources/schema/ans/0.10.12/story.json"
+    },
+    "video_root": {
+      "$ref": "https://raw.githubusercontent.com/washingtonpost/ans-schema/master/src/main/resources/schema/ans/0.10.12/video.json"
+    }
+  },
+  "required": ["gallery_root", "story_root", "video_root"]
+}

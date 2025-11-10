@@ -1,6 +1,6 @@
 import { decode } from 'html-entities';
-import parse, { HTMLElement, CommentNode, type Options, TextNode, type Node } from 'node-html-parser';
-import type { CElement, ContentElementType } from '../../types/content-elements';
+import { CommentNode, HTMLElement, type Node, type Options, TextNode, parse } from 'node-html-parser';
+import type { CElement, ContentElementType } from '../types.js';
 
 export const isTextNode = (node?: Node): node is TextNode => {
   return node instanceof TextNode;

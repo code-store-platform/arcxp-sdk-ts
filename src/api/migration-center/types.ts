@@ -1,38 +1,7 @@
-import type { AGallery } from '../../types/gallery';
-import type { SectionReference } from '../../types/section';
-import type { AStory, AnImage, Tag } from '../../types/story';
-import type { VideoContent } from '../../types/video';
+import type { ANS, SectionReference } from '../../types/index.js';
+import type { AuthorANS } from '../author/types.js';
 
-type TagANS = Tag & { name: string };
-
-export type AuthorANS = {
-  type: 'author';
-  _id: string;
-  firstName: string;
-  lastName: string;
-  byline: string;
-  slug: string;
-  email: string;
-  image?: string;
-  affiliations?: string;
-  author_type?: string;
-  education?: { name: string }[];
-  awards?: { name: string }[];
-  bio_page?: string;
-  bio?: string;
-  longBio?: string;
-  native_app_rendering?: boolean;
-  fuzzy_match?: boolean;
-  contributor?: boolean;
-  location?: string;
-  role?: string;
-  expertise?: string;
-  personal_website?: string;
-  twitter?: string;
-  facebook?: string;
-  linkedin?: string;
-  status?: boolean;
-};
+type TagANS = ANS.Tag & { name: string };
 
 export type CirculationReference = {
   document_id: string;
@@ -52,7 +21,7 @@ export type Operation = {
   endpoint: string;
 };
 
-export type ANSContent = AStory | AGallery | AnImage | AuthorANS | TagANS | VideoContent;
+export type ANSContent = ANS.AStory | ANS.AGallery | ANS.AnImage | AuthorANS | TagANS | ANS.VideoContent;
 
 export type PostANSPayload<ANS extends ANSContent = ANSContent> = {
   sourceId: string;

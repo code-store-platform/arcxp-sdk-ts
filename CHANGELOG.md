@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.0.0
+
+### Major Changes
+
+- ESM + CJS, refactor structure, regenerate types, section utils
+
 ## 4.49.1
 
 ### Patch Changes

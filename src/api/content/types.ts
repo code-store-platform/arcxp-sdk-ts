@@ -1,5 +1,4 @@
-import type { AGallery } from '../../types/gallery';
-import type { ARedirectObject, AStory } from '../../types/story';
+import type { ANS } from '../../types/index.js';
 
 export type GetStoryParams = {
   /** Specifies the ID of the website making the request. Required. */
@@ -48,7 +47,7 @@ export type ScanParams = {
 
 export type SearchResponse = {
   type: 'results';
-  content_elements: (AStory | AGallery | ARedirectObject)[];
+  content_elements: (ANS.AStory | ANS.AGallery | ANS.ARedirectObject)[];
   count: number;
   next?: number;
   previous?: number;
@@ -56,7 +55,7 @@ export type SearchResponse = {
 
 export type ScanResponse = {
   type: 'results';
-  content_elements: (AStory | AGallery | ARedirectObject)[];
+  content_elements: (ANS.AStory | ANS.AGallery | ANS.ARedirectObject)[];
   count: number;
   next: string;
 };

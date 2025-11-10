@@ -1,5 +1,5 @@
-import type { AStory } from '../../types/story';
-import type { CirculationReference } from '../migration-center/types';
+import type { ANS } from '../../types/index.js';
+import type { CirculationReference } from '../migration-center/types.js';
 
 export type CreateExternalRedirectPayload = {
   redirect_to: string;
@@ -34,7 +34,7 @@ export type Revision = {
   created_at: string;
   type: string;
   user_id?: string;
-  ans: AStory;
+  ans: ANS.AStory;
 };
 
 export type Document = {
@@ -51,7 +51,7 @@ export type Document = {
 
 export type UpdateDraftRevisionPayload = {
   document_id: string;
-  ans: AStory;
+  ans: ANS.AStory;
   type: 'DRAFT';
 };
 

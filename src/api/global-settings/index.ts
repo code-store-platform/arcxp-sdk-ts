@@ -1,5 +1,5 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api';
-import type { CreateDistributorPayload, Distributor, GetDistributorsParams, GetDistributorsResponse } from './types';
+import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import type { CreateDistributorPayload, Distributor, GetDistributorsParams, GetDistributorsResponse } from './types.js';
 
 export class GlobalSettings extends ArcAbstractAPI {
   constructor(options: ArcAPIOptions) {
