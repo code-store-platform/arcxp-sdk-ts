@@ -1,4 +1,6 @@
-import type { Section, SectionReference } from '../../types';
+import assert from 'node:assert';
+import type { ArcAPIType } from '../../api';
+import type { Section, SectionReference, SetSectionPayload } from '../../types';
 import { reference } from './ans';
 
 export type NavigationTreeNode<T = unknown> = {
@@ -130,3 +132,90 @@ export const removeDuplicates = <T extends Section | SectionReference>(sections:
 
   return [...map.values()];
 };
+
+export class SectionsRepository {
+  public sectionsByWebsite: Record<string, Section[]> = {};
+  public websitesAreLoaded = false;
+
+  constructor(protected arc: ArcAPIType) {}
+
+  async put(ans: SetSectionPayload) {
+    await this.arc.Site.putSection(ans);
+    const created = await this.arc.Site.getSection(ans._id, ans.website);
+    this.save(created);
+  }
+
+  async loadWebsite(website: string) {
+    const sections: Section[] = [];
+    let next = true;
+    let offset = 0;
+
+    while (next) {
+      const migrated = await this.arc.Site.getSections({ website, offset }).catch((_) => {
+        return { q_results: [] };
+      });
+      if (migrated.q_results.length) {
+        sections.push(...migrated.q_results);
+        offset += migrated.q_results.length;
+      } else {
+        next = false;
+      }
+    }
+
+    return sections;
+  }
+
+  async loadWebsites(websites: string[]) {
+    for (const website of websites) {
+      this.sectionsByWebsite[website] = await this.loadWebsite(website);
+    }
+
+    this.websitesAreLoaded = true;
+  }
+
+  save(section: Section) {
+    const website = section._website;
+
+    assert.ok(website, 'Section must have a website');
+
+    this.sectionsByWebsite[website] = this.sectionsByWebsite[website] || [];
+
+    if (!this.sectionsByWebsite[website].find((s) => s._id === section._id)) {
+      this.sectionsByWebsite[website].push(section);
+    }
+  }
+
+  getById(id: string, website: string) {
+    this.ensureWebsitesLoaded();
+
+    const section = this.sectionsByWebsite[website]?.find((s) => s._id === id);
+    return section;
+  }
+
+  getByWebsite(website: string) {
+    this.ensureWebsitesLoaded();
+
+    return this.sectionsByWebsite[website];
+  }
+
+  getParentSections(section: Section) {
+    this.ensureWebsitesLoaded();
+
+    const parents: Section[] = [];
+    let current = section;
+
+    while (current.parent?.default && current.parent.default !== '/') {
+      const parent = this.getById(current.parent.default, section._website!);
+      if (!parent) break;
+
+      parents.push(parent);
+      current = parent;
+    }
+
+    return parents;
+  }
+
+  protected ensureWebsitesLoaded() {
+    assert.ok(this.websitesAreLoaded, 'call .loadWebsites() first');
+  }
+}
