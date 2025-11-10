@@ -1,6 +1,6 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "5.0.0-beta",
+  "version": "5.0.0",
   "description": "A strongly typed set of ArcXP API's and utilities reduce the amount of work required to develop with ArcXP, starting with reducing the boilerplate code you have to write.",
   "type": "module",
   "main": "./dist/index.js",
@@ -20,7 +20,9 @@
     "url": "https://github.com/code-store-platform/arcxp-sdk-ts"
   },
   "homepage": "https://github.com/code-store-platform/arcxp-sdk-ts",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc --noEmit && rollup -c",
     "format": "npx @biomejs/biome format --write .",
@@ -31,7 +33,11 @@
     "gen:ts": "npx tsx ./src/scripts/json-schema-to-ts.ts",
     "cs": "npx changeset && npx changeset version"
   },
-  "keywords": ["ArcXP", "SDK", "Code.Store"],
+  "keywords": [
+    "ArcXP",
+    "SDK",
+    "Code.Store"
+  ],
   "author": "code.store",
   "license": "MIT",
   "dependencies": {
