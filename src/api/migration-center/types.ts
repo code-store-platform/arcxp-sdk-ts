@@ -116,7 +116,7 @@ export type Count = {
 
 type ANSTypeCount = Partial<Record<MigrationStatus, number>>;
 
-export type DetailReportRequest = {
+export type DetailReportParams = {
   sourceId?: string;
   sourceType?: string;
   ansId?: string;
@@ -125,12 +125,12 @@ export type DetailReportRequest = {
   documentType?: string;
 };
 
-export type CountRequest = {
+export type CountParams = {
   startDate?: Date;
   endDate?: Date;
 };
 
-export type SummaryReportRequest = {
+export type SummaryReportParams = {
   status?: MigrationStatus;
   website: string;
   groupId?: string;

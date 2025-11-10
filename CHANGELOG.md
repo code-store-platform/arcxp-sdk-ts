@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.0.1
+
+### Patch Changes
+
+- fix some type names
+
 ## 5.0.0
 
 ### Major Changes

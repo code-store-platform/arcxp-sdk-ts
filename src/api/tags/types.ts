@@ -68,7 +68,7 @@ export type DeleteTagsResponse = {
 /**
  * Create new tags. The maximum limit per request is 25 tags or 16 MB of data.
  */
-export type AddTagRequest = {
+export type AddTagsPayload = {
   slug: string;
   name: string;
   description?: string;
@@ -76,4 +76,4 @@ export type AddTagRequest = {
 /**
  * Delete tags. The maximum limit per request is 25 tags or 16 MB of data.
  */
-export type DeleteTagRequest = string[];
+export type DeleteTagPayload = string[];

@@ -1,9 +1,9 @@
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   Count,
-  CountRequest,
+  CountParams,
   DetailReport,
-  DetailReportRequest,
+  DetailReportParams,
   GetANSParams,
   GetRecentGroupIdsResponse,
   GetRemainingTimeParams,
@@ -11,7 +11,7 @@ import type {
   PostANSParams,
   PostANSPayload,
   Summary,
-  SummaryReportRequest,
+  SummaryReportParams,
 } from './types.js';
 
 export class ArcMigrationCenter extends ArcAbstractAPI {
@@ -19,19 +19,19 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
     super({ ...options, apiPath: 'migrations/v3' });
   }
 
-  async summary(params?: SummaryReportRequest) {
+  async summary(params?: SummaryReportParams) {
     const { data, headers } = await this.client.get<Summary>('/report/summary', { params });
     const nextFromId: string | undefined = headers['amc-record-id'];
 
     return { records: data, nextFromId };
   }
 
-  async detailed(params?: DetailReportRequest) {
+  async detailed(params?: DetailReportParams) {
     const { data } = await this.client.get<DetailReport>('/report/detail', { params });
     return data;
   }
 
-  async count(params?: CountRequest) {
+  async count(params?: CountParams) {
     const { data } = await this.client.get<Count>('/report/status/count', {
       params: {
         startDate: params?.startDate?.toISOString(),
