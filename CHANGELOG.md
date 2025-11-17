@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.0.2
+
+### Patch Changes
+
+- export author types, sort
+
 ## 5.0.1
 
 ### Patch Changes
