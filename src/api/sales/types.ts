@@ -30,6 +30,7 @@ export interface PaidSubscription extends BaseSubscription {
   paymentMethod: {
     providerID: number;
     token: string;
+    [key: string]: any,
   };
   billingAddress: {
     line1?: string | null | undefined;

@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.0.3
+
+### Patch Changes
+
+- export CE types
+
 ## 5.0.2
 
 ### Patch Changes
