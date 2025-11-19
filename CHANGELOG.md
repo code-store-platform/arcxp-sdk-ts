@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.1.1
+
+### Patch Changes
+
+- fix retail types
+
 ## 5.1.0
 
 ### Minor Changes

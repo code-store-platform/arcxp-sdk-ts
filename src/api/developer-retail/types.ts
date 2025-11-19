@@ -2,7 +2,7 @@
 // Pagination Types
 // ============================================
 export type PaginatedResponse<T> = {
-  result: T[];
+  result: T;
   lastPage: number;
   page: number;
   size: number;
