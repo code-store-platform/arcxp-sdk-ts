@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.1.0
+
+### Minor Changes
+
+- add DeveloperRetail api, types
+
 ## 5.0.3
 
 ### Patch Changes

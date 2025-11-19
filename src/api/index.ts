@@ -11,6 +11,7 @@ import { ArcMigrationCenter } from './migration-center/index.js';
 import { ArcProtoCenter } from './photo-center/index.js';
 import { ArcRedirect } from './redirect/index.js';
 import { ArcRetailEvents } from './retail-events/index.js';
+import { ArcDeveloperRetail } from './developer-retail/index.js';
 import { ArcSales } from './sales/index.js';
 import { ArcSigningService } from './signing-service/index.js';
 import { ArcSite } from './site/index.js';
@@ -35,6 +36,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     Tags: new ArcTags(options),
     ContentOps: new ArcContentOps(options),
     RetailEvents: new ArcRetailEvents(options),
+    DeveloperRetail: new ArcDeveloperRetail(options),
     Custom: new Custom(options),
   };
 

@@ -202,8 +202,8 @@ export interface UserAddress {
    * @example 123 Main St.
    */
   line1?: string;
-  line2: string;
-  locality: string;
+  line2?: string;
+  locality?: string;
   region?: string;
   postal?: string;
   country?: string;

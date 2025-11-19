@@ -1,5 +1,7 @@
+import type { UserAttribute } from '../identity/types';
+
 export type MigrateBatchSubscriptionsPayload = {
-  subscriptions: (PaidSubscription | FreeSubscription)[];
+  subscriptions: (PaidSubscription | FreeSubscription | SharedSubscription | LinkedSubscription)[];
   payments: PaymentInfo[];
 };
 
@@ -13,24 +15,19 @@ interface BaseSubscription {
   legacyID: string;
   ownerClientID: string;
   sku: string;
-  priceCode: string;
-  currentCycle: number;
-  nextEventDateUTC: string;
   paymentMethod?: Record<string, any>;
+  attributes?: UserAttribute[];
 }
 
 export interface PaidSubscription extends BaseSubscription {
-  legacyID: string;
-  ownerClientID: string;
-  sku: string;
+  type: 'paid';
   priceCode: string;
   currentCycle: number;
   nextEventDateUTC: string;
-  type: 'paid';
   paymentMethod: {
     providerID: number;
     token: string;
-    [key: string]: any,
+    [key: string]: any;
   };
   billingAddress: {
     line1?: string | null | undefined;
@@ -41,12 +38,30 @@ export interface PaidSubscription extends BaseSubscription {
     country: string;
   };
 }
+export interface LinkedSubscription extends BaseSubscription {
+  type: 'linked';
+  nextEventDateUTC?: string;
+  paymentMethod: {
+    providerID: number;
+    [key: string]: any;
+  };
+}
+
+export interface SharedSubscription extends BaseSubscription {
+  type: 'shared';
+  nextEventDateUTC?: string;
+  paymentMethod: {
+    providerID: number;
+    [key: string]: any;
+  };
+}
 
 export interface FreeSubscription extends BaseSubscription {
   type: 'free';
+  nextEventDateUTC?: string;
   paymentMethod: {
     providerID: number;
-    token: string;
+    [key: string]: any;
   };
 }
 

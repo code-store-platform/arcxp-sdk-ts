@@ -4,6 +4,7 @@ export * as TypeUtils from './utils';
 export * from '../api/author/types.js';
 export * from '../api/content/types.js';
 export * from '../api/content-ops/types.js';
+export * from '../api/developer-retail/types.js';
 export * from '../api/draft/types.js';
 export * from '../api/global-settings/types.js';
 export * from '../api/identity/types.js';
