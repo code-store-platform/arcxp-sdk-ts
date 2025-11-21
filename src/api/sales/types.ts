@@ -1,8 +1,10 @@
 import type { UserAttribute } from '../identity/types';
+import type { Website } from '../../types/ans-types';
 
 export type MigrateBatchSubscriptionsPayload = {
   subscriptions: (PaidSubscription | FreeSubscription | SharedSubscription | LinkedSubscription)[];
   payments: PaymentInfo[];
+  website: Website;
 };
 
 export type MigrateBatchSubscriptionsResponse = {
