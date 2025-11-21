@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.1.2
+
+### Patch Changes
+
+- Added "site" param to Sales migration method
+
 ## 5.1.1
 
 ### Patch Changes
