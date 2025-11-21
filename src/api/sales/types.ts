@@ -4,6 +4,9 @@ import type { Website } from '../../types/ans-types';
 export type MigrateBatchSubscriptionsPayload = {
   subscriptions: (PaidSubscription | FreeSubscription | SharedSubscription | LinkedSubscription)[];
   payments: PaymentInfo[];
+};
+
+export type MigrateBatchSubscriptionsParams = {
   website: Website;
 };
 
