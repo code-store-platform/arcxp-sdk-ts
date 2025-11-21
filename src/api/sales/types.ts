@@ -7,7 +7,7 @@ export type MigrateBatchSubscriptionsPayload = {
 };
 
 export type MigrateBatchSubscriptionsParams = {
-  website: Website;
+  site: Website;
 };
 
 export type MigrateBatchSubscriptionsResponse = {
