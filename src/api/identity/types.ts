@@ -102,6 +102,11 @@ export interface UserIdentity {
 
 export interface UserProfile {
   /**
+   * @description Unique identifier of the user (UUID)
+   * @example "3eda4538-9ba3-411a-ac33-ecc93ea22abc"
+   */
+  uuid?: string;
+  /**
    * Format: date-time
    * @description Date this was created
    */
