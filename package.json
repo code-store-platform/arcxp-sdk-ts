@@ -20,9 +20,7 @@
     "url": "https://github.com/code-store-platform/arcxp-sdk-ts"
   },
   "homepage": "https://github.com/code-store-platform/arcxp-sdk-ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsc --noEmit && rollup -c",
     "format": "npx @biomejs/biome format --write .",
@@ -33,11 +31,7 @@
     "gen:ts": "npx tsx ./src/scripts/json-schema-to-ts.ts",
     "cs": "npx changeset && npx changeset version"
   },
-  "keywords": [
-    "ArcXP",
-    "SDK",
-    "Code.Store"
-  ],
+  "keywords": ["ArcXP", "SDK", "Code.Store"],
   "author": "code.store",
   "license": "MIT",
   "dependencies": {

@@ -1,9 +1,11 @@
 import FormData from 'form-data';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
+  GetAllSubscriptionsForUserParams,
   MigrateBatchSubscriptionsParams,
   MigrateBatchSubscriptionsPayload,
   MigrateBatchSubscriptionsResponse,
+  SubscriptionSummary,
 } from './types.js';
 
 export class ArcSales extends ArcAbstractAPI {
@@ -22,6 +24,11 @@ export class ArcSales extends ArcAbstractAPI {
       },
     });
 
+    return data;
+  }
+
+  async getAllSubscriptionsForUser(params?: GetAllSubscriptionsForUserParams): Promise<SubscriptionSummary> {
+    const { data } = await this.client.get('/subscription/all', { params });
     return data;
   }
 }

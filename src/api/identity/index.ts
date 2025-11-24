@@ -38,6 +38,12 @@ export class ArcIdentity extends ArcAbstractAPI {
     return data;
   }
 
+  async getUserProfile(id: string): Promise<UserProfile> {
+    const { data } = await this.client.get(`/profile/${id}`);
+
+    return data;
+  }
+
   async updateUserProfile(id: string, payload: Partial<UserProfile>): Promise<UserProfile> {
     const { data } = await this.client.patch(`/profile/${id}`, payload);
 

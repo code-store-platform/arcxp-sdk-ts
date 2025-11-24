@@ -1,5 +1,6 @@
 import type { UserAttribute } from '../identity/types';
 import type { Website } from '../../types/ans-types';
+export type SubscriptionStatuses = 1 | 2 | 3 | 4 | 5 | 6 | 7;
 
 export type MigrateBatchSubscriptionsPayload = {
   subscriptions: (PaidSubscription | FreeSubscription | SharedSubscription | LinkedSubscription)[];
@@ -92,3 +93,27 @@ export type Refund = {
   tax: number;
   providerReference?: string;
 };
+
+export type GetAllSubscriptionsForUserParams = {
+  id: string;
+  site?: string;
+};
+
+export interface SubscriptionSummary {
+  subscriptionID: number;
+  statusID: number;
+  paymentMethod?: PaymentMethod | null;
+  productName?: string | null;
+  sku?: string | null;
+  site?: string | null;
+}
+
+export interface PaymentMethod {
+  creditCardType: string | null;
+  firstSix: string | null;
+  lastFour: string | null;
+  expiration: string | null;
+  cardHolderName: string | null;
+  paymentPartner: string;
+  paymentMethodID: number;
+}
