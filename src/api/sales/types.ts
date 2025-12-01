@@ -92,3 +92,15 @@ export type Refund = {
   tax: number;
   providerReference?: string;
 };
+
+export type CreateEnterpriseGroupPayload = {
+  name: string;
+  sku: string;
+};
+
+export type CreateEnterpriseGroupResponse = {
+  name: string;
+  sku: string;
+  nonceExpirationInDays: number;
+  id: number;
+};

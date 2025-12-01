@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.1.3
+
+### Patch Changes
+
+- Added SalesSDK of v2
+
 ## 5.1.2
 
 ### Patch Changes
