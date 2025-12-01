@@ -1,6 +1,8 @@
 import FormData from 'form-data';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
+  CreateEnterpriseGroupPayload,
+  CreateEnterpriseGroupResponse,
   MigrateBatchSubscriptionsParams,
   MigrateBatchSubscriptionsPayload,
   MigrateBatchSubscriptionsResponse,
@@ -22,6 +24,17 @@ export class ArcSales extends ArcAbstractAPI {
       },
     });
 
+    return data;
+  }
+}
+
+export class ArcSalesV2 extends ArcAbstractAPI {
+  constructor(options: ArcAPIOptions) {
+    super({ ...options, apiPath: 'sales/api/v2' });
+  }
+
+  async createEnterpriseGroup(payload: CreateEnterpriseGroupPayload): Promise<CreateEnterpriseGroupResponse> {
+    const { data } = await this.client.post<CreateEnterpriseGroupResponse>('/subscriptions/enterprise', payload);
     return data;
   }
 }
