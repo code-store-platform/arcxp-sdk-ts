@@ -12,7 +12,7 @@ import { ArcProtoCenter } from './photo-center/index.js';
 import { ArcRedirect } from './redirect/index.js';
 import { ArcRetailEvents } from './retail-events/index.js';
 import { ArcDeveloperRetail } from './developer-retail/index.js';
-import { ArcSales } from './sales/index.js';
+import { ArcSales, ArcSalesV2 } from './sales/index.js';
 import { ArcSigningService } from './signing-service/index.js';
 import { ArcSite } from './site/index.js';
 import { ArcTags } from './tags/index.js';
@@ -27,6 +27,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     Redirect: new ArcRedirect(options),
     MigrationCenter: new ArcMigrationCenter(options),
     Sales: new ArcSales(options),
+    SalesV2: new ArcSalesV2(options),
     Site: new ArcSite(options),
     Websked: new ArcWebsked(options),
     Content: new ArcContent(options),
