@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.1.6
+
+### Patch Changes
+
+- fix tests
+
 ## 5.1.5
 
 ### Patch Changes

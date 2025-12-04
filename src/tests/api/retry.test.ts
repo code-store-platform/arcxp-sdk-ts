@@ -38,10 +38,11 @@ describe('Arc API retry logic', () => {
   });
 
   test('fails after max retries (always 429)', async () => {
-    nock(base).get(/.*/).times(6).reply(429, { message: 'Too Many Requests' });
+    nock(base).get(/.*/).times(3).reply(429, { message: 'Too Many Requests' });
 
     const API = ArcAPI({
       credentials: { organizationName: org, accessToken },
+      maxRetries: 2,
     });
 
     await expect(API.Draft.generateId(Date.now().toString())).rejects.toMatchObject({

@@ -8,6 +8,7 @@ export type ArcAbstractAPIOptions = {
   credentials: { organizationName: string; accessToken: string };
   apiPath: string;
   maxRPS?: number;
+  maxRetries?: number;
 };
 
 export type ArcAPIOptions = Omit<ArcAbstractAPIOptions, 'apiPath'>;
@@ -38,7 +39,7 @@ export abstract class ArcAbstractAPI {
     // apply retry
     const retry = typeof axiosRetry === 'function' ? axiosRetry : (axiosRetry as any).default;
     retry(this.client, {
-      retries: 10,
+      retries: options.maxRetries || 10,
       retryDelay: axiosRetry.exponentialDelay,
       retryCondition: (err: AxiosError) => this.retryCondition(err),
     });
