@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.1.7
+
+### Patch Changes
+
+- Revert platform modules
+
 ## 5.1.6
 
 ### Patch Changes

@@ -1,10 +1,11 @@
-const importNodeModule = async (moduleId: string) => await import(moduleId);
+import fs from 'node:fs';
+import path from 'node:path';
+import FormData from 'form-data';
 
 const modules = {
-  // make it like that so static analyzer of webpack won't bundle it
-  fs: () => importNodeModule('node:fs') as Promise<typeof import('node:fs')>,
-  path: () => importNodeModule('node:path') as Promise<typeof import('node:path')>,
-  form_data: () => importNodeModule('form-data') as Promise<typeof import('form-data')>,
+  fs: () => Promise.resolve(fs),
+  path: () => Promise.resolve(path),
+  form_data: () => Promise.resolve(FormData),
 };
 
 export default modules;
