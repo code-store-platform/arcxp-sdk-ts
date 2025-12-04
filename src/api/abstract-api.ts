@@ -38,7 +38,7 @@ export abstract class ArcAbstractAPI {
     // apply retry
     const retry = typeof axiosRetry === 'function' ? axiosRetry : (axiosRetry as any).default;
     retry(this.client, {
-      retries: 5,
+      retries: 10,
       retryDelay: axiosRetry.exponentialDelay,
       retryCondition: (err: AxiosError) => this.retryCondition(err),
     });

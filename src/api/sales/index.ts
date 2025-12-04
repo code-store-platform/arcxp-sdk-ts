@@ -1,8 +1,10 @@
 import FormData from 'form-data';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
+  CreateEnterpriseGroupParams,
   CreateEnterpriseGroupPayload,
   CreateEnterpriseGroupResponse,
+  CreateNonceResponse,
   MigrateBatchSubscriptionsParams,
   MigrateBatchSubscriptionsPayload,
   MigrateBatchSubscriptionsResponse,
@@ -33,8 +35,31 @@ export class ArcSalesV2 extends ArcAbstractAPI {
     super({ ...options, apiPath: 'sales/api/v2' });
   }
 
-  async createEnterpriseGroup(payload: CreateEnterpriseGroupPayload): Promise<CreateEnterpriseGroupResponse> {
-    const { data } = await this.client.post<CreateEnterpriseGroupResponse>('/subscriptions/enterprise', payload);
+  async getEnterpriseGroups(params: CreateEnterpriseGroupParams): Promise<CreateEnterpriseGroupResponse> {
+    const { data } = await this.client.get<any>('/subscriptions/enterprise', {
+      params: {
+        'arc-site': params.site,
+      },
+    });
+    return data;
+  }
+
+  async createEnterpriseGroup(
+    params: CreateEnterpriseGroupParams,
+    payload: CreateEnterpriseGroupPayload
+  ): Promise<CreateEnterpriseGroupResponse> {
+    const { data } = await this.client.post<CreateEnterpriseGroupResponse>('/subscriptions/enterprise', payload, {
+      params: {
+        'arc-site': params.site,
+      },
+    });
+    return data;
+  }
+
+  async createNonce(website: string, enterpriseGroupId: number) {
+    const { data } = await this.client.get<CreateNonceResponse>(`/subscriptions/enterprise/${enterpriseGroupId}`, {
+      params: { 'arc-site': website },
+    });
     return data;
   }
 }

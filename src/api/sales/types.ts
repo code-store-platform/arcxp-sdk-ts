@@ -1,5 +1,5 @@
-import type { UserAttribute } from '../identity/types';
 import type { Website } from '../../types/ans-types';
+import type { UserAttribute } from '../identity/types';
 
 export type MigrateBatchSubscriptionsPayload = {
   subscriptions: (PaidSubscription | FreeSubscription | SharedSubscription | LinkedSubscription)[];
@@ -93,6 +93,10 @@ export type Refund = {
   providerReference?: string;
 };
 
+export type CreateEnterpriseGroupParams = {
+  site: string;
+};
+
 export type CreateEnterpriseGroupPayload = {
   name: string;
   sku: string;
@@ -103,4 +107,9 @@ export type CreateEnterpriseGroupResponse = {
   sku: string;
   nonceExpirationInDays: number;
   id: number;
+};
+
+export type CreateNonceResponse = {
+  nonce: string;
+  expires: string;
 };
