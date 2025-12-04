@@ -1,4 +1,4 @@
-import FormData from 'form-data';
+import platform from '../../lib/platform/index.js';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   CreateEnterpriseGroupParams,
@@ -16,7 +16,9 @@ export class ArcSales extends ArcAbstractAPI {
   }
 
   async migrate(params: MigrateBatchSubscriptionsParams, payload: MigrateBatchSubscriptionsPayload) {
+    const FormData = await platform.form_data();
     const form = new FormData();
+
     form.append('file', JSON.stringify(payload), { filename: 'subs.json', contentType: 'application/json' });
 
     const { data } = await this.client.post<MigrateBatchSubscriptionsResponse>('/migrate', form, {

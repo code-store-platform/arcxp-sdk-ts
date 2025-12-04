@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.1.5
+
+### Patch Changes
+
+- fix ArcSales, use platform
+
 ## 5.1.4
 
 ### Patch Changes
