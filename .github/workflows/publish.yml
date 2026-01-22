@@ -27,9 +27,12 @@ jobs:
       - name: Setup Node.js environment
         uses: actions/setup-node@v3
         with:
-          node-version: 24
+          node-version: 22
           cache: "pnpm"
           registry-url: "https://registry.npmjs.org"
+
+      - name: Update npm to latest version for OIDC support
+        run: npm install -g npm@latest
 
       - name: Print versions
         run: |
