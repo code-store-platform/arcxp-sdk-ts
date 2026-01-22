@@ -85,6 +85,13 @@ export class ArcDraft extends ArcAbstractAPI {
     return data;
   }
 
+  async deleteRedirect(website: string, websiteUrl: string) {
+    const { data } = await this.client.delete<ExternalRedirect | DocumentRedirect>(
+      `/redirect/${website}/${websiteUrl}`
+    );
+    return data;
+  }
+
   async updateDraftRevision(id: string, payload: UpdateDraftRevisionPayload, type = 'story') {
     const { data } = await this.client.put<Revision>(`/${type}/${id}/revision/draft`, payload);
     return data;

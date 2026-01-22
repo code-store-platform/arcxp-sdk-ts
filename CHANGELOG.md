@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.1.8
+
+### Patch Changes
+
+- DraftAPI.deleteRedirect added
+
 ## 5.1.7
 
 ### Patch Changes
