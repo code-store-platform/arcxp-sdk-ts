@@ -45,3 +45,5 @@ jobs:
 
       - name: Publish Package
         run: npm publish --tolerate-republish --no-fund --access public --provenance
+        env:
+          NPM_CONFIG_PROVENANCE: true
