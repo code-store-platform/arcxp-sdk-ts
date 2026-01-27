@@ -45,6 +45,12 @@ export class ArcSite extends ArcAbstractAPI {
     return data;
   }
 
+  async deleteWebsite(website: string) {
+    const { data } = await this.client.delete<Website>(`/website/${website}`);
+
+    return data;
+  }
+
   async putLink(link: Link) {
     const { data } = await this.client.put<Link>(`/website/${link._website}/link/${link._id}`, link);
 

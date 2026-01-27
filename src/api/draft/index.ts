@@ -1,4 +1,4 @@
-import type { ANS } from '../../types/index.js';
+import type { ANS, CirculationReference } from '../../types/index.js';
 import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
 import type {
   Circulations,
@@ -55,6 +55,12 @@ export class ArcDraft extends ArcAbstractAPI {
 
   async getCirculations(id: string, type = 'story', after?: string) {
     const { data } = await this.client.get<Circulations>(`/${type}/${id}/circulation`, { params: { after } });
+    return data;
+  }
+
+  async deleteCirculation(id: string, website: string, type = 'story') {
+    const { data } = await this.client.delete<CirculationReference>(`/${type}/${id}/circulation/${website}`);
+
     return data;
   }
 

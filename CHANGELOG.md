@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.2.0
+
+### Minor Changes
+
+- Site.deleteWebsite and Draft.deleteCirculation methods
+
 ## 5.1.8
 
 ### Patch Changes
