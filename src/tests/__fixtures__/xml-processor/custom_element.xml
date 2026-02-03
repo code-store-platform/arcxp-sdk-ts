@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section>
+  <paragraph>
+    Text with <custom_element>special</custom_element> content
+  </paragraph>
+</section>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section>
+  <paragraph>
+    <link href="https://example.com">Click here</link>
+  </paragraph>
+  <paragraph>
+    <link url="https://google.com">Google link</link>
+  </paragraph>
+</section>

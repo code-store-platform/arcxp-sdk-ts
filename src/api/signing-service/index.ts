@@ -1,4 +1,4 @@
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import { ArcAbstractAPI, type ArcAPIOptions } from '../abstract-api.js';
 import type { SignResponse } from './types.js';
 
 export class ArcSigningService extends ArcAbstractAPI {

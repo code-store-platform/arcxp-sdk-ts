@@ -1,5 +1,5 @@
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import { ArcAbstractAPI, type ArcAPIOptions } from '../abstract-api.js';
 
 export interface RequestConfig extends AxiosRequestConfig {}
 

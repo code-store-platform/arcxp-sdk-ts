@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section>
+  <ul>
+    <li>unordered 1</li>
+    <li>unordered 2</li>
+    <li>unordered 3</li>
+  </ul>
+  <ol>
+    <li>ordered 1</li>
+    <li>ordered 2</li>
+    <li>ordered 3</li>
+  </ol>
+</section>

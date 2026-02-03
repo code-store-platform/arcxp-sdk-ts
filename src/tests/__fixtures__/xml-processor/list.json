@@ -1,0 +1,56 @@
+[
+  {
+    "type": "list",
+    "list_type": "unordered",
+    "items": [
+      {
+        "type": "text",
+        "content": "unordered 1",
+        "additional_properties": {
+          "isBlockElement": true
+        }
+      },
+      {
+        "type": "text",
+        "content": "unordered 2",
+        "additional_properties": {
+          "isBlockElement": true
+        }
+      },
+      {
+        "type": "text",
+        "content": "unordered 3",
+        "additional_properties": {
+          "isBlockElement": true
+        }
+      }
+    ]
+  },
+  {
+    "type": "list",
+    "list_type": "ordered",
+    "items": [
+      {
+        "type": "text",
+        "content": "ordered 1",
+        "additional_properties": {
+          "isBlockElement": true
+        }
+      },
+      {
+        "type": "text",
+        "content": "ordered 2",
+        "additional_properties": {
+          "isBlockElement": true
+        }
+      },
+      {
+        "type": "text",
+        "content": "ordered 3",
+        "additional_properties": {
+          "isBlockElement": true
+        }
+      }
+    ]
+  }
+]

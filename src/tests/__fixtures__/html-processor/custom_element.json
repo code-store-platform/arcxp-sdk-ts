@@ -1,0 +1,27 @@
+[
+  {
+    "type": "text",
+    "content": "Text with ",
+    "alignment": "left",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  },
+  {
+    "type": "reference",
+    "referent": {
+      "type": "twitter",
+      "id": "1234567890",
+      "service": "oembed",
+      "provider": "https://publish.twitter.com/oembed?url="
+    }
+  },
+  {
+    "type": "text",
+    "content": " content",
+    "alignment": "left",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  }
+]

@@ -1,0 +1,16 @@
+[
+  {
+    "type": "text",
+    "content": "<i>emphasized text</i><b>strong text</b>",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  },
+  {
+    "type": "text",
+    "content": "simple paragraph",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  }
+]

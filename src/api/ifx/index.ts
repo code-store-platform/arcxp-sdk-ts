@@ -1,5 +1,5 @@
 import platform from '../../lib/platform/index.js';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import { ArcAbstractAPI, type ArcAPIOptions } from '../abstract-api.js';
 import type {
   AddSecretPayload,
   Bundle,

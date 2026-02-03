@@ -1,6 +1,5 @@
-import { decode } from 'html-entities';
-import { CommentNode, HTMLElement, type Node, type Options, TextNode, parse } from 'node-html-parser';
-import type { CElement, ContentElementType } from '../types.js';
+import { CommentNode, HTMLElement, type Node, type Options, parse, TextNode } from 'node-html-parser';
+import { decodeHTMLEntities } from '../../utils/arc/content';
 
 export const isTextNode = (node?: Node): node is TextNode => {
   return node instanceof TextNode;
@@ -21,12 +20,6 @@ export const nodeTagIs = (node: Node, name: string): node is HTMLElement => {
 export const nodeTagIn = (node: Node, names: string[]): node is HTMLElement => {
   return isHTMLElement(node) && names.includes(node.tagName?.toLowerCase());
 };
-
-export const isTextCE = (ce?: CElement): ce is ContentElementType<'text'> => {
-  return ce?.type === 'text';
-};
-
-export const decodeHTMLEntities = (str: string) => decode(str);
 
 export const htmlToText = (html?: string | null, parseOptions?: Partial<Options>) => {
   if (!html) return '';

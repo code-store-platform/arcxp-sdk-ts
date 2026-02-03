@@ -1,7 +1,7 @@
 import type { ReadStream } from 'node:fs';
 import platform from '../../lib/platform/index.js';
 import type { ANS } from '../../types/index.js';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import { ArcAbstractAPI, type ArcAPIOptions } from '../abstract-api.js';
 import type { GetGalleriesParams, GetGalleriesResponse, GetImagesParams, GetImagesResponse } from './types.js';
 
 export class ArcProtoCenter extends ArcAbstractAPI {

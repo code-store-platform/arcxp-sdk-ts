@@ -1,7 +1,11 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.8.3/schema.json",
-  "organizeImports": {
-    "enabled": true
+  "$schema": "https://biomejs.dev/schemas/2.3.13/schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": "on"
+      }
+    }
   },
   "javascript": {
     "formatter": {
@@ -35,6 +39,17 @@
     }
   },
   "files": {
-    "ignore": [".gitkeep", "*.tsbuildinfo", ".vscode", "tmp", "dist", "node_modules", "./src/debug.ts", "coverage"]
+    "ignoreUnknown": false,
+    "includes": [
+      "**",
+      "!.gitkeep",
+      "!*.tsbuildinfo",
+      "!.vscode",
+      "!tmp",
+      "!node_modules",
+      "!src/debug.ts",
+      "!dist",
+      "!coverage"
+    ]
   }
 }

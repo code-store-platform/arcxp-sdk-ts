@@ -1,15 +1,16 @@
+import { decode } from 'html-entities';
 import { ContentElement } from '../../content-elements/content-elements.js';
-import type { ContentElementType } from '../../content-elements/types.js';
+import type { CElement, ContentElementType } from '../../content-elements/types.js';
 
 const socialRegExps = {
   instagram:
-    /(?:https?:\/\/)?(?:www.)?instagram.com\/?([a-zA-Z0-9\.\_\-]+)?\/([p]+)?([reel]+)?([tv]+)?([stories]+)?\/([a-zA-Z0-9\-\_\.]+)\/?([0-9]+)?/,
-  twitter: /https:\/\/(?:www\.)?twitter\.com\/[^\/]+\/status(?:es)?\/(\d+)/,
+    /(?:https?:\/\/)?(?:www.)?instagram.com\/?([a-zA-Z0-9._-]+)?\/([p]+)?([reel]+)?([tv]+)?([stories]+)?\/([a-zA-Z0-9\-_.]+)\/?([0-9]+)?/,
+  twitter: /https:\/\/(?:www\.)?twitter\.com\/[^/]+\/status(?:es)?\/(\d+)/,
   tiktok:
-    /https:\/\/(?:m|www|vm)?\.?tiktok\.com\/((?:.*\b(?:(?:usr|v|embed|user|video)\/|\?shareId=|\&item_id=)(\d+))|\w+)/,
+    /https:\/\/(?:m|www|vm)?\.?tiktok\.com\/((?:.*\b(?:(?:usr|v|embed|user|video)\/|\?shareId=|&item_id=)(\d+))|\w+)/,
   facebookPost:
-    /https:\/\/www\.facebook\.com\/(photo(\.php|s)|permalink\.php|media|questions|notes|[^\/]+\/(activity|posts))[\/?].*$/,
-  facebookVideo: /https:\/\/www\.facebook\.com\/([^\/?].+\/)?video(s|\.php)[\/?].*/,
+    /https:\/\/www\.facebook\.com\/(photo(\.php|s)|permalink\.php|media|questions|notes|[^/]+\/(activity|posts))[/?].*$/,
+  facebookVideo: /https:\/\/www\.facebook\.com\/([^/?].+\/)?video(s|\.php)[/?].*/,
 };
 
 function match(url: string, regex: RegExp): string | undefined {
@@ -18,7 +19,7 @@ function match(url: string, regex: RegExp): string | undefined {
 
 export function youtubeURLParser(url: string | null = '') {
   const regExp =
-    /(?:youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]vi?=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+    /(?:youtube(?:-nocookie)?\.com\/(?:[^/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]vi?=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
   const id = url?.match(regExp)?.[1];
   if (id) {
     return `https://youtu.be/${id}`;
@@ -89,3 +90,9 @@ export function createSocial(url = ''): ContentElementType<'instagram' | 'tiktok
 }
 
 export const randomId = () => `${new Date().toISOString()}-${Math.random()}`;
+
+export const isTextCE = (ce?: CElement): ce is ContentElementType<'text'> => {
+  return ce?.type === 'text';
+};
+
+export const decodeHTMLEntities = (str: string) => decode(str);

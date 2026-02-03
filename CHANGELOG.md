@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.3.0
+
+### Minor Changes
+
+- XmlProcessor, tests, biome upd
+
 ## 5.2.0
 
 ### Minor Changes

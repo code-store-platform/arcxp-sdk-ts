@@ -1,5 +1,5 @@
 import type { ANS } from '../../types/index.js';
-import { type ArcAPIOptions, ArcAbstractAPI } from '../abstract-api.js';
+import { ArcAbstractAPI, type ArcAPIOptions } from '../abstract-api.js';
 import type {
   GetStoriesByIdsParams,
   GetStoryParams,

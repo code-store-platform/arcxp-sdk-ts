@@ -1,5 +1,6 @@
 import { type CommentNode, type HTMLElement, type Node, parse } from 'node-html-parser';
 import type { MaybePromise } from '../../types/utils.js';
+import { isTextCE } from '../../utils/arc/content.js';
 import { ContentElement } from '../content-elements.js';
 import type { CElement, ContentElementType } from '../types.js';
 import { BLOCK_ELEMENT_TAGS } from './html.constants.js';
@@ -7,7 +8,6 @@ import {
   getHTMLElementAttribute,
   isCommentNode,
   isHTMLElement,
-  isTextCE,
   isTextNode,
   nodeTagIn,
   nodeTagIs,

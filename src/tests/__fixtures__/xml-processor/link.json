@@ -1,0 +1,16 @@
+[
+  {
+    "type": "text",
+    "content": "<a href=\"https://example.com\">Click here</a>",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  },
+  {
+    "type": "text",
+    "content": "<a href=\"https://google.com\">Google link</a>",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  }
+]

@@ -1,8 +1,9 @@
 import type { ArcAPIOptions } from './abstract-api.js';
 import { ArcAuthor } from './author/index.js';
-import { ArcContentOps } from './content-ops/index.js';
 import { ArcContent } from './content/index.js';
+import { ArcContentOps } from './content-ops/index.js';
 import { Custom } from './custom/index.js';
+import { ArcDeveloperRetail } from './developer-retail/index.js';
 import { ArcDraft } from './draft/index.js';
 import { GlobalSettings } from './global-settings/index.js';
 import { ArcIdentity } from './identity/index.js';
@@ -11,7 +12,6 @@ import { ArcMigrationCenter } from './migration-center/index.js';
 import { ArcProtoCenter } from './photo-center/index.js';
 import { ArcRedirect } from './redirect/index.js';
 import { ArcRetailEvents } from './retail-events/index.js';
-import { ArcDeveloperRetail } from './developer-retail/index.js';
 import { ArcSales, ArcSalesV2 } from './sales/index.js';
 import { ArcSigningService } from './signing-service/index.js';
 import { ArcSite } from './site/index.js';

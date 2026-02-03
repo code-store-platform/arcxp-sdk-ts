@@ -1,0 +1,23 @@
+[
+  {
+    "type": "text",
+    "content": "<h3>Heading 1</h3>",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  },
+  {
+    "type": "text",
+    "content": "<h3>Heading 2</h3>",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  },
+  {
+    "type": "text",
+    "content": "<h3>Heading 3</h3>",
+    "additional_properties": {
+      "isBlockElement": true
+    }
+  }
+]
