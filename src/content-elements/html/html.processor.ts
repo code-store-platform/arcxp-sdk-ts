@@ -39,6 +39,7 @@ export type WrapHandler = (node: Node, content: ContentElementType<'text'>) => C
  * using the `handle()` and `wrap()` methods.
  */
 export class HTMLProcessor {
+  protected blockElementTags = BLOCK_ELEMENT_TAGS;
   protected parallelProcessing = true;
 
   protected handlers = {
@@ -426,7 +427,7 @@ export class HTMLProcessor {
   protected isBlockElement(node: Node) {
     if (!isHTMLElement(node)) return false;
 
-    const defaultBlockElements = new Set(BLOCK_ELEMENT_TAGS);
+    const defaultBlockElements = new Set(this.blockElementTags);
     return defaultBlockElements.has(node.tagName);
   }
 

@@ -13,6 +13,8 @@ export type NodeHandler = (node: xmldoc.XmlNodeBase) => MaybePromise<CElement[] 
 export type WrapHandler = (node: xmldoc.XmlElement, content: string) => string;
 
 export class XMLProcessor {
+  protected blockElementTags = BLOCK_ELEMENT_TAGS;
+
   protected handlers = {
     node: new Map<string, NodeHandler>(),
     wrap: new Map<string, WrapHandler>(),
@@ -228,7 +230,7 @@ export class XMLProcessor {
   }
 
   protected isBlockElement(node: xmldoc.XmlElement) {
-    const defaultBlockElements = new Set(BLOCK_ELEMENT_TAGS);
+    const defaultBlockElements = new Set(this.blockElementTags);
     if (defaultBlockElements.has(node.name)) return true;
   }
 

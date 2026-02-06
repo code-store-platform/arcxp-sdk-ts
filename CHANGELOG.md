@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.3.2
+
+### Patch Changes
+
+- add blockElementTags to processors
+
 ## 5.3.1
 
 ### Patch Changes
