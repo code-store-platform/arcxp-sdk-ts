@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.3.1
+
+### Patch Changes
+
+- export XML properly
+
 ## 5.3.0
 
 ### Minor Changes
