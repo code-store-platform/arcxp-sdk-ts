@@ -12,7 +12,7 @@ export type GloballyUniqueIDTrait = string;
 /**
  * The version of ANS that this object was serialized as, in major.minor.patch format.  For top-level content objects, this is a required trait.
  */
-export type DescribesTheANSVersionOfThisObject = '0.10.12';
+export type DescribesTheANSVersionOfThisObject = '0.10.11';
 /**
  * A user-defined categorization method to supplement type. In Arc, this field is reserved for organization-defined purposes, such as selecting the PageBuilder template that should be used to render a document.
  */
@@ -852,7 +852,7 @@ export interface Taxonomy {
    */
   custom_entities?: CustomEntity[];
   /**
-   * Deprecated in 0.10.12. (See `primary_section` instead.) A primary site object or reference to one. In the Arc ecosystem, a reference here is denormalized into a site from the arc-site-service.
+   * Deprecated in 0.10.11. (See `primary_section` instead.) A primary site object or reference to one. In the Arc ecosystem, a reference here is denormalized into a site from the arc-site-service.
    */
   primary_site?:
     | Site
@@ -876,7 +876,7 @@ export interface Taxonomy {
         [k: string]: unknown;
       });
   /**
-   * Deprecated in 0.10.12. (See `sections` instead.) A list of site objects or references to them. In the Arc ecosystem, references in this list are denormalized into sites from the arc-site-service.  In a multi-site context, sites will be denormalized against an organization's default website only.
+   * Deprecated in 0.10.11. (See `sections` instead.) A list of site objects or references to them. In the Arc ecosystem, references in this list are denormalized into sites from the arc-site-service.  In a multi-site context, sites will be denormalized against an organization's default website only.
    */
   sites?: (
     | Site
@@ -1294,7 +1294,7 @@ export interface OwnerInformation {
    */
   id?: string;
   /**
-   * Deprecated in 0.10.12. See `distributor.name`. (Formerly: The human-readable name of original producer of content. Distinguishes between Wires, Staff and other sources.)
+   * Deprecated in 0.10.11. See `distributor.name`. (Formerly: The human-readable name of original producer of content. Distinguishes between Wires, Staff and other sources.)
    */
   name?: string;
   /**
@@ -1589,11 +1589,11 @@ export interface Source {
    */
   source_id?: string;
   /**
-   * Deprecated in 0.10.12. See `distributor.category` and `distributor.subcategory`. (Formerly: The method used to enter this content. E.g. 'staff', 'wires'.)
+   * Deprecated in 0.10.11. See `distributor.category` and `distributor.subcategory`. (Formerly: The method used to enter this content. E.g. 'staff', 'wires'.)
    */
   source_type?: string;
   /**
-   * Deprecated in  0.10.12. See `distributor.name`. (Formerly: The human-readable name of the organization who first produced this content. E.g., 'Reuters'.)
+   * Deprecated in  0.10.11. See `distributor.name`. (Formerly: The human-readable name of the organization who first produced this content. E.g., 'Reuters'.)
    */
   name?: string;
   /**
