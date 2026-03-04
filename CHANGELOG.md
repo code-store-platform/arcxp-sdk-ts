@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.4.0
+
+### Minor Changes
+
+- Add all IFX endpoints
+
 ## 5.3.3
 
 ### Patch Changes
