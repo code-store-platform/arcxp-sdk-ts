@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.5.0
+
+### Minor Changes
+
+- 3ee4690: Add missing Authors API endpoints: getAuthor, createAuthor, updateAuthor, getConfiguration. Expand ListAuthorsParams with full filter support.
+
 ## 5.4.0
 
 ### Minor Changes

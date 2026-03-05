@@ -92,7 +92,7 @@ After making changes, create a file in `.changeset/` named after the feature:
 
 ```md
 ---
-'@arcxp/sdk-ts': minor
+'@code.store/arcxp-sdk-ts': minor
 ---
 
 Add getAuthor and createAuthor methods to Author API

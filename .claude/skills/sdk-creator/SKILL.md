@@ -86,7 +86,7 @@ After making changes, create a changeset file manually in the `.changeset/` fold
 
 ```md
 ---
-'@arcxp/sdk-ts': minor
+'@code.store/arcxp-sdk-ts': minor
 ---
 
 Add bulkGetStories method to Content API

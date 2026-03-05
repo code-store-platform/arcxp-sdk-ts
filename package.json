@@ -1,6 +1,6 @@
 {
   "name": "@code.store/arcxp-sdk-ts",
-  "version": "5.4.0",
+  "version": "5.5.0",
   "description": "A strongly typed set of ArcXP API's and utilities reduce the amount of work required to develop with ArcXP, starting with reducing the boilerplate code you have to write.",
   "type": "module",
   "main": "./dist/index.js",
@@ -35,7 +35,7 @@
     "test": "npx vitest",
     "coverage": "npx vitest run --coverage",
     "gen:ts": "npx tsx ./src/scripts/json-schema-to-ts.ts",
-    "cs": "npx changeset && npx changeset version"
+    "cs": "npx changeset version"
   },
   "keywords": [
     "ArcXP",
