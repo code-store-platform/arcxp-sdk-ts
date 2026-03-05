@@ -390,24 +390,20 @@ pnpm run lint
 ### Best Practices
 
 1. **DRY (Don't Repeat Yourself)**
-
    - Reuse global types
    - Extract common patterns into utilities
 
 2. **Single Responsibility**
-
    - Each API module handles one service
    - Each method does one thing well
 
 3. **Consistent Naming**
-
    - Methods: `camelCase`
    - Types/Interfaces: `PascalCase`
    - Constants: `UPPER_SNAKE_CASE`
    - Private properties: prefix with `_` or mark as `private`
 
 4. **Type Safety**
-
    - Avoid `any` in production code
    - Use proper generic constraints
    - Leverage TypeScript's type inference

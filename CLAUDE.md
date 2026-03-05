@@ -16,14 +16,14 @@ ArcXP SDK for TypeScript — a strongly typed wrapper around ArcXP REST APIs. ES
 
 ## Commands
 
-| Task | Command |
-|------|---------|
-| Type-check | `tsc --noEmit` |
-| Build | `pnpm build` |
-| Test | `pnpm test` |
-| Lint + fix | `pnpm lint` |
-| Format | `pnpm format` |
-| Check (biome) | `pnpm check` |
+| Task          | Command        |
+| ------------- | -------------- |
+| Type-check    | `tsc --noEmit` |
+| Build         | `pnpm build`   |
+| Test          | `pnpm test`    |
+| Lint + fix    | `pnpm lint`    |
+| Format        | `pnpm format`  |
+| Check (biome) | `pnpm check`   |
 
 Always run `tsc --noEmit` after making changes to verify types.
 
@@ -92,7 +92,7 @@ After making changes, create a file in `.changeset/` named after the feature:
 
 ```md
 ---
-"@arcxp/sdk-ts": minor
+'@arcxp/sdk-ts': minor
 ---
 
 Add getAuthor and createAuthor methods to Author API
