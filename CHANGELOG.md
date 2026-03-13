@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.6.0
+
+### Minor Changes
+
+- b1cd942: Add VideoCenter API with importVideo, deleteVideo, and updateVideoUrl methods
+
 ## 5.5.0
 
 ### Minor Changes
