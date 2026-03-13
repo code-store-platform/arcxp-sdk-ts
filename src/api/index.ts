@@ -16,6 +16,7 @@ import { ArcSales, ArcSalesV2 } from './sales/index.js';
 import { ArcSigningService } from './signing-service/index.js';
 import { ArcSite } from './site/index.js';
 import { ArcTags } from './tags/index.js';
+import { ArcVideoCenter } from './video-center/index.js';
 import { ArcWebsked } from './websked/index.js';
 
 export const ArcAPI = (options: ArcAPIOptions) => {
@@ -38,6 +39,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     ContentOps: new ArcContentOps(options),
     RetailEvents: new ArcRetailEvents(options),
     DeveloperRetail: new ArcDeveloperRetail(options),
+    VideoCenter: new ArcVideoCenter(options),
     Custom: new Custom(options),
   };
 

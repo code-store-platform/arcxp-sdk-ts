@@ -13,6 +13,7 @@ export * from '../api/sales/types.js';
 export * from '../api/signing-service/types.js';
 export * from '../api/site/types.js';
 export * from '../api/tags/types.js';
+export * from '../api/video-center/types.js';
 export * from '../api/websked/types.js';
 export * from '../content-elements/types.js';
 export * as ANS from './ans-types';
