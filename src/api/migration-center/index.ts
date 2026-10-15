@@ -42,7 +42,7 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
   }
 
   async postAns(params: PostANSParams, payload: PostANSPayload) {
-    const { data } = await this.client.post('/content/ans', payload, { params });
+    const { data } = await this.client.post('/content/ans', withVideoDefaults(payload), { params });
     return data;
   }
 
@@ -60,4 +60,21 @@ export class ArcMigrationCenter extends ArcAbstractAPI {
     const { data } = await this.client.get<GetRecentGroupIdsResponse>('/report/group-ids');
     return data;
   }
+}
+
+/**
+ * Video imports default to `transcoding: false`: Arc charges extra for Video Center encoding,
+ * so it has to be requested explicitly with `transcoding: true`.
+ */
+function withVideoDefaults(payload: PostANSPayload): PostANSPayload {
+  if (payload.ANS?.type !== 'video') return payload;
+  const video = payload.arcAdditionalProperties?.video;
+  if (video?.transcoding !== undefined) return payload;
+  return {
+    ...payload,
+    arcAdditionalProperties: {
+      ...payload.arcAdditionalProperties,
+      video: { ...video, transcoding: false },
+    },
+  };
 }
