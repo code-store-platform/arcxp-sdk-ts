@@ -1,5 +1,16 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.7.0
+
+### Minor Changes
+
+- 73023f8: Migration Center: video imports default to `arcAdditionalProperties.video.transcoding: false`. When the field is not set, `postAns` now sends `false` for a video. Pass `true` to have Video Center re-encode the source into a rendition ladder; Arc charges extra for that encoding. With `false`, the stream is imported as-is, and Arc does not charge for importing progressive MP4 or HLS MPEG-2. The `useLastUpdated`, `importPriority` and `thumbnailTimeInSeconds` fields are now optional and no longer pinned to literal values.
+- ea00f53: Site API: add getWebsite, putWebsite, setDefaultWebsite, hierarchy methods (getHierarchies, getHierarchy, getWebsiteHierarchies, putHierarchy, deleteHierarchy), website group methods (getWebsiteGroups, getWebsiteGroup, addWebsiteToGroup, removeWebsiteFromGroup) and getNavigation. Add `limit` to section listing params and paging fields to the links response.
+
+  Site API fix: getSection, deleteSection and putSection now URL-encode the section id. Ids with spaces, apostrophes or a trailing space now resolve exactly. Before, a trailing space was dropped and the call hit a different id.
+
+  Content API: add `published` to search and scan params.
+
 ## 5.6.0
 
 ### Minor Changes
