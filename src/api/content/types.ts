@@ -23,6 +23,8 @@ export type GetStoriesByIdsParams = {
 export type SearchParams = {
   website: string;
   q?: string;
+  /** Search published (default) or draft documents. */
+  published?: boolean;
   body?: string;
   sort?: string;
   from?: number;
@@ -40,6 +42,8 @@ export type SearchParams = {
 export type ScanParams = {
   website: string;
   q?: string;
+  /** Scan published (default) or draft documents. */
+  published?: boolean;
   body?: string;
   scrollId?: string;
   size?: number;

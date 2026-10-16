@@ -4,6 +4,33 @@ export type Website = {
   base_path: string;
   is_default_website: boolean;
   domains: string[];
+  default_language?: string;
+};
+
+/** A hierarchy is an org-wide name. `"*"` in `websites` means every website has it. */
+export type Hierarchy = {
+  _id: string;
+  websites: string[];
+};
+
+export type WebsiteGroup = {
+  _id: string;
+  display_name: string;
+  websites?: string[];
+  [key: string]: unknown;
+};
+
+export type GetNavigationParams = {
+  /** Root section of the returned tree. Defaults to `/`. */
+  _id?: string;
+  /** Defaults to `default`. */
+  hierarchy?: string;
+  no_empty_string?: boolean;
+  fallback_default?: boolean;
+};
+
+export type NavigationNode = Section & {
+  children?: NavigationNode[];
 };
 
 export type GetSectionsResponse = {
@@ -31,11 +58,16 @@ export type GetLinksParams = {
 
 export type GetLinksResponse = {
   q_results: Link[];
+  count?: number;
+  total_count?: number;
+  limit?: number;
+  offset?: number;
 };
 
 export type GetSectionParams = {
   website: string;
   offset?: number;
+  limit?: number;
   include_inactive?: boolean;
 };
 
