@@ -1,5 +1,11 @@
 # @code.store/arcxp-sdk-ts
 
+## 5.8.0
+
+### Minor Changes
+
+- 101a0b4: Add Audio Center API with clips and playlists methods
+
 ## 5.7.0
 
 ### Minor Changes
