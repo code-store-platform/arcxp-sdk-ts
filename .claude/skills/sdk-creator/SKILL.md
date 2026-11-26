@@ -28,6 +28,7 @@ When you need an OpenAPI specification for an ArcXP API, use `WebFetch` to retri
 | preview          | `https://alc-swagger-template.s3.amazonaws.com/docs/swagger/arc-products/preview-api.json`    |
 | site             | `https://alc-swagger-template.s3.amazonaws.com/docs/swagger/arc-products/site-api.json`       |
 | video_center     | `https://alc-swagger-template.s3.amazonaws.com/docs/swagger/arc-products/video-center.json`   |
+| audio            | `https://alc-swagger-template.s3.amazonaws.com/docs/swagger/arc-products/audiovideo/arc-audio-api.json` |
 | websked          | `https://alc-swagger-template.s3.amazonaws.com/docs/swagger/arc-products/websked.json`        |
 
 ## Project Structure

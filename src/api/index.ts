@@ -1,4 +1,5 @@
 import type { ArcAPIOptions } from './abstract-api.js';
+import { ArcAudioCenter } from './audio-center/index.js';
 import { ArcAuthor } from './author/index.js';
 import { ArcContent } from './content/index.js';
 import { ArcContentOps } from './content-ops/index.js';
@@ -40,6 +41,7 @@ export const ArcAPI = (options: ArcAPIOptions) => {
     RetailEvents: new ArcRetailEvents(options),
     DeveloperRetail: new ArcDeveloperRetail(options),
     VideoCenter: new ArcVideoCenter(options),
+    AudioCenter: new ArcAudioCenter(options),
     Custom: new Custom(options),
   };
 

@@ -1,3 +1,4 @@
+export * from '../api/audio-center/types.js';
 export * from '../api/author/types.js';
 export * from '../api/content/types.js';
 export * from '../api/content-ops/types.js';
