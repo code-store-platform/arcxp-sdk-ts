@@ -1,5 +1,6 @@
-import axios, { type AxiosResponse } from 'axios';
+import axios, { AxiosError, type AxiosResponse } from 'axios';
 import { ArcAbstractAPI, type ArcAPIOptions } from '../abstract-api.js';
+import { ArcError } from '../error.js';
 import type {
   AudioClip,
   AudioDeliverable,
@@ -75,11 +76,16 @@ export class ArcAudioCenter extends ArcAbstractAPI {
   async uploadClipFile(id: string, fileName: string, file: Uint8Array | Blob): Promise<void> {
     const { upload_url, content_type } = await this.getClipUploadUrl(id, { file_name: fileName });
     const extension = fileName.split('.').pop()?.toLowerCase();
-    await axios.put(upload_url, file, {
-      headers: { 'Content-Type': content_type ?? `audio/${extension}` },
-      maxBodyLength: Number.POSITIVE_INFINITY,
-      maxContentLength: Number.POSITIVE_INFINITY,
-    });
+    try {
+      await axios.put(upload_url, file, {
+        headers: { 'Content-Type': content_type ?? `audio/${extension}` },
+        maxBodyLength: Number.POSITIVE_INFINITY,
+        maxContentLength: Number.POSITIVE_INFINITY,
+      });
+    } catch (e) {
+      if (axios.isAxiosError(e)) throw new ArcError(this.name, e, { cause: e });
+      throw e;
+    }
   }
 
   async publishClip(id: string, params?: PublishClipParams): Promise<void> {
@@ -130,7 +136,16 @@ export class ArcAudioCenter extends ArcAbstractAPI {
       .filter(Boolean)
       .pop();
 
-    if (!id) throw new Error(`${this.name}: response has no Location header`);
+    if (!id) {
+      const e = new AxiosError(
+        'Response has no Location header',
+        AxiosError.ERR_BAD_RESPONSE,
+        response.config,
+        response.request,
+        response
+      );
+      throw new ArcError(this.name, e);
+    }
     return id;
   }
 }

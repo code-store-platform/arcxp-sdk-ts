@@ -8,8 +8,9 @@ export class ArcError extends Error {
   public ratelimitRemaining?: string;
   public ratelimitReset?: string;
   public service?: string;
+  public cause?: unknown;
 
-  constructor(service: string, e: AxiosError) {
+  constructor(service: string, e: AxiosError, options?: { cause?: unknown }) {
     const ratelimitRemaining = e.response?.headers['arcpub-ratelimit-remaining'];
     const ratelimitReset = e.response?.headers['arcpub-ratelimit-reset'];
     const data = {
@@ -28,5 +29,6 @@ export class ArcError extends Error {
 
     Object.assign(this, data);
     this.stack = e.stack;
+    if (options && 'cause' in options) this.cause = options.cause;
   }
 }

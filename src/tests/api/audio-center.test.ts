@@ -1,6 +1,8 @@
+import { AxiosError } from 'axios';
 import nock from 'nock';
 import { afterEach, describe, expect, test } from 'vitest';
 import { ArcAPI } from '../../api';
+import { ArcError } from '../../api/error';
 
 const BASE = '/audiocenter/api/editorial';
 const API = ArcAPI({ credentials: { organizationName: 'codestore', accessToken: 'token' } });
@@ -20,7 +22,10 @@ describe('Arc Audio Center', () => {
   test('createPlaylist throws without Location header', async () => {
     arc.post(`${BASE}/v1/playlists/`).reply(201);
 
-    await expect(API.AudioCenter.createPlaylist({ items: [] })).rejects.toThrow('Location');
+    const error = await API.AudioCenter.createPlaylist({ items: [] }).catch((e) => e);
+    expect(error).toBeInstanceOf(ArcError);
+    expect(error.message).toContain('Location');
+    expect(error.responseStatus).toBe(201);
   });
 
   test('listClips sends array filters as repeated keys', async () => {
@@ -70,5 +75,20 @@ describe('Arc Audio Center', () => {
 
     await API.AudioCenter.uploadClipFile('abc', 'a.MP3', new TextEncoder().encode('data'));
     expect(upload.isDone()).toBe(true);
+  });
+
+  test('uploadClipFile wraps storage errors in ArcError with cause', async () => {
+    arc
+      .post(`${BASE}/v1/clips/abc/upload/presigned`)
+      .query({ file_name: 'a.mp3' })
+      .reply(200, { upload_url: 'https://s3.example.com/up3', notification_url: 'n' });
+    nock('https://s3.example.com').put('/up3').reply(403, 'SignatureDoesNotMatch');
+
+    const error = await API.AudioCenter.uploadClipFile('abc', 'a.mp3', new TextEncoder().encode('data')).catch(
+      (e) => e
+    );
+    expect(error).toBeInstanceOf(ArcError);
+    expect(error.responseStatus).toBe(403);
+    expect(error.cause).toBeInstanceOf(AxiosError);
   });
 });
